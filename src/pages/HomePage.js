@@ -10,10 +10,11 @@ function HomePage() {
       <Hero />
 
       <ProductCarousel 
-          title="Soaps" 
+          title="_Soaps__" 
           products={soapProducts} 
           category="Soaps"
       />
+      
       {/* --- MODIFIED: Changed to Facewash --- */}
       <ProductCarousel 
           title={<>Powder<br />Facewash</>}

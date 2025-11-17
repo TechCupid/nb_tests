@@ -4,8 +4,12 @@ import ProductCard from '../components/ProductCard';
 import { soapProducts, otherProducts, faceWashProducts, faceMaskproducts } from '../productdata';
 import ImageSlider from '../components/ImageSlider'; 
 
+// --- Reusable Helper Functions ---
+
+
+// --- Process all product lists with tags ---
 const allSoapProducts = soapProducts.map(p => ({ 
-  ...p, id: p.id || p.title, category: 'Soaps'
+  ...p, id: p.id || p.title, category: 'Soaps', 
 }));
 const allOtherProducts = otherProducts.map(p => ({ 
   ...p, id: p.id || p.title, category: 'Other'
@@ -27,9 +31,9 @@ const allProducts = [
 
 // Data for the top banner slider
 const bannerImages = [
-  { src: './ban0.png', alt: 'Handmade Soaps', caption: 'Handmade Soaps' },
-  { src: './ban3.png', alt: 'Woman with healthy hair', caption: 'Nourish Your Hair, Naturally' },
-  { src: './ban5.jpg', alt: 'Natural lip balm products', caption: 'Hydrate & Protect Your Lips' }
+  { src: 'https-placeholder', alt: 'Handmade Soaps', caption: 'Handmade Soaps' },
+  { src: 'https-placeholder', alt: 'Woman with healthy hair', caption: 'Nourish Your Hair, Naturally' },
+  { src: 'https-placeholder', alt: 'Natural lip balm products', caption: 'Hydrate & Protect Your Lips' }
 ];
 
 // --- Quick View Modal Component ---
@@ -74,7 +78,6 @@ function AllProductsPage() {
     return { products: allProducts, pageTitle: 'Shop All Products', concernTitle: 'Concern', isAllProductsView: true };
   }, [path]); 
 
-  // --- MODIFIED: This logic now finds ALL unique tags ---
   const allConcerns = useMemo(() => {
     const allTags = products.flatMap(p => p.tags || []); // Get all tags, even duplicates
     const uniqueTags = [...new Set(allTags)]; // Get only unique tags
@@ -97,9 +100,7 @@ function AllProductsPage() {
       prods = prods.filter(p => p.category === category);
     }
 
-    // --- THIS IS THE NEW FILTER LOGIC ---
     if (concern !== 'All') {
-      // Check if the product's 'tags' array includes the selected concern
       prods = prods.filter(p => p.tags && p.tags.includes(concern));
     }
     
@@ -159,7 +160,6 @@ function AllProductsPage() {
       {isAllProductsView && (
         <div className="filter-group">
           <h4>Category</h4>
-          {/* --- MODIFIED: Updated category list --- */}
           {['All', 'Soaps', 'Facewash', 'Other'].map(cat => (
             <div key={cat} className="radio-group">
               <input 

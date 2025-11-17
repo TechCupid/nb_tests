@@ -1,3 +1,9 @@
+html {
+    /* --- THIS IS THE 20% SIZE REDUCTION --- */
+    /* This makes 1rem = 12.8px (80% of 16px) */
+    font-size: 80%;
+}
+
 /* --- Global Variables --- */
 :root {
     --bg-color: #f1f1e9;
@@ -16,7 +22,7 @@
     box-sizing: border-box;
 }
 .sr-only {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; 
+    position: absolute; width: 0.0625rem; height: 0.0625rem; padding: 0; margin: -0.0625rem; 
     overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;
 }
 
@@ -34,13 +40,13 @@ body {
 
 .browser-frame {
     width: 95%; 
-    max-width: 1800px; 
+    max-width: 112.5rem; /* 1800px */
     margin: 0 auto;
     background-color: var(--bg-color);
-    border-radius: 30px; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    border-radius: 1.875rem; /* 30px */
+    box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.1); /* 10px 30px */
     padding: 0 4rem; 
-    border: 1px solid #ddd;
+    border: 0.0625rem solid #ddd; /* 1px */
     margin-bottom: 2rem;
 }
 
@@ -57,13 +63,13 @@ main {
 .clear-filters-btn,
 .newsletter-form .submit-btn,
 .mobile-close-filter {
-    border-radius: 50px !important; /* Force pill shape */
+    border-radius: 3.125rem !important; /* 50px */
 }
 
 .form-group input,
 .form-group textarea,
 .newsletter-form input {
-    border-radius: 10px !important; /* Soft rounded inputs */
+    border-radius: 0.625rem !important; /* 10px */
 }
 
 /* ============================================== */
@@ -74,7 +80,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 0;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 0.0625rem solid #ddd; /* 1px */
 }
 header .logo-link {
     text-decoration: none;
@@ -96,7 +102,7 @@ header nav a {
     font-size: 1rem;
     font-weight: 500; 
     position: relative;
-    padding-bottom: 5px;
+    padding-bottom: 0.3125rem; /* 5px */
 }
 header nav a::after {
     content: '';
@@ -104,7 +110,7 @@ header nav a::after {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px;
+    height: 0.125rem; /* 2px */
     background: var(--dark-green);
     transform: scaleX(0); 
     transform-origin: right;
@@ -136,7 +142,7 @@ header nav a:hover::after {
 }
 
 @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(1.25rem); } /* 20px */
     to { opacity: 1; transform: translateY(0); }
 }
 .hero-content h1 {
@@ -174,8 +180,8 @@ header nav a:hover::after {
     width: fit-content; 
 }
 .cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transform: translateY(-0.125rem); /* 2px */
+    box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.1); /* 4px 10px */
 }
 .cta-button i {
     background-color: white;
@@ -186,14 +192,14 @@ header nav a:hover::after {
     transition: transform 0.3s ease;
 }
 .cta-button:hover i {
-    transform: translateX(3px);
+    transform: translateX(0.1875rem); /* 3px */
 }
 .hero-image {
     flex: 1;
 }
 .hero-image img {
     width: 100%;
-    border-radius: 20px; /* Roundness */
+    border-radius: 1.25rem; /* 20px */
 }
 
 /* ============================================== */
@@ -201,11 +207,11 @@ header nav a:hover::after {
 /* ============================================== */
 .product-carousel {
     background: var(--accent-green);
-    border-radius: 20px; 
-    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-    border: 1px solid #eee;
+    border-radius: 1.25rem; /* 20px */
+    box-shadow: 0 0.3125rem 1.25rem rgba(0,0,0,0.03); /* 5px 20px */
+    border: 0.0625rem solid #eee; /* 1px */
     padding: 2rem 0; 
-    margin: 2.5rem 0; /* Decreased space */
+    margin: 2.5rem 0; 
     display: flex;
     align-items: center;
     gap: 0rem; 
@@ -234,7 +240,7 @@ header nav a:hover::after {
 }
 .view-all-btn {
     background-color: white;
-    border: 1px solid var(--dark-green);
+    border: 0.0625rem solid var(--dark-green); /* 1px */
     color: var(--dark-green);
     padding: 0.75rem 1.5rem;
     font-weight: 700;
@@ -245,35 +251,39 @@ header nav a:hover::after {
 .view-all-btn:hover {
     background: var(--dark-green);
     color: white;
-    transform: translateY(-2px);
+    transform: translateY(-0.125rem); /* 2px */
 }
+
+/* --- THIS IS THE "SMART" CONTAINER --- */
 .slider-container {
     display: flex; 
     align-items: center;
     position: relative;
     flex-grow: 1;
     min-width: 0;
+    
+    /* --- NEW: Layout is controlled here --- */
+    /* 3-Card Layout (Default): (18.75rem * 3) + (1.875rem * 2) = 60rem */
+    max-width: 60rem;
+    margin: 0 auto;
 }
 .slider-wrapper {
-    /* --- MODIFIED: (300px * 3) + (30px * 2) = 960px --- */
-    max-width: 960px; 
     overflow: hidden; 
-    flex-grow: 0; 
-    margin: 0 auto; 
+    flex-grow: 1; /* --- Fill the container --- */
 }
 .slider-track {
     display: flex;
     flex-wrap: nowrap; 
-    gap: 30px; /* --- MODIFIED: Smaller gap --- */
+    gap: 1.875rem; /* --- 30px --- */
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .slider-btn {
     background-color: white;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border: 0.0625rem solid #eee; /* 1px */
+    box-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.1); /* 2px 5px */
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 3.125rem; /* 50px */
+    height: 3.125rem; /* 50px */
     font-size: 1.2rem;
     color: var(--dark-green);
     cursor: pointer;
@@ -287,36 +297,35 @@ header nav a:hover::after {
 .slider-btn:hover {
     transform: translateY(-50%) scale(1.1);
 }
-.slider-btn.prev {
-    /* --- MODIFIED: Use new 960px width --- */
-    left: calc(50% - (960px / 2) - 75px); 
-}
 
+/* --- NEW: "Constant" Arrow Position --- */
+.slider-btn.prev {
+    left: -2rem; /* -40px */
+}
 .slider-btn.next {
-    /* --- MODIFIED: Use new 960px width --- */
-    right: calc(50% - (960px / 2) - 75px); 
+    right: -2rem; /* -40px */
 }
 
 /* --- Product Card --- */
 .product-card {
     background-color: var(--card-bg);
-    border-radius: 20px; 
-    border: 1px solid #eee; 
+    border-radius: 1.25rem; /* 20px */
+    border: 0.0625rem solid #eee; /* 1px */
     padding: 1rem;
     text-align: center;
-    width: 300px; /* --- MODIFIED: Smaller card width --- */
+    width: 18.75rem; /* --- 300px --- */
     flex-shrink: 0; 
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+    transform: translateY(-0.3125rem); /* 5px */
+    box-shadow: 0 0.5rem 1.25rem rgba(0,0,0,0.07); /* 8px 20px */
 }
 .product-card img {
     width: 100%;
-    border-radius: 15px; 
+    border-radius: 0.9375rem; /* 15px */
     margin-bottom: 1rem;
 }
 .product-card h3 {
@@ -346,11 +355,11 @@ header nav a:hover::after {
 /* ============================================== */
 .contact-us-section {
     padding: 4rem; 
-    margin: 2.5rem 0; /* Decreased space */
+    margin: 2.5rem 0; 
     background-color: var(--card-bg); 
-    border: 1px solid #eee;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.03);
-    border-radius: 20px; 
+    border: 0.0625rem solid #eee; /* 1px */
+    box-shadow: 0 0.3125rem 1.25rem rgba(0,0,0,0.03); /* 5px 20px */
+    border-radius: 1.25rem; /* 20px */
     display: flex;
     align-items: center;
     flex-wrap: wrap; 
@@ -360,7 +369,7 @@ header nav a:hover::after {
 
 .contact-brand-statement {
     flex: 1;
-    min-width: 300px;
+    min-width: 18.75rem; /* 300px */
     padding-right: 2rem;
 }
 .contact-brand-statement h2 {
@@ -377,18 +386,18 @@ header nav a:hover::after {
 }
 .contact-form-container {
     flex: 1;
-    min-width: 300px;
+    min-width: 18.75rem; /* 300px */
     display: flex;
     align-items: center;
 }
 .contact-form {
     width: 100%;
-    max-width: 600px;
+    max-width: 37.5rem; /* 600px */
     background: var(--card-bg);
-    border-radius: 20px; 
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    border-radius: 1.25rem; /* 20px */
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.05); /* 4px 12px */
     padding: 2.5rem; 
-    border: 1px solid #eee; 
+    border: 0.0625rem solid #eee; /* 1px */
 }
 .form-group {
     margin-bottom: 1.5rem;
@@ -403,7 +412,7 @@ header nav a:hover::after {
 .form-group textarea {
     width: 100%;
     padding: 1rem;
-    border: 1px solid #ddd;
+    border: 0.0625rem solid #ddd; /* 1px */
     font-family: var(--font-sans);
     font-size: 1rem;
     background-color: var(--bg-color); 
@@ -413,7 +422,7 @@ header nav a:hover::after {
 }
 .submit-btn {
     background: var(--dark-green);
-    border: 1px solid var(--dark-green);
+    border: 0.0625rem solid var(--dark-green); /* 1px */
     color: white; 
     font-weight: 700;
     padding: 1rem 2rem;
@@ -435,10 +444,10 @@ header nav a:hover::after {
     color: var(--bg-color);
     padding-top: 4rem;
     margin: 0 -4rem; /* Full width */
-    border-radius: 0 0 30px 30px; /* Increased roundness */
+    border-radius: 0 0 1.875rem 1.875rem; /* 30px */
 }
 .footer-main {
-    max-width: 1600px;
+    max-width: 100rem; /* 1600px */
     margin: 0 auto;
     padding: 0 4rem;
 }
@@ -481,7 +490,7 @@ header nav a:hover::after {
 }
 .footer-col ul li a:hover {
     color: white;
-    padding-left: 5px;
+    padding-left: 0.3125rem; /* 5px */
 }
 .social-icons {
     display: flex;
@@ -502,7 +511,7 @@ header nav a:hover::after {
 }
 .newsletter-form input {
     width: 100%;
-    border: 1px solid var(--accent-green);
+    border: 0.0625rem solid var(--accent-green); /* 1px */
     padding: 0.75rem 1rem;
     background: #3a3f37;
     color: white;
@@ -530,7 +539,7 @@ header nav a:hover::after {
     align-items: center;
     gap: 1rem;
     padding: 1.5rem 4rem;
-    border-top: 1px solid #3a3f37;
+    border-top: 0.0625rem solid #3a3f37; /* 1px */
     color: var(--text-light);
 }
 .payment-icons {
@@ -547,14 +556,14 @@ header nav a:hover::after {
 /* ============================================== */
 .scroll-to-top-btn {
     position: fixed; 
-    bottom: 30px;
-    right: 30px;
-    width: 50px;
-    height: 50px;
+    bottom: 1.875rem; /* 30px */
+    right: 1.875rem; /* 30px */
+    width: 3.125rem; /* 50px */
+    height: 3.125rem; /* 50px */
     border-radius: 50%; 
     background: var(--accent-green);
     color: var(--dark-green);
-    border: 1px solid var(--dark-green);
+    border: 0.0625rem solid var(--dark-green); /* 1px */
     font-size: 1.2rem;
     cursor: pointer;
     display: flex;
@@ -562,9 +571,9 @@ header nav a:hover::after {
     justify-content: center;
     z-index: 1000; 
     opacity: 0; 
-    transform: translateY(20px); 
+    transform: translateY(1.25rem); /* 20px */
     animation: fadeIn 0.3s ease forwards; 
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.1); /* 4px 10px */
     transition: all 0.3s ease;
 }
 .scroll-to-top-btn:hover {
@@ -597,7 +606,7 @@ header nav a:hover::after {
 
 /* --- NEW: Desktop Sidebar --- */
 .shop-sidebar {
-    flex-basis: 300px; 
+    flex-basis: 18.75rem; /* 300px */
     flex-shrink: 0;
     position: sticky;
     top: 2rem;
@@ -626,7 +635,7 @@ header nav a:hover::after {
   padding-bottom: 1rem;
   margin-top: 2rem;
   margin-bottom: 1.5rem;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 0.0625rem solid #ddd; /* 1px */
 }
 .sidebar-header h3 {
   font-family: var(--font-serif);
@@ -652,24 +661,24 @@ header nav a:hover::after {
     margin-bottom: 1.5rem;
 }
 .shop-sidebar .search-bar i {
-    position: absolute; left: 0px; top: 50%; /* --- MODIFIED --- */
+    position: absolute; left: 0px; top: 50%; 
     transform: translateY(-50%); 
     color: var(--text-light); 
-    transition: color 0.3s ease; /* --- NEW --- */
+    transition: color 0.3s ease; 
 }
 
 /* --- STYLISH Search Bar --- */
 .shop-sidebar .search-bar input {
     width: 100%; 
-    padding: 0.75rem 0rem 0.75rem 2.2rem; /* --- MODIFIED --- */
+    padding: 0.75rem 0rem 0.75rem 2.2rem; 
     font-size: 1rem; 
     font-family: var(--font-sans);
     color: var(--dark-green);
-    border: none; /* --- MODIFIED --- */
-    background-color: transparent; /* --- MODIFIED --- */
-    border-bottom: 2px solid #ddd; /* --- NEW --- */
-    transition: border-color 0.3s ease; /* --- NEW --- */
-    border-radius: 0 !important; /* --- NEW --- */
+    border: none; 
+    background-color: transparent; 
+    border-bottom: 0.125rem solid #ddd; /* 2px */
+    transition: border-color 0.3s ease; 
+    border-radius: 0 !important; 
 }
 
 .sidebar-controls {
@@ -677,15 +686,15 @@ header nav a:hover::after {
     justify-content: space-between;
     align-items: center;
     padding-bottom: 1.5rem;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 0.0625rem solid #ddd; /* 1px */
 }
 .sidebar-controls .control-group {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
-    flex-grow: 1; /* --- NEW --- */
-    margin-right: 1rem; /* --- NEW --- */
+    flex-grow: 1; 
+    margin-right: 1rem; 
 }
 .sidebar-controls .control-group label {
     font-weight: 700;
@@ -695,20 +704,20 @@ header nav a:hover::after {
 
 /* --- STYLISH Sort Select --- */
 .sidebar-controls .control-group select {
-    padding: 0.75rem 0rem; /* --- MODIFIED --- */
+    padding: 0.75rem 0rem; 
     font-size: 1rem;
     font-family: var(--font-sans);
     color: var(--dark-green);
-    border: none; /* --- MODIFIED --- */
-    border-bottom: 2px solid #ddd; /* --- NEW --- */
-    background-color: transparent; /* --- MODIFIED --- */
+    border: none; 
+    border-bottom: 0.125rem solid #ddd; /* 2px */
+    background-color: transparent; 
     width: 100%;
-    transition: border-color 0.3s ease; /* --- NEW --- */
-    border-radius: 0 !important; /* --- NEW --- */
-    appearance: none; /* --- NEW --- */
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234f554c' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"); /* --- NEW --- */
-    background-repeat: no-repeat; /* --- NEW --- */
-    background-position: right 0.5rem center; /* --- NEW --- */
+    transition: border-color 0.3s ease; 
+    border-radius: 0 !important; 
+    appearance: none; 
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234f554c' viewBox='0 0 16 16'%3E%3Cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3E%3C/svg%3E"); 
+    background-repeat: no-repeat; 
+    background-position: right 0.5rem center; 
 }
 
 /* --- NEW: Focus styles for new inputs --- */
@@ -731,9 +740,15 @@ header nav a:hover::after {
     align-self: flex-end; /* Align to bottom */
 }
 .view-toggle-btn {
-  background: var(--card-bg); border: 1px solid #ddd; color: var(--text-light);
-  width: 44px; height: 44px; font-size: 1.2rem; border-radius: 10px; 
-  cursor: pointer; transition: all 0.3s ease;
+  background: var(--card-bg); 
+  border: 0.0625rem solid #ddd; /* 1px */
+  color: var(--text-light);
+  width: 2.75rem; /* 44px */
+  height: 2.75rem; /* 44px */
+  font-size: 1.2rem; 
+  border-radius: 0.625rem; /* 10px */
+  cursor: pointer; 
+  transition: all 0.3s ease;
 }
 .view-toggle-btn.active { background: var(--dark-green); color: white; border-color: var(--dark-green); }
 
@@ -750,11 +765,11 @@ header nav a:hover::after {
 }
 .back-to-home-btn {
     background: var(--card-bg);
-    border: 1px solid #ddd;
+    border: 0.0625rem solid #ddd; /* 1px */
     color: var(--dark-green);
     font-size: 1.2rem;
-    width: 44px;
-    height: 44px;
+    width: 2.75rem; /* 44px */
+    height: 2.75rem; /* 44px */
     flex-shrink: 0; 
     cursor: pointer;
     display: flex;
@@ -775,7 +790,7 @@ header nav a:hover::after {
 .clear-filters-btn {
   width: 100%;
   background: var(--card-bg);
-  border: 1px solid #ddd;
+  border: 0.0625rem solid #ddd; /* 1px */
   color: var(--dark-green);
   padding: 0.75rem;
   font-weight: 700;
@@ -787,28 +802,28 @@ header nav a:hover::after {
 /* --- Product Grid & Card Styles --- */
 .product-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-    gap: 30px; 
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr)); /* --- Use 300px/18.75rem card size --- */
+    gap: 1.875rem; /* --- Use 30px/1.875rem gap --- */
     padding-top: 1rem;
 }
 .product-grid .product-card {
     width: 100% !important; 
     text-align: left;
-    border-radius: 15px; 
+    border-radius: 0.9375rem; /* 15px */
     background: var(--card-bg);
-    border: 1px solid #eee;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    border: 0.0625rem solid #eee; /* 1px */
+    box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.03); /* 4px 12px */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 /* --- Product Grid & Card Styles --- */
 .product-grid .product-card .card-image-container {
     position: relative; /* Needed to position the button */
     overflow: hidden; /* Needed for the zoom effect */
-    border-radius: 15px 15px 0 0; 
+    border-radius: 0.9375rem 0.9375rem 0 0; /* 15px */
 }
 .product-grid .product-card .card-image-container img {
     width: 100%;
-    height: 280px;
+    height: 17.5rem; /* 280px */
     object-fit: cover;
     display: block;
     border-radius: 0; 
@@ -825,8 +840,8 @@ header nav a:hover::after {
     transform: translate(-50%, -50%);
     background: var(--card-bg);
     color: var(--dark-green);
-    border: 1px solid var(--dark-green);
-    border-radius: 50px !important;
+    border: 0.0625rem solid var(--dark-green); /* 1px */
+    border-radius: 3.125rem !important; /* 50px */
     padding: 0.75rem 1.5rem;
     font-weight: 700;
     cursor: pointer;
@@ -876,16 +891,25 @@ header nav a:hover::after {
 .product-card.list-view {
   display: flex; flex-direction: row; width: 100%; max-width: none;
 }
-.product-card.list-view .card-image-container { width: 250px; flex-shrink: 0; border-radius: 15px 0 0 15px; }
+.product-card.list-view .card-image-container { 
+  width: 15.625rem; /* 250px */
+  flex-shrink: 0; 
+  border-radius: 0.9375rem 0 0 0.9375rem; /* 15px */
+}
 .product-card.list-view .card-image-container img { height: 100%; }
 .product-card.list-view .card-content-container { display: flex; flex-direction: column; flex-grow: 1; }
 
 /* --- Load More & Empty State --- */
 .load-more-container { text-align: center; padding: 3rem 0; }
 .load-more-btn {
-  background: var(--dark-green); border: 1px solid var(--dark-green); color: white; 
-  font-weight: 700; padding: 1rem 2.5rem;
-  cursor: pointer; font-size: 1rem; transition: all 0.3s ease;
+  background: var(--dark-green); 
+  border: 0.0625rem solid var(--dark-green); /* 1px */
+  color: white; 
+  font-weight: 700; 
+  padding: 1rem 2.5rem;
+  cursor: pointer; 
+  font-size: 1rem; 
+  transition: all 0.3s ease;
 }
 .load-more-btn:hover { background: #3a3f37; transform: scale(1.03); }
 
@@ -929,7 +953,7 @@ header nav a:hover::after {
   width: 100%; 
   height: 100%;
   background: rgba(30, 35, 30, 0.3); /* --- Softer background --- */
-  backdrop-filter: blur(8px); /* --- Smoother blur --- */
+  backdrop-filter: blur(0.5rem); /* 8px */
   z-index: 1000; 
   display: flex; 
   align-items: center; 
@@ -941,11 +965,11 @@ header nav a:hover::after {
 .quick-view-modal-content {
   display: flex; 
   background: var(--card-bg); 
-  border-radius: 20px;
-  max-width: 900px; 
+  border-radius: 1.25rem; /* 20px */
+  max-width: 56.25rem; /* 900px */
   width: 100%; 
   max-height: 90vh;
-  box-shadow: 0 15px 40px rgba(0,0,0,0.15); /* --- Deeper shadow --- */
+  box-shadow: 0 0.9375rem 2.5rem rgba(0,0,0,0.15); /* 15px 40px */
   position: relative;
   animation: fadeInUp 0.4s ease;
   overflow: hidden; /* --- NEW: To contain the layout --- */
@@ -953,14 +977,14 @@ header nav a:hover::after {
 
 .modal-close-btn {
   position: absolute; 
-  top: 1.25rem; /* --- More space --- */
-  right: 1.25rem; /* --- More space --- */
+  top: 1.25rem; /* 20px */
+  right: 1.25rem; /* 20px */
   background: var(--bg-color); /* --- Softer background --- */
   color: var(--text-light);
   border: none; 
   border-radius: 50%; 
-  width: 36px; /* --- Bigger button --- */
-  height: 36px; /* --- Bigger button --- */
+  width: 2.25rem; /* 36px */
+  height: 2.25rem; /* 36px */
   font-size: 1.1rem; /* --- Bigger icon --- */
   cursor: pointer; 
   z-index: 10;
@@ -1039,7 +1063,7 @@ header nav a:hover::after {
     position: relative;
     width: 100%;
     overflow: hidden;
-    border-radius: 20px; /* Matches mockup */
+    border-radius: 1.25rem; /* 20px */
     background: #eee; /* Fallback */
 }
 
@@ -1065,36 +1089,36 @@ header nav a:hover::after {
 .shop-slide img {
     width: 100%;
     display: block;
-    border-radius: 15px; /* Rounded images */
+    border-radius: 0.9375rem; /* 15px */
     object-fit: cover;
-    height: 250px; /* Set a consistent height */
+    height: 15.625rem; /* 250px */
 }
 
 .shop-slide-caption {
     position: absolute;
-    bottom: 30px;
-    left: 30px; /* Aligned left, as in mockup */
-    right: 30px;
+    bottom: 1.875rem; /* 30px */
+    left: 1.875rem; /* 30px */
+    right: 1.875rem; /* 30px */
     font-family: var(--font-serif);
     font-size: 2rem;
     font-weight: 700;
     color: white;
-    text-shadow: 0 2px 5px rgba(0,0,0,0.5);
+    text-shadow: 0 0.125rem 0.3125rem rgba(0,0,0,0.5); /* 2px 5px */
     line-height: 1.2;
 }
 
 .shop-slider-dots {
     position: absolute;
-    bottom: -35px; /* Below the slider, as in mockup */
+    bottom: -2.1875rem; /* -35px */
     left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;
+    gap: 0.625rem; /* 10px */
 }
 
 .shop-slider-dot {
-    width: 10px;
-    height: 10px;
+    width: 0.625rem; /* 10px */
+    height: 0.625rem; /* 10px */
     border-radius: 50%;
     background-color: var(--accent-green);
     opacity: 0.5;
@@ -1115,7 +1139,7 @@ header nav a:hover::after {
 .contact-page-interactive {
   padding: 4rem 0;
   animation: fadeIn 0.5s ease;
-  margin-bottom: 4rem; /* --- ADDED THIS LINE --- */
+  margin-bottom: 4rem; 
 }
 
 .contact-header {
@@ -1142,15 +1166,15 @@ header nav a:hover::after {
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   margin-bottom: 3rem;
-  max-width: 900px;
+  max-width: 56.25rem; /* 900px */
   margin-left: auto;
   margin-right: auto;
 }
 
 .topic-card {
   background: var(--card-bg);
-  border: 2px solid #eee;
-  border-radius: 15px;
+  border: 0.125rem solid #eee; /* 2px */
+  border-radius: 0.9375rem; /* 15px */
   padding: 2rem;
   text-align: center;
   cursor: pointer;
@@ -1177,14 +1201,14 @@ header nav a:hover::after {
 }
 
 .topic-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+  transform: translateY(-0.3125rem); /* 5px */
+  box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.07); /* 10px 30px */
 }
 
 .topic-card.active {
   border-color: var(--dark-green);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.07);
-  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.07); /* 10px 30px */
+  transform: translateY(-0.3125rem) scale(1.03); /* 5px */
 }
 
 .topic-card.active i {
@@ -1202,7 +1226,7 @@ header nav a:hover::after {
 }
 
 .contact-form-wrapper.open {
-  max-height: 1000px; /* Set to a large enough value */
+  max-height: 62.5rem; /* 1000px */
   opacity: 1;
   display: flex;
   justify-content: center;
@@ -1212,10 +1236,10 @@ header nav a:hover::after {
 .contact-form {
   background: var(--card-bg);
   padding: 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  border-radius: 1.25rem; /* 20px */
+  box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.05); /* 10px 30px */
   width: 100%;
-  max-width: 700px; /* Control the form's max width */
+  max-width: 43.75rem; /* 700px */
 }
 
 .form-title {
@@ -1241,11 +1265,11 @@ header nav a:hover::after {
 .contact-form .form-group textarea {
   width: 100%;
   padding: 1rem;
-  border: 1px solid #ddd;
+  border: 0.0625rem solid #ddd; /* 1px */
   font-family: var(--font-sans);
   font-size: 1rem;
   background-color: var(--bg-color); /* Light background */
-  border-radius: 10px !important;
+  border-radius: 0.625rem !important; /* 10px */
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -1253,7 +1277,7 @@ header nav a:hover::after {
 .contact-form .form-group textarea:focus {
   outline: none;
   border-color: var(--dark-green);
-  box-shadow: 0 0 0 3px rgba(79, 85, 76, 0.1);
+  box-shadow: 0 0 0 0.1875rem rgba(79, 85, 76, 0.1); /* 3px */
 }
 
 .contact-form .form-group textarea {
@@ -1278,10 +1302,10 @@ header nav a:hover::after {
 .about-hero {
   position: relative;
   height: 50vh;
-  min-height: 300px;
+  min-height: 18.75rem; /* 300px */
   background-size: cover;
   background-position: center;
-  border-radius: 20px;
+  border-radius: 1.25rem; /* 20px */
   overflow: hidden;
   margin-bottom: 4rem;
   display: flex;
@@ -1309,7 +1333,7 @@ header nav a:hover::after {
   font-family: var(--font-serif);
   font-size: 3.5rem;
   font-weight: 700;
-  text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+  text-shadow: 0 0.125rem 0.625rem rgba(0,0,0,0.5); /* 2px 10px */
   animation: fadeInUp 0.8s 0.2s ease forwards;
   opacity: 0;
 }
@@ -1344,23 +1368,23 @@ header nav a:hover::after {
 
 .about-content-image img {
   width: 100%;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-radius: 1.25rem; /* 20px */
+  box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.1); /* 10px 30px */
 }
 
 /* --- 4. Our Philosophy Layout --- */
 .our-philosophy {
   background-color: var(--card-bg);
-  border-radius: 20px;
+  border-radius: 1.25rem; /* 20px */
   padding: 4rem 2rem;
   margin: 2rem 0;
 }
 
 .philosophy-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(15.625rem, 1fr)); /* 250px */
   gap: 2.5rem;
-  max-width: 1200px;
+  max-width: 75rem; /* 1200px */
   margin: 0 auto;
 }
 
@@ -1396,7 +1420,7 @@ header nav a:hover::after {
 .about-cta {
   padding: 4rem 2rem;
   background-color: var(--accent-green);
-  border-radius: 20px;
+  border-radius: 1.25rem; /* 20px */
   text-align: center;
   margin: 4rem 0;
 }
@@ -1405,7 +1429,7 @@ header nav a:hover::after {
   font-family: var(--font-serif);
   font-size: 2.5rem;
   color: var(--card-bg);
-  text-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  text-shadow: 0 0.0625rem 0.3125rem rgba(0,0,0,0.1); /* 1px 5px */
   margin-bottom: 1rem;
 }
 
@@ -1418,7 +1442,7 @@ header nav a:hover::after {
 .about-cta .cta-button {
   background-color: var(--card-bg);
   color: var(--dark-green);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 0.25rem 0.9375rem rgba(0,0,0,0.1); /* 4px 15px */
   margin-left: auto; /* --- FIX: Center the button --- */
   margin-right: auto; /* --- FIX: Center the button --- */
 }
@@ -1450,7 +1474,7 @@ header nav a:hover::after {
   font-size: 1.5rem;
   line-height: 1.6;
   color: var(--dark-green);
-  border-left: 4px solid var(--accent-green);
+  border-left: 0.25rem solid var(--accent-green); /* 4px */
   padding-left: 1.5rem;
   margin: 1.5rem 0;
 }
@@ -1463,7 +1487,7 @@ header nav a:hover::after {
 /* --- Testimonials Section --- */
 .about-testimonials {
   background-color: var(--accent-green);
-  border-radius: 20px;
+  border-radius: 1.25rem; /* 20px */
   padding: 4rem 2rem;
   margin: 2rem 0;
 }
@@ -1473,7 +1497,7 @@ header nav a:hover::after {
 }
 
 .testimonial-item {
-  max-width: 800px;
+  max-width: 50rem; /* 800px */
   margin: 0 auto;
   text-align: center;
 }
@@ -1503,7 +1527,7 @@ header nav a:hover::after {
   font-size: 1.1rem;
   font-weight: 700;
   color: var(--card-bg);
-  text-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  text-shadow: 0 0.0625rem 0.1875rem rgba(0,0,0,0.1); /* 1px 3px */
 }
 
 
@@ -1558,11 +1582,29 @@ header nav a.active::after {
 }
 
 /* ============================================== */
-/* === RESPONSIVE UPDATES (Tablets) === */
+/* === RESPONSIVE: 4-Card Layout (Large Desktop) === */
 /* ============================================== */
 
-/* --- CHANGED TO REM --- */
-@media (max-width: 75rem) { /* 1200px / 16px */
+@media (min-width: 80.625rem) { /* 1290px */
+    .slider-container {
+        /* --- (18.75rem * 4) + (1.875rem * 3) = 80.625rem --- */
+        max-width: 80.625rem; 
+    }
+    .slider-btn.prev {
+        left: -2rem; 
+    }
+    .slider-btn.next {
+        right: -2rem; 
+    }
+}
+
+
+/* ============================================== */
+/* === RESPONSIVE: 2-Card Layout (Tablet) === */
+/* ============================================== */
+
+/* --- 960px / 16 = 60rem --- */
+@media (max-width: 60rem) { 
     .browser-frame {
         padding: 0 2rem; /* Reduce side padding */
     }
@@ -1598,27 +1640,25 @@ header nav a.active::after {
     }
 
     /* --- Carousel 2-slide --- */
-    .slider-wrapper {
-        /* --- MODIFIED: (300px * 2) + 30px = 630px --- */
-        max-width: 630px; 
+    .slider-container {
+        /* --- (18.75rem * 2) + 1.875rem = 39.375rem --- */
+        max-width: 39.375rem; 
     }
     .slider-btn.prev {
-        /* --- MODIFIED: Use new 630px width --- */
-        left: calc(50% - (630px / 2) - 75px);
+        left: -5rem;
     }
     .slider-btn.next {
-        /* --- MODIFIED: Use new 630px width --- */
-        right: calc(50% - (630px / 2) - 75px);
+        right: -5rem;
     }
 }
 
 
 /* ============================================== */
-/* === RESPONSIVE UPDATES (Mobile) === */
+/* === RESPONSIVE: 1-Card Layout (Mobile) === */
 /* ============================================== */
 
-/* --- CHANGED TO REM --- */
-@media (max-width: 56.25rem) { /* 900px / 16px */
+/* --- 630px / 16 = 39.375rem --- */
+@media (max-width: 39.375rem) { 
     .browser-frame {
         padding: 0 1rem; /* Less padding on mobile */
         border: none;
@@ -1664,23 +1704,23 @@ header nav a.active::after {
         padding: 0;
     }
     .shop-slider-container {
-        border-radius: 15px;
+        border-radius: 0.9375rem; /* 15px */
     }
     .shop-slide img {
-        height: 200px;
-        border-radius: 15px;
+        height: 12.5rem; /* 200px */
+        border-radius: 0.9375rem; /* 15px */
     }
     .shop-slide-caption {
         font-size: 1.5rem;
-        bottom: 20px;
-        left: 20px;
-        right: 20px;
+        bottom: 1.25rem; /* 20px */
+        left: 1.25rem; /* 20px */
+        right: 1.25rem; /* 20px */
     }
     .shop-slider-dots {
-        bottom: 15px; /* Inside on mobile */
+        bottom: 0.9375rem; /* 15px */
         background: rgba(0,0,0,0.2);
-        padding: 5px 10px;
-        border-radius: 50px;
+        padding: 0.3125rem 0.625rem; /* 5px 10px */
+        border-radius: 3.125rem; /* 50px */
     }
     .shop-slider-dot {
       background-color: #fff;
@@ -1702,11 +1742,14 @@ header nav a.active::after {
         align-items: center;
         text-align: center;
     }
-    .slider-wrapper {
-        max-width: 300px; /* --- MODIFIED: 1 card --- */
+    .slider-container {
+        max-width: 18.75rem; /* --- 300px --- */
     }
-    .slider-btn {
-        display: none; /* Hide arrows on mobile carousel */
+    .slider-btn.prev {
+        left: -5rem;
+    }
+    .slider-btn.next {
+        right: -5rem;
     }
 
 
@@ -1752,13 +1795,13 @@ header nav a.active::after {
       position: absolute;
       left: 0;
       top: 0;
-      width: 300px;
+      width: 18.75rem; /* 300px */
       height: 100%;
       background: var(--card-bg);
       z-index: 1004; /* --- Sits *above* the click target --- */
       padding: 1.5rem;
       overflow-y: auto;
-      box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+      box-shadow: 0.3125rem 0 0.9375rem rgba(0,0,0,0.1); /* 5px 15px */
       transform: translateX(-100%);
       transition: transform 0.3s ease-in-out;
     }
@@ -1770,7 +1813,7 @@ header nav a.active::after {
 
     .mobile-sidebar-controls {
         padding-bottom: 1rem;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 0.0625rem solid #ddd; /* 1px */
     }
     .mobile-sidebar-controls .sidebar-controls {
         flex-direction: column;
@@ -1786,7 +1829,7 @@ header nav a.active::after {
         /* --- NEW: Reset mobile styles to match new look --- */
         background-color: transparent;
         border: none;
-        border-bottom: 2px solid #ddd;
+        border-bottom: 0.125rem solid #ddd; /* 2px */
         padding-left: 0;
         padding-right: 0;
     }
@@ -1800,7 +1843,7 @@ header nav a.active::after {
         /* --- NEW: Reset mobile styles to match new look --- */
         background-color: transparent;
         border: none;
-        border-bottom: 2px solid #ddd;
+        border-bottom: 0.125rem solid #ddd; /* 2px */
         padding-left: 2.2rem;
     }
     .mobile-close-filter {
@@ -1830,7 +1873,7 @@ header nav a.active::after {
         align-items: center;
         gap: 1rem;
         padding-bottom: 1.5rem;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 0.0625rem solid #ddd; /* 1px */
     }
     .all-products-header-mobile h2 {
         font-family: var(--font-serif); 
@@ -1846,8 +1889,8 @@ header nav a.active::after {
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
-        width: 44px;
-        height: 44px;
+        width: 2.75rem; /* 44px */
+        height: 2.75rem; /* 44px */
         padding: 0;
         font-size: 1.2rem;
     }
@@ -1862,7 +1905,7 @@ header nav a.active::after {
     .product-grid.list-view { gap: 1rem; }
     .product-card.list-view { flex-direction: column; }
     .product-card.list-view .card-image-container {
-      width: 100%; height: 250px; border-radius: 15px 15px 0 0;
+      width: 100%; height: 15.625rem; border-radius: 0.9375rem 0.9375rem 0 0; /* 250px, 15px */
     }
     .product-card.list-view .card-image-container img { height: 100%; object-fit: cover; }
     .product-card.list-view .card-content-container { padding: 1.5rem; }
@@ -1876,8 +1919,8 @@ header nav a.active::after {
       flex-basis: 40%; /* Smaller image on mobile */
     }
     .modal-image img { 
-      border-radius: 15px 15px 0 0; 
-      max-height: 250px; 
+      border-radius: 0.9375rem 0.9375rem 0 0; /* 15px */
+      max-height: 15.625rem; /* 250px */
     }
     .modal-details { 
       padding: 2rem 1.5rem; /* Tighter padding */
@@ -1907,11 +1950,11 @@ header nav a.active::after {
         position: fixed;
         top: 0;
         right: 0; 
-        width: 300px; /* Menu width */
+        width: 18.75rem; /* 300px */
         max-width: 80%;
         height: 100vh;
         background: var(--card-bg);
-        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        box-shadow: -0.3125rem 0 0.9375rem rgba(0,0,0,0.1); /* 5px 15px */
         z-index: 1000;
         
         flex-direction: column;
@@ -1930,7 +1973,7 @@ header nav a.active::after {
         width: 100%;
         font-size: 1.2rem;
         padding: 1rem 0;
-        border-bottom: 1px solid #eee;
+        border-bottom: 0.0625rem solid #eee; /* 1px */
     }
 
     /* Remove underline effect for mobile links */
