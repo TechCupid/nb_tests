@@ -255,7 +255,8 @@ header nav a:hover::after {
     min-width: 0;
 }
 .slider-wrapper {
-    max-width: 1160px; /* (360px * 3) + (40px * 2) = 1160px */
+    /* --- MODIFIED: (300px * 3) + (30px * 2) = 960px --- */
+    max-width: 960px; 
     overflow: hidden; 
     flex-grow: 0; 
     margin: 0 auto; 
@@ -263,7 +264,7 @@ header nav a:hover::after {
 .slider-track {
     display: flex;
     flex-wrap: nowrap; 
-    gap: 40px; /* Your new gap */
+    gap: 30px; /* --- MODIFIED: Smaller gap --- */
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 .slider-btn {
@@ -287,11 +288,13 @@ header nav a:hover::after {
     transform: translateY(-50%) scale(1.1);
 }
 .slider-btn.prev {
-    left: calc(50% - (1160px / 2) - 75px); /* Use new 1160px width */
+    /* --- MODIFIED: Use new 960px width --- */
+    left: calc(50% - (960px / 2) - 75px); 
 }
 
 .slider-btn.next {
-    right: calc(50% - (1160px / 2) - 75px); /* Use new 1160px width */
+    /* --- MODIFIED: Use new 960px width --- */
+    right: calc(50% - (960px / 2) - 75px); 
 }
 
 /* --- Product Card --- */
@@ -301,7 +304,7 @@ header nav a:hover::after {
     border: 1px solid #eee; 
     padding: 1rem;
     text-align: center;
-    width: 360px; /* Your new width */
+    width: 300px; /* --- MODIFIED: Smaller card width --- */
     flex-shrink: 0; 
     display: flex;
     flex-direction: column;
@@ -1047,12 +1050,11 @@ header nav a:hover::after {
 }
 
 .shop-slide {
-    /* This makes 3 slides visible */
-    min-width:100%;
+    min-width: 100%; /* --- MODIFIED: Show 1 slide --- */
     flex-shrink: 0;
     box-sizing: border-box;
     position: relative;
-    padding: 0 10px; /* Gutter between slides */
+    padding: 0; /* --- MODIFIED: No padding between --- */
 }
 
 /* Adjust for first and last slide to avoid side padding */
@@ -1065,7 +1067,7 @@ header nav a:hover::after {
     display: block;
     border-radius: 15px; /* Rounded images */
     object-fit: cover;
-    height: 400px; /* Set a consistent height */
+    height: 250px; /* Set a consistent height */
 }
 
 .shop-slide-caption {
@@ -1559,7 +1561,8 @@ header nav a.active::after {
 /* === RESPONSIVE UPDATES (Tablets) === */
 /* ============================================== */
 
-@media (max-width: 1200px) {
+/* --- CHANGED TO REM --- */
+@media (max-width: 75rem) { /* 1200px / 16px */
     .browser-frame {
         padding: 0 2rem; /* Reduce side padding */
     }
@@ -1596,13 +1599,16 @@ header nav a.active::after {
 
     /* --- Carousel 2-slide --- */
     .slider-wrapper {
-        max-width: 760px; /* (360px * 2) + 40px */
+        /* --- MODIFIED: (300px * 2) + 30px = 630px --- */
+        max-width: 630px; 
     }
     .slider-btn.prev {
-        left: calc(50% - (760px / 2) - 75px);
+        /* --- MODIFIED: Use new 630px width --- */
+        left: calc(50% - (630px / 2) - 75px);
     }
     .slider-btn.next {
-        right: calc(50% - (760px / 2) - 75px);
+        /* --- MODIFIED: Use new 630px width --- */
+        right: calc(50% - (630px / 2) - 75px);
     }
 }
 
@@ -1611,7 +1617,8 @@ header nav a.active::after {
 /* === RESPONSIVE UPDATES (Mobile) === */
 /* ============================================== */
 
-@media (max-width: 900px) {
+/* --- CHANGED TO REM --- */
+@media (max-width: 56.25rem) { /* 900px / 16px */
     .browser-frame {
         padding: 0 1rem; /* Less padding on mobile */
         border: none;
@@ -1619,29 +1626,6 @@ header nav a.active::after {
         border-radius: 0;
         box-shadow: none;
     }
-    /* Paste this inside @media (max-width: 900px) */
-
-.mobile-close-filter {
-    background: transparent !important; /* Removes the button background color */
-    border: none !important;            /* Removes the border */
-    box-shadow: none !important;        /* Removes any shadow */
-    color: var(--text-light);           /* Sets the icon color */
-    font-size: 1.5rem;                  /* Makes the icon a bit larger */
-    padding: 0.5rem;                    /* Adds clickable area without visual size */
-    border-radius: 0 !important;        /* Removes the round pill shape */
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.3s ease, color 0.3s ease;
-}
-
-.mobile-close-filter:hover {
-    background: transparent !important; /* Keep transparent on hover */
-    color: var(--dark-green);           /* Darken icon on hover */
-    transform: scale(1.1);              /* Slight grow effect */
-    transform: rotate(90deg);           /* Fun rotate effect on hover */
-}
     main {
         padding: 0;
     }
@@ -1719,7 +1703,7 @@ header nav a.active::after {
         text-align: center;
     }
     .slider-wrapper {
-        max-width: 360px; /* 1 card */
+        max-width: 300px; /* --- MODIFIED: 1 card --- */
     }
     .slider-btn {
         display: none; /* Hide arrows on mobile carousel */
@@ -1819,12 +1803,26 @@ header nav a.active::after {
         border-bottom: 2px solid #ddd;
         padding-left: 2.2rem;
     }
-    .mobile-filter-overlay {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0,0,0,0.4); z-index: 1001; 
-        /* --- Removed animation --- */
+    .mobile-close-filter {
+        background: transparent !important; /* Removes the button background color */
+        border: none !important;            /* Removes the border */
+        box-shadow: none !important;        /* Removes any shadow */
+        color: var(--text-light);           /* Sets the icon color */
+        font-size: 1.5rem;                  /* Makes the icon a bit larger */
+        padding: 0.5rem;                    /* Adds clickable area without visual size */
+        border-radius: 0 !important;        /* Removes the round pill shape */
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease, color 0.3s ease;
     }
-    .mobile-close-filter { display: block; }
+
+    .mobile-close-filter:hover {
+        background: transparent !important; /* Keep transparent on hover */
+        color: var(--dark-green);           /* Darken icon on hover */
+        transform: rotate(90deg);           /* Fun rotate effect on hover */
+    }
     
     .all-products-header-mobile {
         display: flex;

@@ -27,7 +27,7 @@ function ProductCarousel({ title, products, category }) {
 
         if (newPage < 0 || newPage > maxPage) return;
 
-        const scrollAmount = (360 + 40); 
+        const scrollAmount = (300 + 30); 
         
         const newTransformX = -newPage * scrollAmount;
 

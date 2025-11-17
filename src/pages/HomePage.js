@@ -16,13 +16,13 @@ function HomePage() {
       />
       {/* --- MODIFIED: Changed to Facewash --- */}
       <ProductCarousel 
-          title="Powder Facewash"
+          title={<>Powder<br />Facewash</>}
           products={faceWashProducts} 
           category="Facewash"
       />
       {/* --- MODIFIED: Changed to Other Products --- */}
       <ProductCarousel 
-          title="Other Products"
+          title={<>Other<br />Products</>}
           products={otherProducts} 
           category="Other"
       />
