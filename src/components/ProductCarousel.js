@@ -37,8 +37,6 @@ function ProductCarousel({ title, products, category }) {
         
        // --- These values match your CSS breakpoints ---
 if (widthInRem >= 80) { // 4-card layout
-  setCardsPerView(4);
-} else if (widthInRem >= 64) { // 3-card layout  <-- THIS LINE IS CHANGED
   setCardsPerView(3);
 } else if (widthInRem >= 39) { // 2-card layout
   setCardsPerView(2);
