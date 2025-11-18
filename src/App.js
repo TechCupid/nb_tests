@@ -12,14 +12,16 @@ import {
   soapProducts, 
   otherProducts, 
   faceWashProducts,
-  faceMaskproducts
+  faceMaskproducts,
+  shampooProducts
 } from './productdata';
 
 const allProducts = [
   ...soapProducts.map((p, i) => ({ ...p, id: `soap-${i}`, category: 'Soaps' })),
   ...otherProducts.map((p, i) => ({ ...p, id: `other-${i}`, category: 'Other' })),
   ...faceWashProducts.map((p, i) => ({ ...p, id: `facewash-${i}`, category: 'Facewash' })),
-  ...faceMaskproducts.map((p, i) => ({ ...p, id: `facemask-${i}`, category: 'Face Masks' }))
+  ...faceMaskproducts.map((p, i) => ({ ...p, id: `facemask-${i}`, category: 'Face Masks' })),
+  ...shampooProducts.map((p, i) => ({ ...p, id: `shampoo-${i}`, category: 'Shampoos' }))
 ];
 
 // --- Create Toast Context ---
@@ -91,12 +93,9 @@ function App() {
               
               <Route path="/shop" element={<AllProductsPage products={allProducts} />} />
               <Route path="/soaps" element={<AllProductsPage products={allProducts} />} />
-              
-              {/* --- REMOVED: /shampoos and /lipbalms --- */}
-              {/* --- NEW: Add /facewash and /other routes --- */}
+              <Route path="/shampoos" element={<AllProductsPage products={allProducts} />} />
               <Route path="/facewash" element={<AllProductsPage products={allProducts} />} />
               <Route path="/other" element={<AllProductsPage products={allProducts} />} />
-              
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>

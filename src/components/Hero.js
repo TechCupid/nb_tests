@@ -13,7 +13,7 @@ function Hero() {
                 </Link>
             </div>
             <div className="hero-image">
-                <img src="./home.png " alt="Handmade soap products" />
+                <img src="./home1.jpg " alt="Handmade soap products" />
             </div>
         </section>
     );

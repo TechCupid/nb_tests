@@ -2,7 +2,7 @@
 
 export const soapProducts = [
   {
-    img: './soap/avocado.png', // Replace with your image
+    img: './soap/avocado.png',
     title: 'Avacado Soap',
     description: 'Nourishes deeply with creamy avocado goodness.',
     tags: ['hydrating', 'dry-skin'],
@@ -11,7 +11,7 @@ export const soapProducts = [
     price: '₹140.00'
   },
   {
-    img: './soap/ashwagandha.png', // Replace with your image
+    img: './soap/ashwagandha.png',
     title: 'Ashwagandha Soap',
     description: 'Revitalizes skin with ancient Ayurvedic calm.',
     tags: ['sensitive', 'general'],
@@ -20,7 +20,7 @@ export const soapProducts = [
     price: '₹155.00'
   },
   {
-    img: './soap/strawberry.png', // Replace with your image
+    img: './soap/strawberry.png',
     title: 'Strawberry Soap',
     description: 'Sweet and soothing—your skin’s fruity delight',
     tags: ['oily-skin', 'brightening', 'acne', 'anti-aging'],
@@ -28,7 +28,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/grape.png', // Replace with your image
+    img: './soap/grape.png',
     title: 'Grape Soap',
     description: 'Antioxidant-rich lather for radiant skin.',
     tags: ['anti-aging', 'brightening'],
@@ -36,7 +36,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/papaya.png', // Replace with your image
+    img: './soap/papaya.png',
     title: 'Papaya Soap',
     description: 'Brightens and smooths with tropical enzymes.',
     tags: ['brightening', 'acne', 'pigmentation'],
@@ -44,7 +44,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/orange.png', // Replace with your image
+    img: './soap/orange.png',
     title: 'Orange Soap',
     description: 'Energizes your senses with citrus zest.',
     tags: ['brightening', 'general'],
@@ -52,7 +52,7 @@ export const soapProducts = [
     reviews: '99 reviews',
     price: '₹160.00'
   },{
-    img: './soap/pomegranate.png', // Replace with your image
+    img: './soap/pomegranate.png',
     title: 'Pomegranate Soap',
     description: 'Boosts glow with juicy hydration.',
     tags: ['anti-aging', 'hydrating', 'brightening'],
@@ -60,7 +60,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/jamun.png', // Replace with your image
+    img: './soap/jamun.png',
     title: 'Indian Blackberry (Jamun)',
     description: 'Detoxifies gently with berry-rich care.',
     tags: ['oily-skin', 'detox', 'acne'],
@@ -68,7 +68,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/cucumber.png', // Replace with your image
+    img: './soap/cucumber.png',
     title: 'Cucumber Soap',
     description: 'Cools and calms for refreshed skin.',
     tags: ['sensitive', 'hydrating'],
@@ -76,7 +76,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/beetroot.png', // Replace with your image
+    img: './soap/beetroot.png',
     title: 'Beetroot Soap',
     description: 'Revives dull skin with earthy nutrients.',
     tags: ['brightening', 'pigmentation'],
@@ -84,7 +84,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/potato.png', // Replace with your image
+    img: './soap/potato.png',
     title: 'Potato Soap',
     description: 'Softens and evens tone naturally.',
     tags: ['brightening', 'pigmentation', 'dry-skin'],
@@ -93,7 +93,7 @@ export const soapProducts = [
     price: '₹160.00'
   },
   {
-    img: './soap/turmeric.png', // Replace with your image
+    img: './soap/turmeric.png',
     title: 'Turmeric Soap',
     description: 'Clears and heals with golden power.',
     tags: ['oily-skin', 'acne', 'brightening'],
@@ -101,7 +101,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/rose.png', // Replace with your image
+    img: './soap/rose.png',
     title: 'Rose Soap',
     description: 'Luxuriously floral for soft, fragrant skin.',
     tags: ['general', 'sensitive', 'hydrating'],
@@ -109,7 +109,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/tulsi.png', // Replace with your image
+    img: './soap/tulsi.png',
     title: 'Tulasi Soap',
     description: 'Purifies with sacred herbal essence.',
     tags: ['acne', 'general'],
@@ -117,7 +117,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/flaxseed.png', // Replace with your image
+    img: './soap/flaxseed.png',
     title: 'Flaxseed Soap',
     description: 'Omega-rich moisture for silky skin.',
     tags: ['hydrating', 'dry-skin', 'anti-aging', 'sensitive'],
@@ -125,7 +125,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/saffron.png', // Replace with your image
+    img: './soap/saffron.png',
     title: 'Saffron Soap',
     description: 'Illuminates complexion with royal spice.',
     tags: ['brightening', 'acne', 'sensitive', 'general'],
@@ -133,7 +133,7 @@ export const soapProducts = [
     reviews: '99 reviews',
     price: '₹160.00'
   },{
-    img: './soap/multani.png', // Replace with your image
+    img: './soap/multani.png',
     title: 'Multani Soap',
     description: 'Deep cleanses with mineral-rich clay.',
     tags: ['oily-skin', 'pigmentation', 'detox', 'acne'],
@@ -141,7 +141,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/liquorice.png', // Replace with your image
+    img: './soap/liquorice.png',
     title: 'Licorice Soap',
     description: 'Brightens and soothes with herbal grace.',
     tags: ['brightening', 'pigmentation', 'sensitive', 'acne'],
@@ -149,7 +149,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/nalangumaavu.png', // Replace with your image
+    img: './soap/nalangumaavu.png',
     title: 'Nalangu Maavu Soap',
     description: 'Traditional care for glowing skin.',
     tags: ['general'],
@@ -157,7 +157,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/manjistha.png', // Replace with your image
+    img: './soap/manjistha.png',
     title: 'Manjistha Soap',
     description: 'Ayurvedic detox for flawless skin.',
     tags: ['oily-skin', 'acne', 'detox'],
@@ -165,7 +165,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/kaolinclay.png', // Replace with your image
+    img: './soap/kaolinclay.png',
     title: 'Kaolin Clay Soap',
     description: 'Gently exfoliates with silky smooth finish.',
     tags: ['sensitive', 'dry-skin'],
@@ -173,7 +173,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/frenchclay.png', // Replace with your image
+    img: './soap/frenchclay.png',
     title: 'French Clay Soap',
     description: 'Refines pores with spa-grade minerals.',
     tags: ['oily-skin', 'acne', 'detox'],
@@ -181,7 +181,7 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },{
-    img: './soap/redclay.png', // Replace with your image
+    img: './soap/redclay.png',
     title: 'Red Clay Soap',
     description: 'Revitalizes with earthy richness.',
     tags: ['brightening', 'dry-skin'],
@@ -189,7 +189,7 @@ export const soapProducts = [
     reviews: '99 reviews',
     price: '₹160.00'
   },{
-    img: './soap/pinkclay.png', // Replace with your image
+    img: './soap/pinkclay.png',
     title: 'Pink Clay Soap',
     description: 'Soft touch of clay for sensitive skin.',
     tags: ['sensitive', 'dry-skin'],
@@ -197,12 +197,11 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },
-  
 ];
 
 export const otherProducts = [
   {
-    img: './soap/grape.png', // Replace with your image
+    img: './soap/grape.png', 
     title: 'lipbalm',
     description: 'Gives a natural tint while moisturizing deeply.',
     tags: ['lip-care', 'general'],
@@ -211,7 +210,7 @@ export const otherProducts = [
     price: '₹175.00'
   },
   {
-    img: './soap/pomegranate.png', // Replace with your image
+    img: './soap/pomegranate.png', 
     title: 'Aloevera Gel',
     description: 'Cools, soothes, and repairs chapped lips.',
     tags: ['skin-care', 'general'],
@@ -220,7 +219,7 @@ export const otherProducts = [
     price: '₹160.00'
   },
   {
-    img: './soap/strawberry.png', // Replace with your image
+    img: './soap/strawberry.png', 
     title: 'Potato Facecream',
     description: 'Intense hydration for very dry lips.',
     tags: ['face-cream', 'dry-skin'],
@@ -229,7 +228,7 @@ export const otherProducts = [
     price: '₹180.00'
   },
    {
-    img: './soap/strawberry.png', // Replace with your image
+    img: './soap/strawberry.png', 
     title: 'moisturizer',
     description: 'Intense hydration for very dry lips.',
     tags: ['moisturizer', 'dry-skin'],
@@ -239,11 +238,10 @@ export const otherProducts = [
   }
 ];
 
-// --- THIS IS THE NEW, CORRECTED PRODUCT LIST ---
 export const faceWashProducts = [
   // --- Oily Skin Filter ---
   {
-    img: './facewash/multani-mitti.png', // Replace with your image
+    img: './facewash/multani-mitti.png',
     title: 'Multani Mitti',
     description: 'A natural clay that deeply cleanses and absorbs excess oil and impurities.',
     tags: ['oily-skin', 'combination-skin'],
@@ -252,7 +250,7 @@ export const faceWashProducts = [
     price: '₹150.00'
   },
   {
-    img: './facewash/neem-leaves.png', // Replace with your image
+    img: './facewash/neem-leaves.png',
     title: 'Neem Leaves Powder',
     description: 'A powerful antibacterial powder to purify skin and help with acne.',
     tags: ['oily-skin', 'combination-skin'],
@@ -261,7 +259,7 @@ export const faceWashProducts = [
     price: '₹130.00'
   },
   {
-    img: './facewash/tulasi.png', // Replace with your image
+    img: './facewash/tulasi.png',
     title: 'Tulasi Powder',
     description: 'A sacred herb known for its ability to clear blemishes and calm redness.',
     tags: ['oily-skin'],
@@ -270,7 +268,7 @@ export const faceWashProducts = [
     price: '₹140.00'
   },
   {
-    img: './facewash/liquorice.png', // Replace with your image
+    img: './facewash/liquorice.png',
     title: 'Liquorice Powder',
     description: 'Soothes and brightens all skin types, helping to fade dark spots.',
     tags: ['oily-skin', 'dry-skin', 'combination-skin', 'sensitive-skin'],
@@ -279,7 +277,7 @@ export const faceWashProducts = [
     price: '₹160.00'
   },
   {
-    img: './facewash/wild-turmeric.png', // Replace with your image
+    img: './facewash/wild-turmeric.png',
     title: 'Wild Turmeric',
     description: 'A traditional brightener that helps reduce blemishes and add a natural glow.',
     tags: ['oily-skin'],
@@ -290,7 +288,7 @@ export const faceWashProducts = [
 
   // --- Dry Skin Filter ---
   {
-    img: './facewash/oats.png', // Replace with your image
+    img: './facewash/oats.png',
     title: 'Oats Powder',
     description: 'A gentle, colloidal powder that calms, soothes, and hydrates dry skin.',
     tags: ['dry-skin', 'sensitive-skin'],
@@ -299,7 +297,7 @@ export const faceWashProducts = [
     price: '₹145.00'
   },
   {
-    img: './facewash/cucumber.png', // Replace with your image
+    img: './facewash/cucumber.png',
     title: 'Cucumber Powder',
     description: 'Cools, hydrates, and refreshes tired or irritated skin with vital nutrients.',
     tags: ['dry-skin', 'sensitive-skin'],
@@ -308,7 +306,7 @@ export const faceWashProducts = [
     price: '₹150.00'
   },
   {
-    img: './facewash/rose-petals.png', // Replace with your image
+    img: './facewash/rose-petals.png',
     title: 'Rose Petals Powder',
     description: 'A fine powder that tones, hydrates, and leaves skin feeling soft and supple.',
     tags: ['dry-skin', 'combination-skin'],
@@ -318,4 +316,49 @@ export const faceWashProducts = [
   }
 ];
 
+// --- UPDATED SHAMPOO PRODUCTS ---
+export const shampooProducts = [
+  {
+    img: 'https://via.placeholder.com/300x300.png?text=Fenugreek+Shampoo', // Replace with your image
+    title: 'See Fenugreek And Soapnut Shampoo',
+    description: 'Chemical free formula to reduce hairfall and fight dandruff.',
+    // Tags based on advantages: chemical free, reduce hairfall, fight dandruff, promote hairgrowth, shine, smooth
+    tags: ['chemical-free', 'hair-fall', 'dandruff', 'hair-growth', 'shine', 'smooth'],
+    rating: '★★★★★',
+    reviews: '110 reviews',
+    price: '₹280.00'
+  },
+  {
+    img: 'https://via.placeholder.com/300x300.png?text=Hibiscus+Shampoo', // Replace with your image
+    title: 'Hibiscus And Soapnut Shampoo',
+    description: 'Clean, condition and strength, promoting hair growth and shine.',
+    // Tags: clean, condition, strength, hairgrowth, shine
+    tags: ['cleanse', 'conditioning', 'strength', 'hair-growth', 'shine'],
+    rating: '★★★★☆',
+    reviews: '76 reviews',
+    price: '₹265.00'
+  },
+  {
+    img: 'https://via.placeholder.com/300x300.png?text=Rosemary+Shampoo', // Replace with your image
+    title: 'Rosemary And Soapnut Shampoo',
+    description: 'Improves blood flow, feeds your scalp and encourages hair growth.',
+    // Tags: improves blood flow, feed scalp, encourage hairgrowth
+    tags: ['scalp-care', 'hair-growth', 'blood-flow'],
+    rating: '★★★★☆',
+    reviews: '92 reviews',
+    price: '₹300.00'
+  },
+  {
+    img: 'https://via.placeholder.com/300x300.png?text=Flax+Seed+Shampoo', // Replace with your image
+    title: 'Flax Seed And Soapnut Shampoo',
+    description: 'Provides moisture, promoting hair growth and shine.',
+    // Tags: moisture, promote hairgrowth, shine
+    tags: ['moisturizing', 'hair-growth', 'shine'],
+    rating: '★★★★★',
+    reviews: '85 reviews',
+    price: '₹290.00'
+  }
+];
+
+export const lipBalmProducts = []; 
 export const faceMaskproducts = [];

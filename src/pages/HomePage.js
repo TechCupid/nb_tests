@@ -1,6 +1,6 @@
 import Hero from '../components/Hero';
 import ProductCarousel from '../components/ProductCarousel';
-import { soapProducts, faceWashProducts, otherProducts } from '../productdata';
+import { soapProducts, faceWashProducts, otherProducts,shampooProducts } from '../productdata';
 
 
 
@@ -10,7 +10,7 @@ function HomePage() {
       <Hero />
 
       <ProductCarousel 
-          title="_Soaps__" 
+          title="Soaps" 
           products={soapProducts} 
           category="Soaps"
       />
@@ -21,6 +21,8 @@ function HomePage() {
           products={faceWashProducts} 
           category="Facewash"
       />
+
+     
       {/* --- MODIFIED: Changed to Other Products --- */}
       <ProductCarousel 
           title={<>Other<br />Products</>}

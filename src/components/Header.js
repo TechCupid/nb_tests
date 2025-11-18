@@ -27,7 +27,7 @@ function Header() {
             
             <div className="nav-dropdown">
               <NavLink to="/shop" className="nav-dropdown-toggle" onClick={toggleMobileMenu}>
-                All Products
+                Products
               </NavLink>
             </div>
 
