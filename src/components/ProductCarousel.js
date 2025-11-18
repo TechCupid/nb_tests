@@ -35,15 +35,16 @@ function ProductCarousel({ title, products, category }) {
         const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
         const widthInRem = wrapperWidth / rootFontSize;
         
-        if (widthInRem >= 80) { // 4-card layout
-          setCardsPerView(4);
-        } else if (widthInRem >= 60) { // 3-card layout
-          setCardsPerView(3);
-        } else if (widthInRem >= 39) { // 2-card layout
-          setCardsPerView(2);
-        } else { // 1-card layout
-          setCardsPerView(1);
-        }
+       // --- These values match your CSS breakpoints ---
+if (widthInRem >= 80) { // 4-card layout
+  setCardsPerView(4);
+} else if (widthInRem >= 64) { // 3-card layout  <-- THIS LINE IS CHANGED
+  setCardsPerView(3);
+} else if (widthInRem >= 39) { // 2-card layout
+  setCardsPerView(2);
+} else { // 1-card layout
+  setCardsPerView(1);
+}
       }
     });
 

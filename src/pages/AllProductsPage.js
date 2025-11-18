@@ -31,9 +31,9 @@ const allProducts = [
 
 // Data for the top banner slider
 const bannerImages = [
-  { src: 'https-placeholder', alt: 'Handmade Soaps', caption: 'Handmade Soaps' },
-  { src: 'https-placeholder', alt: 'Woman with healthy hair', caption: 'Nourish Your Hair, Naturally' },
-  { src: 'https-placeholder', alt: 'Natural lip balm products', caption: 'Hydrate & Protect Your Lips' }
+  { src: './ban0.png', alt: 'Handmade Soaps', caption: 'Handmade Soaps' },
+  { src: './ban3.png', alt: 'Woman with healthy hair', caption: 'Nourish Your Hair, Naturally' },
+  { src: './ban5.jpg', alt: 'Natural lip balm products', caption: 'Hydrate & Protect Your Lips' }
 ];
 
 // --- Quick View Modal Component ---
