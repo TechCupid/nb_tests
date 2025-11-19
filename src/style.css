@@ -590,6 +590,16 @@ header nav a:hover::after {
   to { opacity: 1; }
 }
 
+/* --- NEW: Specific Background for Product Pages --- */
+.all-products-page-wrapper {
+    background-color: var(--accent-green); 
+    min-height: 100vh; ;
+    width: 100%;
+    margin: 4rem 0rem 4rem 0rem;
+    padding: 3rem 3rem 3rem 3rem;
+    border-radius: 1.875rem; 
+}
+
 /* --- Remove the old top header --- */
 .all-products-header {
     display: none;
@@ -1051,7 +1061,9 @@ header nav a:hover::after {
 /* ============================================== */
 .shop-page-header {
     padding: 1rem 0 2.5rem 0;
-    margin: 0;
+    margin: 0 auto;
+    max-width: 95%;
+    margin-bottom: 2.5rem;
 }
 
 .shop-main-title {
@@ -1139,9 +1151,12 @@ header nav a:hover::after {
 /* ============================================== */
 
 .contact-page-split {
-  padding: 4rem 0;
-  animation: fadeIn 0.5s ease;
-  margin-bottom: 4rem; 
+   background-color: var(--accent-green); 
+    min-height: 100vh; ;
+    width: 100%;
+    margin: 4rem 0rem 4rem 0rem;
+    padding: 3rem 3rem 3rem 3rem;
+    border-radius: 1.875rem; 
 }
 
 .contact-split-container {
@@ -1314,25 +1329,30 @@ header nav a:hover::after {
 /* ============================================== */
 
 .about-page {
-  animation: fadeIn 0.5s ease;
+    background-color: var(--accent-green); 
+    min-height: 100vh; ;
+    width: 100%;
+    margin: 4rem 0rem 4rem 0rem;
+    padding: 3rem 3rem 3rem 3rem;
+    border-radius: 1.875rem; 
 }
 
 /* --- 1. About Hero --- */
 .about-hero {
   position: relative;
-  height: 50vh;
-  min-height: 18.75rem; /* 300px */
+  height: 40vh;
+  min-height: 300px; /* 300px */
   background-size: cover;
   background-position: center;
   border-radius: 1.25rem; /* 20px */
   overflow: hidden;
-  margin-bottom: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   color: white;
-  margin-top: 2rem;
+   margin: 1rem 2rem 4rem 2rem;
+  width: 80;
 }
 
 .about-hero-overlay {
@@ -1438,7 +1458,7 @@ header nav a:hover::after {
 /* --- 5. Call to Action --- */
 .about-cta {
   padding: 4rem 2rem;
-  background-color: var(--accent-green);
+  
   border-radius: 1.25rem; /* 20px */
   text-align: center;
   margin: 4rem 0;
@@ -1459,8 +1479,8 @@ header nav a:hover::after {
 }
 
 .about-cta .cta-button {
-  background-color: var(--card-bg);
-  color: var(--dark-green);
+  background-color: var(--card-bg );
+  color: var(--accent-green);
   box-shadow: 0 0.25rem 0.9375rem rgba(0,0,0,0.1); /* 4px 15px */
   margin-left: auto; /* --- FIX: Center the button --- */
   margin-right: auto; /* --- FIX: Center the button --- */

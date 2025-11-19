@@ -5,20 +5,23 @@ import { soapProducts, otherProducts, faceWashProducts, faceMaskproducts } from 
 import ImageSlider from '../components/ImageSlider'; 
 
 // --- Reusable Helper Functions ---
-
+const getPrimaryTag = (tags) => {
+  const safeTags = tags || []; 
+  return safeTags.find(tag => tag !== 'general') || 'general';
+};
 
 // --- Process all product lists with tags ---
 const allSoapProducts = soapProducts.map(p => ({ 
-  ...p, id: p.id || p.title, category: 'Soaps', 
+  ...p, id: p.id || p.title, category: 'Soaps', primaryTag: getPrimaryTag(p.tags) 
 }));
 const allOtherProducts = otherProducts.map(p => ({ 
-  ...p, id: p.id || p.title, category: 'Other'
+  ...p, id: p.id || p.title, category: 'Other', primaryTag: getPrimaryTag(p.tags) 
 }));
 const allFaceWashProducts = faceWashProducts.map(p => ({ 
-  ...p, id: p.id || p.title, category: 'Facewash'
+  ...p, id: p.id || p.title, category: 'Facewash', primaryTag: getPrimaryTag(p.tags) 
 }));
 const allFaceMaskProducts = faceMaskproducts.map(p => ({ 
-  ...p, id: p.id || p.title, category: 'Face Masks'
+  ...p, id: p.id || p.title, category: 'Face Masks', primaryTag: getPrimaryTag(p.tags) 
 }));
 
 
@@ -241,7 +244,7 @@ function AllProductsPage() {
   );
 
   return (
-    <>
+    <div className="all-products-page-wrapper">
       <div className="shop-page-header">
         <ImageSlider images={bannerImages} />
       </div>
@@ -324,7 +327,7 @@ function AllProductsPage() {
       </div>
 
       <QuickViewModal product={selectedProduct} onClose={closeQuickView} />
-    </>
+    </div>
   );
 }
 
