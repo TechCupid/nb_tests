@@ -15,7 +15,8 @@ function Header() {
     <>
       <header>
           <Link to="/" className="logo-link">
-              <div className="logo">Nature Bubble</div>
+          <img src="./soap/logo.png" alt="Nature Bubble Logo" className="logo-img" />
+          
           </Link>
           
           <nav className={isMobileMenuOpen ? 'active' : ''}>

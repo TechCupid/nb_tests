@@ -197,11 +197,56 @@ export const soapProducts = [
     reviews: '90 reviews',
     price: '₹160.00'
   },
+  {
+    img: './soap/carrot.png', // Replace with your image
+    title: 'Carrot Soap',
+    description: 'Great for blemishes and anti-aging. Brightens skin, evens tone, and gives a natural glow. Best for dry skin.',
+    tags: ['anti-aging', 'dry-skin', 'brightening', 'blemishes', 'glow'],
+    rating: '★★★★★',
+    reviews: '65 reviews',
+    price: '₹160.00'
+  },
+];
+
+export const babyProducts = [
+  {
+    id: 1,
+    title: "Baby Talcum Powder",
+    description: "Tear-free formula with chamomile.",
+    price: "₹350.00",
+    img: "./baby/powder.png", // Replace with real image
+    tags: "Tear Free"
+  },
+  {
+    id: 2,
+    title: "Nalangu Maavu Powder",
+    description: "Zinc-oxide protection with shea.",
+    price: "₹290.00",
+    img: "./baby/babynalangu.png", // Replace with real image
+    tags: "Organic"
+  },
+  {
+    id: 3,
+    title: "Natural Baby Soap",
+    description: "Lavender infused for better sleep.",
+    price: "₹420.00",
+    img: "./baby/babysoap.png", // Replace with real image
+    tags: "Calming"
+  },
+  {
+    id: 4,
+    title: "Natural Baby Kajal",
+    description: "Enriched with almond oil and organic ghee to soothe and cool eyes.",
+    price: "₹199.00",
+    img: "./baby/kajal.png", // Make sure you add this image to your folder
+    tags: "Chemical Free"
+  }
+  
 ];
 
 export const otherProducts = [
   {
-    img: './soap/grape.png', 
+    img: './others/lipbalm.jpeg', 
     title: 'lipbalm',
     description: 'Gives a natural tint while moisturizing deeply.',
     tags: ['lip-care', 'general'],
@@ -210,7 +255,7 @@ export const otherProducts = [
     price: '₹175.00'
   },
   {
-    img: './soap/pomegranate.png', 
+    img: './others/aloeveragel.png', 
     title: 'Aloevera Gel',
     description: 'Cools, soothes, and repairs chapped lips.',
     tags: ['skin-care', 'general'],
@@ -219,7 +264,7 @@ export const otherProducts = [
     price: '₹160.00'
   },
   {
-    img: './soap/strawberry.png', 
+    img: './others/potato.png', 
     title: 'Potato Facecream',
     description: 'Intense hydration for very dry lips.',
     tags: ['face-cream', 'dry-skin'],
@@ -228,7 +273,7 @@ export const otherProducts = [
     price: '₹180.00'
   },
    {
-    img: './soap/strawberry.png', 
+    img: './others/moisturizer.jpeg', 
     title: 'moisturizer',
     description: 'Intense hydration for very dry lips.',
     tags: ['moisturizer', 'dry-skin'],
@@ -319,17 +364,17 @@ export const faceWashProducts = [
 // --- UPDATED SHAMPOO PRODUCTS ---
 export const shampooProducts = [
   {
-    img: 'https://via.placeholder.com/300x300.png?text=Fenugreek+Shampoo', // Replace with your image
+    img: './shampoo/fenugreek.jpg', // Replace with your image
     title: 'See Fenugreek And Soapnut Shampoo',
     description: 'Chemical free formula to reduce hairfall and fight dandruff.',
     // Tags based on advantages: chemical free, reduce hairfall, fight dandruff, promote hairgrowth, shine, smooth
-    tags: ['chemical-free', 'hair-fall', 'dandruff', 'hair-growth', 'shine', 'smooth'],
+    tags: [ 'hair-fall', 'dandruff', 'hair-growth', 'shine', 'smooth'],
     rating: '★★★★★',
     reviews: '110 reviews',
     price: '₹280.00'
   },
   {
-    img: 'https://via.placeholder.com/300x300.png?text=Hibiscus+Shampoo', // Replace with your image
+    img: './shampoo/hibiscus.jpg', // Replace with your image
     title: 'Hibiscus And Soapnut Shampoo',
     description: 'Clean, condition and strength, promoting hair growth and shine.',
     // Tags: clean, condition, strength, hairgrowth, shine
@@ -339,7 +384,7 @@ export const shampooProducts = [
     price: '₹265.00'
   },
   {
-    img: 'https://via.placeholder.com/300x300.png?text=Rosemary+Shampoo', // Replace with your image
+    img: './shampoo/rosemary.jpeg', // Replace with your image
     title: 'Rosemary And Soapnut Shampoo',
     description: 'Improves blood flow, feeds your scalp and encourages hair growth.',
     // Tags: improves blood flow, feed scalp, encourage hairgrowth
@@ -349,7 +394,7 @@ export const shampooProducts = [
     price: '₹300.00'
   },
   {
-    img: 'https://via.placeholder.com/300x300.png?text=Flax+Seed+Shampoo', // Replace with your image
+    img: './shampoo/flaxseed.jpeg', // Replace with your image
     title: 'Flax Seed And Soapnut Shampoo',
     description: 'Provides moisture, promoting hair growth and shine.',
     // Tags: moisture, promote hairgrowth, shine
@@ -357,8 +402,45 @@ export const shampooProducts = [
     rating: '★★★★★',
     reviews: '85 reviews',
     price: '₹290.00'
-  }
+  },
+  {
+    img: './shampoo/shikakai.png', // Replace with your image
+    title: 'Natural Shikakai Shampoo',
+    description: 'Acts as a gentle cleanser, strengthening hair roots and preventing dandruff.',
+    tags: ['cleanse', 'anti-dandruff', 'strengthening', 'hair-fall'],
+    rating: '★★★★★',
+    reviews: '102 reviews',
+    price: '₹280.00'
+},
+
 ];
 
-export const lipBalmProducts = []; 
-export const faceMaskproducts = [];
+export const faceMaskproducts = [
+  {
+    img: './facemask/koreanglow.png', // Replace with your image
+    title: 'Korean Skin Pack',
+    description: 'Achieve glass-like skin with this intensive brightening and hydrating treatment.',
+    tags: ['brightening', 'hydrating', 'glass-skin', 'anti-aging'],
+    rating: '★★★★★',
+    reviews: '45 reviews',
+    price: '₹350.00'
+  },
+  {
+    img: './facemask/pigmentation.png', // Replace with your image
+    title: 'Anti-Pigmentation Pack',
+    description: 'Target dark spots and uneven skin tone with powerful natural extracts.',
+    tags: ['pigmentation', 'dark-spots', 'even-tone', 'blemishes'],
+    rating: '★★★★☆',
+    reviews: '38 reviews',
+    price: '₹320.00'
+  },
+  {
+    img: './facemask/instantglow.png', // Replace with your image
+    title: 'Instant Glow Pack',
+    description: 'Revitalize dull skin instantly for a radiant, party-ready look.',
+    tags: ['glow', 'radiance', 'dull-skin', 'brightening'],
+    rating: '★★★★★',
+    reviews: '52 reviews',
+    price: '₹300.00'
+  }
+];

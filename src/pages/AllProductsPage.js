@@ -1,45 +1,45 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import ProductCard from '../components/ProductCard'; 
-import { soapProducts, otherProducts, faceWashProducts, faceMaskproducts } from '../productdata';
+import { soapProducts, otherProducts, faceWashProducts, faceMaskproducts, shampooProducts, babyProducts } from '../productdata';
 import ImageSlider from '../components/ImageSlider'; 
 
-// --- Reusable Helper Functions ---
-const getPrimaryTag = (tags) => {
-  const safeTags = tags || []; 
-  return safeTags.find(tag => tag !== 'general') || 'general';
+// --- Helper Function to sanitize IDs ---
+const sanitizeId = (text) => {
+  if (!text) return 'unknown';
+  return text.toString().toLowerCase().replace(/\s+/g, '-');
 };
 
-// --- Process all product lists with tags ---
-const allSoapProducts = soapProducts.map(p => ({ 
-  ...p, id: p.id || p.title, category: 'Soaps', primaryTag: getPrimaryTag(p.tags) 
-}));
-const allOtherProducts = otherProducts.map(p => ({ 
-  ...p, id: p.id || p.title, category: 'Other', primaryTag: getPrimaryTag(p.tags) 
-}));
-const allFaceWashProducts = faceWashProducts.map(p => ({ 
-  ...p, id: p.id || p.title, category: 'Facewash', primaryTag: getPrimaryTag(p.tags) 
-}));
-const allFaceMaskProducts = faceMaskproducts.map(p => ({ 
-  ...p, id: p.id || p.title, category: 'Face Masks', primaryTag: getPrimaryTag(p.tags) 
-}));
+// --- Helper Function to get primary tag ---
+const getPrimaryTag = (tags) => {
+  if (!tags) return 'general';
+  const tagArray = Array.isArray(tags) ? tags : [tags];
+  return tagArray.find(tag => tag !== 'general') || 'general';
+};
 
+// --- Process all product lists ---
+const allSoapProducts = soapProducts.map(p => ({ ...p, id: p.title, category: 'Soaps', primaryTag: getPrimaryTag(p.tags) }));
+const allOtherProducts = otherProducts.map(p => ({ ...p, id: p.title, category: 'Other', primaryTag: getPrimaryTag(p.tags) }));
+const allFaceWashProducts = faceWashProducts.map(p => ({ ...p, id: p.title, category: 'Facewash', primaryTag: getPrimaryTag(p.tags) }));
+const allFaceMaskProducts = faceMaskproducts.map(p => ({ ...p, id: p.title, category: 'Face Masks', primaryTag: getPrimaryTag(p.tags) }));
+const allShampooProducts = shampooProducts.map(p => ({ ...p, id: p.title, category: 'Shampoos', primaryTag: getPrimaryTag(p.tags) }));
+const allBabyProducts = babyProducts.map(p => ({ ...p, id: p.title, category: 'Baby', primaryTag: getPrimaryTag(p.tags) }));
 
 const allProducts = [
   ...allSoapProducts,
   ...allOtherProducts,
   ...allFaceWashProducts,
-  ...allFaceMaskProducts
+  ...allFaceMaskProducts,
+  ...allShampooProducts,
+  ...allBabyProducts
 ];
 
-// Data for the top banner slider
 const bannerImages = [
   { src: './ban0.png', alt: 'Handmade Soaps', caption: 'Handmade Soaps' },
   { src: './ban3.png', alt: 'Woman with healthy hair', caption: 'Nourish Your Hair, Naturally' },
   { src: './ban5.jpg', alt: 'Natural lip balm products', caption: 'Hydrate & Protect Your Lips' }
 ];
 
-// --- Quick View Modal Component ---
 function QuickViewModal({ product, onClose }) {
   if (!product) return null;
   return (
@@ -57,45 +57,51 @@ function QuickViewModal({ product, onClose }) {
   );
 }
 
-// --- Main AllProductsPage Component ---
 function AllProductsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation(); 
   const path = location.pathname; 
 
-  const { 
-    products, 
-    pageTitle, 
-    concernTitle, 
-    isAllProductsView 
-  } = useMemo(() => {
-    if (path === '/soaps') {
-      return { products: allSoapProducts, pageTitle: 'Shop Soaps', concernTitle: 'Skin Concern', isAllProductsView: false };
-    }
-    if (path === '/facewash') {
-      return { products: allFaceWashProducts, pageTitle: 'Shop Facewash', concernTitle: 'Skin Concern', isAllProductsView: false };
-    }
-    if (path === '/other') {
-      return { products: allOtherProducts, pageTitle: 'Shop Other Products', concernTitle: 'Category', isAllProductsView: false };
-    }
-    return { products: allProducts, pageTitle: 'Shop All Products', concernTitle: 'Concern', isAllProductsView: true };
+  const category = searchParams.get('category') || 'All';
+  const concern = searchParams.get('concern') || 'All';
+
+  const { products, pageTitle,  isAllProductsView } = useMemo(() => {
+    if (path === '/soaps') return { products: allSoapProducts, pageTitle: 'Shop Soaps', isAllProductsView: false };
+    if (path === '/facewash') return { products: allFaceWashProducts, pageTitle: 'Shop Facewash', isAllProductsView: false };
+    if (path === '/shampoos') return { products: allShampooProducts, pageTitle: 'Shop Shampoos', isAllProductsView: false };
+    if (path === '/baby') return { products: allBabyProducts, pageTitle: 'Shop Baby Care', isAllProductsView: false };
+    if (path === '/other') return { products: allOtherProducts, pageTitle: 'Shop Other Products', isAllProductsView: false };
+    return { products: allProducts, pageTitle: 'Shop All Products', isAllProductsView: true };
   }, [path]); 
 
-  const allConcerns = useMemo(() => {
-    const allTags = products.flatMap(p => p.tags || []); // Get all tags, even duplicates
-    const uniqueTags = [...new Set(allTags)]; // Get only unique tags
-    return ['All', ...uniqueTags.sort()];
-  }, [products]);
-
   const [searchTerm, setSearchTerm] = useState('');
-  const [category, setCategory] = useState(searchParams.get('category') || 'All');
-  const [concern, setConcern] = useState('All'); 
   const [sort, setSort] = useState('default');
   const [viewMode, setViewMode] = useState('grid'); 
   const [visibleProducts, setVisibleProducts] = useState(12);
   const [isFiltersOpen, setIsFiltersOpen] = useState(false); 
   const [selectedProduct, setSelectedProduct] = useState(null); 
 
+  // --- DYNAMIC CONCERN TITLE ---
+  const getConcernTitle = () => {
+    if (category === 'Shampoos' || path === '/shampoos') return 'Hair Concern';
+    if (category === 'Baby' || path === '/baby') return 'Benefit';
+    if (category === 'Other' || path === '/other') return 'Type';
+    return 'Skin Concern';
+  };
+
+  // --- DYNAMIC TAG GENERATION ---
+  const allConcerns = useMemo(() => {
+    let relevantProducts = products;
+    if (isAllProductsView && category !== 'All') {
+      relevantProducts = products.filter(p => p.category === category);
+    }
+    const allTags = relevantProducts.flatMap(p => Array.isArray(p.tags) ? p.tags : [p.tags]);
+    const uniqueTags = [...new Set(allTags)]; 
+    return ['All', ...uniqueTags.sort()];
+  }, [products, category, isAllProductsView]);
+
+  
+  // --- Filter Logic ---
   const filteredProducts = useMemo(() => {
     let prods = [...products];
 
@@ -104,7 +110,10 @@ function AllProductsPage() {
     }
 
     if (concern !== 'All') {
-      prods = prods.filter(p => p.tags && p.tags.includes(concern));
+      prods = prods.filter(p => {
+          const pTags = Array.isArray(p.tags) ? p.tags : [p.tags];
+          return pTags.includes(concern);
+      });
     }
     
     if (searchTerm) {
@@ -115,85 +124,101 @@ function AllProductsPage() {
       );
     }
 
-    if (sort === 'name-asc') {
-      prods.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (sort === 'name-desc') {
-      prods.sort((a, b) => b.title.localeCompare(a.title));
-    }
-    
-    setVisibleProducts(12); 
+    if (sort === 'name-asc') prods.sort((a, b) => a.title.localeCompare(b.title));
+    else if (sort === 'name-desc') prods.sort((a, b) => b.title.localeCompare(a.title));
     
     return prods;
   }, [products, searchTerm, category, concern, sort, isAllProductsView]); 
 
+  useEffect(() => {
+    setVisibleProducts(12);
+  }, [filteredProducts]);
+
   const productsToShow = filteredProducts.slice(0, visibleProducts);
 
+  // --- Handlers ---
   const handleCategoryChange = (e) => {
     const newCategory = e.target.value;
-    setCategory(newCategory); 
-    
-    if (newCategory === 'All') {
-      setSearchParams(prev => { prev.delete('category'); return prev; });
-    } else {
-      setSearchParams(prev => { prev.set('category', newCategory); return prev; });
-    }
+    setSearchParams(prev => {
+        const newParams = new URLSearchParams(prev);
+        if (newCategory === 'All') newParams.delete('category');
+        else newParams.set('category', newCategory);
+        newParams.delete('concern'); 
+        return newParams;
+    });
+  };
+
+  const handleConcernChange = (e) => {
+    const newConcern = e.target.value;
+    setSearchParams(prev => {
+        const newParams = new URLSearchParams(prev);
+        if (newConcern === 'All') newParams.delete('concern');
+        else newParams.set('concern', newConcern);
+        return newParams;
+    });
   };
 
   const clearFilters = () => {
     setSearchTerm('');
-    setCategory('All');
-    setConcern('All'); 
     setSort('default');
     setSearchParams({}); 
   };
 
-  const loadMore = () => {
-    setVisibleProducts(prev => prev + 12); 
-  };
-
-  const openQuickView = (product) => {
-    setSelectedProduct(product);
-  };
-  const closeQuickView = () => {
-    setSelectedProduct(null);
-  };
+  const loadMore = () => setVisibleProducts(prev => prev + 12); 
+  const openQuickView = (product) => setSelectedProduct(product);
+  const closeQuickView = () => setSelectedProduct(null);
   
-  const filtersJSX = (
+  // --- RENDER FILTERS FUNCTION (Generates Unique IDs) ---
+  const renderFilters = (viewType) => (
     <>
       {isAllProductsView && (
         <div className="filter-group">
           <h4>Category</h4>
-          {['All', 'Soaps', 'Facewash', 'Other'].map(cat => (
-            <div key={cat} className="radio-group">
-              <input 
-                type="radio" 
-                id={`cat-${cat}`} 
-                name="category" 
-                value={cat}
-                checked={category === cat}
-                onChange={handleCategoryChange} 
-              />
-              <label htmlFor={`cat-${cat}`}>{cat}</label>
-            </div>
-          ))}
+          {['All', 'Soaps', 'Facewash', 'Shampoos', 'Face Masks', 'Baby', 'Other'].map(cat => {
+            // --- UNIQUE ID per viewType (desktop/mobile) ---
+            const uniqueId = `cat-${sanitizeId(cat)}-${viewType}`;
+            return (
+              <div key={cat} className="radio-group">
+                <input 
+                  type="radio" 
+                  id={uniqueId} 
+                  name={`category-${viewType}`} 
+                  value={cat}
+                  checked={category === cat}
+                  onChange={handleCategoryChange} 
+                />
+                <label htmlFor={uniqueId}>{cat}</label>
+              </div>
+            );
+          })}
         </div>
       )}
 
       <div className="filter-group">
-        <h4>{concernTitle}</h4>
-        {allConcerns.map(con => (
-          <div key={con} className="radio-group">
-            <input 
-              type="radio" 
-              id={`concern-${con}`} 
-              name="concern" 
-              value={con}
-              checked={concern === con}
-              onChange={(e) => setConcern(e.target.value)} 
-            />
-            <label htmlFor={`concern-${con}`}>{con.charAt(0).toUpperCase() + con.slice(1).replace('-', ' ')}</label>
-          </div>
-        ))}
+        <h4>{getConcernTitle()}</h4>
+        {allConcerns.length > 1 ? (
+           allConcerns.map(con => {
+            // --- UNIQUE ID per viewType (desktop/mobile) ---
+            const uniqueId = `concern-${sanitizeId(con)}-${viewType}`;
+            return (
+              <div key={con} className="radio-group">
+                <input 
+                  type="radio" 
+                  id={uniqueId} 
+                  name={`concern-${viewType}`} 
+                  value={con}
+                  checked={concern === con}
+                  onChange={handleConcernChange} 
+                />
+                <label htmlFor={uniqueId}>
+                    {con === 'All' ? 'All' : con.charAt(0).toUpperCase() + con.slice(1).replace(/-/g, ' ')}
+                </label>
+              </div>
+            );
+          })
+        ) : (
+          <p style={{fontSize: '0.9rem', color: '#888'}}>No filters available.</p>
+        )}
       </div>
       
       <button className="clear-filters-btn" onClick={clearFilters}>
@@ -260,17 +285,14 @@ function AllProductsPage() {
           {sidebarControlsJSX}
           <div className="sidebar-header"><h3>Filters</h3></div>
           <div className="filters-sidebar">
-            {filtersJSX}
+            {/* Pass 'desktop' to create unique IDs */}
+            {renderFilters('desktop')}
           </div>
         </aside>
 
-        {/* --- NEW MOBILE Filter Popup (with integrated overlay) --- */}
+        {/* --- MOBILE Filter Popup --- */}
         <aside className={`filters-sidebar-mobile ${isFiltersOpen ? 'open' : ''}`}>
-          
-          {/* This is now the click target *behind* the menu */}
           <div className="mobile-filter-overlay-CLICK-TARGET" onClick={() => setIsFiltersOpen(false)}></div>
-          
-          {/* This is the white menu content that slides in */}
           <div className="sidebar-content-wrapper">
             <div className="sidebar-header">
               <h3>Filters</h3>
@@ -279,7 +301,8 @@ function AllProductsPage() {
             <div className="mobile-sidebar-controls">
               {sidebarControlsJSX}
             </div>
-            {filtersJSX}
+            {/* Pass 'mobile' to create unique IDs */}
+            {renderFilters('mobile')}
           </div>
         </aside>
 

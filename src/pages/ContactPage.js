@@ -62,9 +62,9 @@ function ContactPage() {
           
           <h4 className="contact-info-subtitle-small">Follow Our Journey</h4>
           <div className="contact-social-icons">
-            <a href="#" title="Facebook"><i className="fab fa-facebook-f"></i></a>
-            <a href="#" title="Instagram"><i className="fab fa-instagram"></i></a>
-            <a href="#" title="Twitter"><i className="fab fa-twitter"></i></a>
+            <a href="www.ggole.com" title="Facebook"><i className="fab fa-facebook-f"></i></a>
+            <a href="www.com" title="Instagram"><i className="fab fa-instagram"></i></a>
+            <a href="www.com" title="Twitter"><i className="fab fa-twitter"></i></a>
           </div>
         </div>
 

@@ -11,7 +11,8 @@ const categoryLinks = {
   Other: '/other',
 };
 
-function ProductCarousel({ title, products, category }) {
+// --- PATCH: Added onQuickView to props ---
+function ProductCarousel({ title, products, category, onQuickView }) {
   const [currentPage, setCurrentPage] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(3); // Default to 3
   
@@ -36,13 +37,13 @@ function ProductCarousel({ title, products, category }) {
         const widthInRem = wrapperWidth / rootFontSize;
         
        // --- These values match your CSS breakpoints ---
-if (widthInRem >= 80) { // 4-card layout
-  setCardsPerView(3);
-} else if (widthInRem >= 39) { // 2-card layout
-  setCardsPerView(2);
-} else { // 1-card layout
-  setCardsPerView(1);
-}
+        if (widthInRem >= 80) { // 4-card layout
+          setCardsPerView(3);
+        } else if (widthInRem >= 39) { // 2-card layout
+          setCardsPerView(2);
+        } else { // 1-card layout
+          setCardsPerView(1);
+        }
       }
     });
 
@@ -141,7 +142,12 @@ if (widthInRem >= 80) { // 4-card layout
                     onTouchEnd={handleTouchEnd}
                   >
                       {products.map((product) => (
-                          <ProductCard key={product.title} product={product} />
+                          <ProductCard 
+                            key={product.title} 
+                            product={product} 
+                            /* --- PATCH: Pass the function down --- */
+                            onQuickView={() => onQuickView && onQuickView(product)}
+                          />
                       ))}
                   </div>
               </div>

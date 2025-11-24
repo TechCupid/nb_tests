@@ -82,6 +82,21 @@ header {
     padding: 1.5rem 0;
     border-bottom: 0.0625rem solid #ddd; /* 1px */
 }
+
+.logo-img {
+   
+    height: 4rem;  
+    width: auto;     
+    object-fit: contain;
+}
+
+/* --- Mobile Size (Optional) --- */
+/* It's good practice to keep it smaller on phones */
+@media (max-width: 56.25rem) { 
+    .logo-img {
+        height: 2.5rem; /* Adjust this for mobile screens */
+    }
+}
 header .logo-link {
     text-decoration: none;
     color: inherit;
@@ -311,6 +326,7 @@ header nav a:hover::after {
     border-radius: 1.25rem; /* 20px */
     border: 0.0625rem solid #eee; /* 1px */
     padding: 1rem;
+    position: relative;
     text-align: center;
     width: 18.75rem; /* --- 300px --- */
     flex-shrink: 0; 
@@ -817,7 +833,7 @@ header nav a:hover::after {
 }
 .product-grid .product-card {
     width: 100% !important; 
-    text-align: left;
+    text-align: center;
     border-radius: 0.9375rem; /* 15px */
     background: var(--card-bg);
     border: 0.0625rem solid #eee; /* 1px */
@@ -833,6 +849,7 @@ header nav a:hover::after {
     position: relative; /* Needed to position the button */
     overflow: hidden; /* Needed for the zoom effect */
     border-radius: 0.9375rem 0.9375rem 0 0; /* 15px */
+    
 }
 .product-grid .product-card .card-image-container img {
     width: 100%;
@@ -842,9 +859,11 @@ header nav a:hover::after {
     border-radius: 0; 
     margin-bottom: 0;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    
 }
 .product-grid .product-card:hover .card-image-container img {
     transform: scale(1.05); /* Subtle zoom */
+    
 }
 .quick-view-btn {
     position: absolute;
@@ -860,10 +879,12 @@ header nav a:hover::after {
     cursor: pointer;
     z-index: 10;
     opacity: 0;
+    visibility: hidden;
     transition: all 0.3s ease;
 }
-.product-grid .product-card:hover .quick-view-btn {
+.product-card:hover .quick-view-btn {
     opacity: 1;
+    visibility:visible;
 }
 .quick-view-btn:hover {
     background: var(--dark-green);
@@ -1208,7 +1229,7 @@ header nav a:hover::after {
 
 .contact-info-item i {
   font-size: 1.2rem;
-  color: var(--accent-green);
+  color: var(--dark-green);
   width: 1.5625rem; /* 25px */
   text-align: center;
 }
@@ -2071,4 +2092,279 @@ header nav a.active::after {
     .contact-form {
       padding: 2rem 1.5rem;
     }
+}
+/* ============================================== */
+/* === BABY COLLECTION (Arch Mobile Theme) === */
+/* ============================================== */
+
+:root {
+  --arch-bg: #FFF8F0; /* Warm Cream */
+  --arch-card: #FFFFFF;
+  --sage-green: #8A9A5B; /* Natural Earthy Green */
+  --terracotta: #E29578; /* Soft Clay */
+  --sun-yellow: #FFD166;
+  --text-dark: #2D3142;
+}
+
+.baby-section {
+    position: relative;
+    background-color: var(--accent-green);
+    margin-top: 5rem;
+    padding-bottom: 5rem;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden; /* Keep animations inside */
+    border-radius: 2rem;
+}
+
+
+
+/* --- 2. Sun & Sky Animation --- */
+.baby-sky {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    z-index: 0;
+}
+
+.sun-wrapper {
+    position: absolute;
+    top: 40px;
+    right: 10%;
+    width: 100px;
+    height: 100px;
+    animation: spinSun 20s infinite linear;
+}
+
+.sun-core {
+    width: 60px;
+    height: 60px;
+    background: var(--sun-yellow);
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    box-shadow: 0 0 40px rgba(255, 209, 102, 0.6);
+}
+
+.sun-rays {
+    width: 100%;
+    height: 100%;
+    border: 2px dashed var(--sun-yellow);
+    border-radius: 50%;
+    position: absolute;
+}
+
+@keyframes spinSun { 100% { transform: rotate(360deg); } }
+
+/* --- Header --- */
+.baby-header {
+    position: relative;
+    z-index: 3;
+    max-width: 600px;
+    margin: 4rem auto 3rem auto;
+}
+
+.baby-pill {
+    background: white;
+    color: var(--sage-green);
+    border: 1px solid var(--sage-green);
+    padding: 0.5rem 1.5rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.baby-header h2 {
+    font-family: serif;
+    font-size: 3rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.highlight-arch {
+    color: var(--terracotta);
+    font-style: italic;
+    position: relative;
+}
+
+.highlight-arch::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 10px;
+    bottom: 5px;
+    left: 0;
+    background: rgba(226, 149, 120, 0.2);
+    border-radius: 5px;
+    z-index: -1;
+}
+
+/* --- The Grid --- */
+.baby-grid {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding: 2rem;
+}
+
+/* --- 3. THE ARCH CARD (The Unique Part) --- */
+.baby-arch-card {
+    background: white;
+    width: 280px;
+    /* This creates the Tombstone/Arch shape */
+    border-radius: 150px 150px 20px 20px; 
+    padding: 15px;
+    padding-bottom: 30px;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(138, 154, 91, 0.15);
+    transform-origin: top center; /* Swing from top */
+    animation: gentleSwing 4s ease-in-out infinite alternate;
+    transition: all 0.3s ease;
+    margin-top: 20px; /* Space for the string */
+}
+
+/* The visual string hanging from top */
+.hanging-string {
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, var(--terracotta));
+    z-index: -1;
+    opacity: 0.5;
+}
+
+/* Stop swinging on hover */
+.baby-arch-card:hover {
+    animation-play-state: paused;
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(138, 154, 91, 0.25);
+}
+
+@keyframes gentleSwing {
+    from { transform: rotate(-1deg); }
+    to { transform: rotate(1deg); }
+}
+
+
+
+.arch-image-container img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+    transition: transform 0.5s ease;
+    border-radius: 90rem;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+
+}
+
+.baby-arch-card:hover img {
+    transform: scale(1.1);
+}
+
+.floating-tag {
+    position: absolute;
+    top: 20px;
+    right: 50%;
+    transform: translateX(50%);
+    background: var(--terracotta);
+    color: white;
+    font-size: 0.7rem;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 600;
+    z-index: 2;
+}
+
+/* Content */
+.arch-content {
+    text-align: center;
+    padding: 0 10px;
+}
+
+.arch-content h3 {
+    font-family: serif;
+    font-size: 1.4rem;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.arch-content p {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+/* Action Row */
+.arch-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #F9F9F9;
+    padding: 5px 5px 5px 20px;
+    border-radius: 50px;
+}
+
+.price {
+    font-weight: 700;
+    color: var(--sage-green);
+    font-size: 1.1rem;
+}
+
+.add-circle-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--text-dark);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.add-circle-btn:hover {
+    background: var(--terracotta);
+    transform: rotate(90deg);
+}
+
+/* --- Footer --- */
+.view-shop-btn {
+    display: inline-block;
+    background: white;
+    color: var(--text-dark);
+    padding: 1rem 3rem;
+    border-radius: 0 20px 0 20px; /* Leaf shape */
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 5px 5px 0 var(--sage-green);
+    border: 2px solid var(--text-dark);
+    transition: all 0.3s;
+    margin-top: 2rem;
+}
+
+.view-shop-btn:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 var(--sage-green);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .baby-header h2 { font-size: 2.2rem; }
+    .baby-grid { padding: 0; }
+    /* Disable swing on mobile to save battery/performance */
+    .baby-arch-card { animation: none; margin-top: 0; }
+    .hanging-string { display: none; }
 }
