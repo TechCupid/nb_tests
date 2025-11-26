@@ -25,13 +25,9 @@ function Header() {
             </button>
 
             <NavLink to="/" onClick={toggleMobileMenu}>Home</NavLink>
-            
-            <div className="nav-dropdown">
-              <NavLink to="/shop" className="nav-dropdown-toggle" onClick={toggleMobileMenu}>
+             <NavLink to="/shop" className="nav-dropdown-toggle" onClick={toggleMobileMenu}>
                 Products
               </NavLink>
-            </div>
-
             <NavLink to="/contact" onClick={toggleMobileMenu}>Contact Us</NavLink>
             <NavLink to="/about" onClick={toggleMobileMenu}>About Us</NavLink>
           </nav>
