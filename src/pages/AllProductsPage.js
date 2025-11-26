@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect } from 'react';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import ProductCard from '../components/ProductCard'; 
-import { soapProducts, otherProducts, faceWashProducts, faceMaskproducts, shampooProducts, babyProducts } from '../productdata';
+import { soapProducts, otherProducts, faceWashProducts, faceMaskProducts, shampooProducts, babyProducts } from '../productdata';
 import ImageSlider from '../components/ImageSlider'; 
 
 // --- Helper Function to sanitize IDs ---
@@ -21,7 +21,7 @@ const getPrimaryTag = (tags) => {
 const allSoapProducts = soapProducts.map(p => ({ ...p, id: p.title, category: 'Soaps', primaryTag: getPrimaryTag(p.tags) }));
 const allOtherProducts = otherProducts.map(p => ({ ...p, id: p.title, category: 'Other', primaryTag: getPrimaryTag(p.tags) }));
 const allFaceWashProducts = faceWashProducts.map(p => ({ ...p, id: p.title, category: 'Facewash', primaryTag: getPrimaryTag(p.tags) }));
-const allFaceMaskProducts = faceMaskproducts.map(p => ({ ...p, id: p.title, category: 'Face Masks', primaryTag: getPrimaryTag(p.tags) }));
+const allFaceMaskProducts = faceMaskProducts.map(p => ({ ...p, id: p.title, category: 'Face Masks', primaryTag: getPrimaryTag(p.tags) }));
 const allShampooProducts = shampooProducts.map(p => ({ ...p, id: p.title, category: 'Shampoos', primaryTag: getPrimaryTag(p.tags) }));
 const allBabyProducts = babyProducts.map(p => ({ ...p, id: p.title, category: 'Baby', primaryTag: getPrimaryTag(p.tags) }));
 

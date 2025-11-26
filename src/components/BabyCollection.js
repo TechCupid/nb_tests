@@ -33,7 +33,7 @@ function BabyCollection() {
           <div className="baby-arch-card" key={product.id} style={{ animationDelay: `${index * 0.2}s` }}>
             
             <div className="arch-image-container">
-              <span className="floating-tag">{product.tags}</span>
+              
               <img src={product.img} alt={product.title} />
             </div>
             

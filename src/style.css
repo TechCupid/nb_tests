@@ -633,6 +633,7 @@ header nav a:hover::after {
 .shop-sidebar {
     flex-basis: 18.75rem; /* 300px */
     flex-shrink: 0;
+    position: -webkit-sticky;
     position: sticky;
     top: 2rem;
     align-self: flex-start;
@@ -905,6 +906,7 @@ header nav a:hover::after {
     margin-bottom: 0.75rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
+    line-clamp: 2;
     -webkit-box-orient: vertical;  
     overflow: hidden;
 }
@@ -987,6 +989,7 @@ header nav a:hover::after {
   width: 100%; 
   height: 100%;
   background: rgba(30, 35, 30, 0.3); /* --- Softer background --- */
+  -webkit-backdrop-filter: blur(0.5rem); /* Safari on iOS support */
   backdrop-filter: blur(0.5rem); /* 8px */
   z-index: 1000; 
   display: flex; 
@@ -1178,6 +1181,7 @@ header nav a:hover::after {
     margin: 4rem 0rem 4rem 0rem;
     padding: 3rem 3rem 3rem 3rem;
     border-radius: 1.875rem; 
+    align-items: center;
 }
 
 .contact-split-container {
@@ -1270,12 +1274,7 @@ header nav a:hover::after {
 }
 
 /* --- Right Side: Form --- */
-.contact-form-panel {
-  background: var(--card-bg);
-  padding: 3rem;
-  border-radius: 1.25rem; /* 20px */
-  box-shadow: 0 0.625rem 2.5rem rgba(0,0,0,0.07); /* 10px 40px */
-}
+
 
 .contact-form .form-group {
   margin-bottom: 1.5rem;
@@ -1333,6 +1332,7 @@ header nav a:hover::after {
     align-items: flex-start;
   }
 }
+
 
 @media (max-width: 39.375rem) { /* 630px */
   .contact-page-split {
@@ -2038,9 +2038,7 @@ header nav a.active::after {
     .nav-dropdown {
         width: 100%;
     }
-    .nav-dropdown-toggle {
-      /* --- THIS IS THE FIX: This rule is now GONE --- */
-    }
+    
     .nav-dropdown-menu {
         display: block; /* Show all product links */
     }

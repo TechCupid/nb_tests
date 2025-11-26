@@ -12,7 +12,7 @@ import {
   soapProducts, 
   otherProducts, 
   faceWashProducts,
-  faceMaskproducts,
+  faceMaskProducts,
   shampooProducts
 } from './productdata';
 
@@ -20,7 +20,7 @@ const allProducts = [
   ...soapProducts.map((p, i) => ({ ...p, id: `soap-${i}`, category: 'Soaps' })),
   ...otherProducts.map((p, i) => ({ ...p, id: `other-${i}`, category: 'Other' })),
   ...faceWashProducts.map((p, i) => ({ ...p, id: `facewash-${i}`, category: 'Facewash' })),
-  ...faceMaskproducts.map((p, i) => ({ ...p, id: `facemask-${i}`, category: 'Face Masks' })),
+  ...faceMaskProducts.map((p, i) => ({ ...p, id: `facemask-${i}`, category: 'Face Masks' })),
   ...shampooProducts.map((p, i) => ({ ...p, id: `shampoo-${i}`, category: 'Shampoos' }))
 ];
 
