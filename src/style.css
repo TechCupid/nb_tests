@@ -998,6 +998,12 @@ header nav a:hover::after {
   padding: 1.5rem; 
   animation: fadeIn 0.3s ease;
 }
+.modal-tags-container h4 {
+    margin-bottom: 10px;
+    margin-top: 15px;
+    font-size: 1.1rem;
+    color: #333;
+}
 
 .quick-view-modal-content {
   display: flex; 
@@ -1921,19 +1927,7 @@ header nav a.active::after {
     .all-products-header-mobile .back-to-home-btn {
         flex-shrink: 0;
     }
-    .all-products-header-mobile .mobile-filter-btn {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        width: 2.75rem; /* 44px */
-        height: 2.75rem; /* 44px */
-        padding: 0;
-        font-size: 1.2rem;
-    }
-    .all-products-header-mobile .mobile-filter-btn i {
-        margin: 0;
-    }
+   
 
     .controls-bar {
         display: none; /* Hide desktop controls */
@@ -2359,10 +2353,47 @@ header nav a.active::after {
 }
 
 /* Mobile */
+/* Mobile Responsive for Baby Section */
 @media (max-width: 768px) {
-    .baby-header h2 { font-size: 2.2rem; }
-    .baby-grid { padding: 0; }
-    /* Disable swing on mobile to save battery/performance */
-    .baby-arch-card { animation: none; margin-top: 0; }
-    .hanging-string { display: none; }
+    .baby-header h2 { 
+        font-size: 2.2rem; 
+    }
+
+    .baby-grid { 
+        /* Turn Grid into a Scrolling Flexbox */
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto; /* Allow horizontal scrolling */
+        justify-content: flex-start;
+        
+        gap: 1.5rem;
+        padding: 0 2rem 3rem 2rem; /* Padding allows seeing edges */
+        
+        /* Snap effect for smooth scrolling */
+        scroll-snap-type: x mandatory; 
+        
+        /* Hide scrollbar for clean look */
+        -ms-overflow-style: none;  
+        scrollbar-width: none;  
+    }
+    
+    .baby-grid::-webkit-scrollbar { 
+        display: none; 
+    }
+
+    .baby-arch-card { 
+        /* Card takes 85% of screen width (allows next card to "peek") */
+        flex: 0 0 85%;
+        min-width: 85%;
+        
+        scroll-snap-align: center;
+        
+        /* Disable the swing animation on mobile */
+        animation: none; 
+        margin-top: 0; 
+    }
+
+    .hanging-string { 
+        display: none; 
+    }
 }

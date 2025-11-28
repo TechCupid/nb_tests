@@ -4,6 +4,8 @@ import ProductCard from '../components/ProductCard';
 import { soapProducts, otherProducts, faceWashProducts, faceMaskProducts, shampooProducts, babyProducts } from '../productdata';
 import ImageSlider from '../components/ImageSlider'; 
 
+// --- 1. REMOVED: import { FiSliders } from "react-icons/fi"; ---
+
 // --- Helper Function to sanitize IDs ---
 const sanitizeId = (text) => {
   if (!text) return 'unknown';
@@ -40,8 +42,38 @@ const bannerImages = [
   { src: './ban5.jpg', alt: 'Natural lip balm products', caption: 'Hydrate & Protect Your Lips' }
 ];
 
+// --- 2. NEW: Custom Filter Button Component (No Install Needed) ---
+function FilterButton({ onClick }) {
+    return (
+      <button 
+        className="mobile-filter-btn-custom" 
+        onClick={onClick} 
+        title="Open Filters"
+        style={{
+            display: 'flex', alignItems: 'center', gap: '8px', 
+            background: '#fff', border: '1px solid #ddd', 
+            padding: '8px 16px', borderRadius: '20px', cursor: 'pointer'
+        }}
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line>
+          <line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line>
+          <line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line>
+          <line x1="17" y1="16" x2="23" y2="16"></line>
+        </svg>
+        <span style={{ fontSize: '14px', fontWeight: '600' }}>Filter</span>
+      </button>
+    );
+  }
+
+// --- 3. UPDATED: Quick View Modal with "Best For" List ---
 function QuickViewModal({ product, onClose }) {
   if (!product) return null;
+  
+  // Ensure we have an array of tags to map over
+  const tagsToDisplay = Array.isArray(product.tags) ? product.tags : [product.primaryTag];
+
   return (
     <div className="quick-view-modal-overlay" onClick={onClose}>
       <div className="quick-view-modal-content" onClick={(e) => e.stopPropagation()}>
@@ -49,8 +81,20 @@ function QuickViewModal({ product, onClose }) {
         <div className="modal-image"><img src={product.img} alt={product.title} /></div>
         <div className="modal-details">
           <h2>{product.title}</h2>
-          <div className="modal-rating">{product.rating} <span>({product.reviews})</span></div>
+          <p>{product.subtitle}</p>
           <p>{product.description}</p>
+          
+          <div className="modal-tags-container" style={{ marginTop: '15px' }}>
+            <h4>Best For:</h4>
+            <ul style={{ paddingLeft: '20px', listStyleType: 'disc', marginTop: '5px' }}>
+              {tagsToDisplay.map((tag, index) => (
+                <li key={index} style={{ marginBottom: '5px', textTransform: 'capitalize' }}>
+                  {tag.toString().replace(/-/g, ' ')}
+                </li>
+              ))}
+            </ul>
+          </div>
+
         </div>
       </div>
     </div>
@@ -120,7 +164,7 @@ function AllProductsPage() {
       const lowerSearch = searchTerm.toLowerCase();
       prods = prods.filter(p => 
         p.title.toLowerCase().includes(lowerSearch) ||
-        p.description.toLowerCase().includes(lowerSearch)
+        (p.description && p.description.toLowerCase().includes(lowerSearch))
       );
     }
 
@@ -168,14 +212,13 @@ function AllProductsPage() {
   const openQuickView = (product) => setSelectedProduct(product);
   const closeQuickView = () => setSelectedProduct(null);
   
-  // --- RENDER FILTERS FUNCTION (Generates Unique IDs) ---
+  // --- RENDER FILTERS FUNCTION ---
   const renderFilters = (viewType) => (
     <>
       {isAllProductsView && (
         <div className="filter-group">
           <h4>Category</h4>
           {['All', 'Soaps', 'Facewash', 'Shampoos', 'Face Masks', 'Baby', 'Other'].map(cat => {
-            // --- UNIQUE ID per viewType (desktop/mobile) ---
             const uniqueId = `cat-${sanitizeId(cat)}-${viewType}`;
             return (
               <div key={cat} className="radio-group">
@@ -198,7 +241,6 @@ function AllProductsPage() {
         <h4>{getConcernTitle()}</h4>
         {allConcerns.length > 1 ? (
            allConcerns.map(con => {
-            // --- UNIQUE ID per viewType (desktop/mobile) ---
             const uniqueId = `concern-${sanitizeId(con)}-${viewType}`;
             return (
               <div key={con} className="radio-group">
@@ -227,6 +269,7 @@ function AllProductsPage() {
     </>
   );
 
+  
   const sidebarControlsJSX = (
     <>
       <div className="product-count">
@@ -285,7 +328,6 @@ function AllProductsPage() {
           {sidebarControlsJSX}
           <div className="sidebar-header"><h3>Filters</h3></div>
           <div className="filters-sidebar">
-            {/* Pass 'desktop' to create unique IDs */}
             {renderFilters('desktop')}
           </div>
         </aside>
@@ -301,7 +343,6 @@ function AllProductsPage() {
             <div className="mobile-sidebar-controls">
               {sidebarControlsJSX}
             </div>
-            {/* Pass 'mobile' to create unique IDs */}
             {renderFilters('mobile')}
           </div>
         </aside>
@@ -312,9 +353,10 @@ function AllProductsPage() {
                 <i className="fas fa-arrow-left"></i>
             </Link>
             <h2 className="shop-all-products-title-mobile">{pageTitle}</h2>
-            <button className="mobile-filter-btn" onClick={() => setIsFiltersOpen(true)}>
-              <i className="fas fa-filter"></i>
-            </button>
+            
+            {/* --- 4. REPLACED: New Filter Button Component --- */}
+            <FilterButton onClick={() => setIsFiltersOpen(true)} />
+
           </div>
 
           <div className={`product-grid ${viewMode === 'list' ? 'list-view' : ''}`}>
@@ -323,6 +365,7 @@ function AllProductsPage() {
                 <ProductCard 
                   key={product.id || product.title} 
                   product={product}
+                  subtitle={product.subtitle}
                   viewMode={viewMode}
                   onQuickView={() => openQuickView(product)}
                 />

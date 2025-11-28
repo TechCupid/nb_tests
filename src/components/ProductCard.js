@@ -16,10 +16,9 @@ function ProductCard({ product, viewMode, onQuickView }) {
       
       <div className="card-content-container">
         <h3>{product.title}</h3>
+        <p>{product.subtitle}</p>
         <p>{product.description}</p>
-        <div className="rating">
-          {product.rating} <span>({product.reviews})</span>
-        </div>
+        
         
         {/* --- REMOVED: All "Add to Cart" buttons --- */}
         

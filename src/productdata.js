@@ -4,227 +4,177 @@ export const soapProducts = [
   {
     img: './soap/avocado.png',
     title: 'Avocado Soap',
+    subtitle: '(Dry Skin)',
     description: 'Deeply nourishes and hydrates rough skin with creamy avocado goodness.',
-    tags: ['dry-skin', 'hydrating'],
-    rating: '★★★★★',
-    reviews: '82 reviews',
-    price: '₹140.00'
+    tags: ['dry-skin', 'hydrating', 'nourishing']
   },
   {
     img: './soap/ashwagandha.png',
     title: 'Ashwagandha Soap',
+    subtitle: '(Revitalizing)',
     description: 'Revitalizes tired skin and reduces stress with ancient Ayurvedic herbs.',
-    tags: ['sensitive-skin', 'anti-stress'],
-    rating: '★★★★☆',
-    reviews: '105 reviews',
-    price: '₹155.00'
+    tags: ['sensitive-skin', 'anti-stress', 'revitalizing']
   },
   {
     img: './soap/strawberry.png',
     title: 'Strawberry Soap',
+    subtitle: '(Oily Skin)',
     description: 'A fruity delight that exfoliates gently and brightens the complexion.',
-    tags: ['oily-skin', 'brightening', 'acne-control', 'anti-aging'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['oily-skin', 'brightening', 'acne-control', 'anti-aging']
   },
   {
     img: './soap/grape.png',
     title: 'Grape Soap',
+    subtitle: '(Anti-Aging)',
     description: 'Rich in antioxidants to fight free radicals and promote radiant skin.',
-    tags: ['anti-aging', 'brightening', 'antioxidant'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['anti-aging', 'brightening', 'antioxidant']
   },
   {
     img: './soap/papaya.png',
     title: 'Papaya Soap',
+    subtitle: '(Pigmentation)',
     description: 'Contains papain enzymes to fade dark spots and smooth texture.',
-    tags: ['brightening', 'acne-control', 'pigmentation'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['brightening', 'acne-control', 'pigmentation']
   },
   {
     img: './soap/orange.png',
     title: 'Orange Soap',
+    subtitle: '(Oil Control)',
     description: 'Energizes your senses and clears excess oil with citrus zest.',
-    tags: ['brightening', 'oily-skin', 'refreshing'],
-    rating: '★★★★★',
-    reviews: '99 reviews',
-    price: '₹160.00'
+    tags: ['brightening', 'oily-skin', 'refreshing']
   },
   {
     img: './soap/pomegranate.png',
     title: 'Pomegranate Soap',
+    subtitle: '(Skin Glow)',
     description: 'Boosts collagen and locks in moisture for a youthful glow.',
-    tags: ['anti-aging', 'hydrating', 'brightening'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['anti-aging', 'hydrating', 'brightening']
   },
   {
     img: './soap/jamun.png',
-    title: 'Indian Blackberry (Jamun)',
+    title: 'Jamun Soap',
+    subtitle: '(Acne Control)',
     description: 'Detoxifies pores and controls oil production effectively.',
-    tags: ['oily-skin', 'acne-control'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['oily-skin', 'detox', 'acne-control']
   },
   {
     img: './soap/cucumber.png',
     title: 'Cucumber Soap',
+    subtitle: '(Cooling)',
     description: 'Cools and calms irritated or sun-burnt skin instantly.',
-    tags: ['sensitive-skin', 'hydrating', 'cooling'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['sensitive-skin', 'hydrating', 'cooling']
   },
   {
     img: './soap/beetroot.png',
     title: 'Beetroot Soap',
+    subtitle: '(Brightening)',
     description: 'Revives dull skin and adds a natural pinkish glow.',
-    tags: ['brightening', 'pigmentation', 'glow'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['brightening', 'pigmentation', 'glow']
   },
   {
     img: './soap/potato.png',
     title: 'Potato Soap',
+    subtitle: '(Dark Spots)',
     description: 'Known for reducing dark circles, spots, and evening out skin tone.',
-    tags: ['brightening', 'pigmentation'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['brightening', 'pigmentation', 'dark-spots']
   },
   {
     img: './soap/turmeric.png',
     title: 'Turmeric Soap',
-    description: 'Antiseptic properties to heal acne and enhance complexion.',
-    tags: ['oily-skin', 'acne-control', 'brightening', 'antiseptic'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    subtitle: '(Antiseptic)',
+    description: 'Heals acne and enhances complexion with golden herbal power.',
+    tags: ['oily-skin', 'acne-control', 'brightening', 'antiseptic']
   },
   {
     img: './soap/rose.png',
     title: 'Rose Soap',
+    subtitle: '(Softening)',
     description: 'Luxuriously floral scent that softens and tones the skin.',
-    tags: ['dry-skin', 'sensitive-skin', 'hydrating', 'toning'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['dry-skin', 'sensitive-skin', 'hydrating', 'toning']
   },
   {
     img: './soap/tulsi.png',
-    title: 'Tulsi (Holy Basil) Soap',
+    title: 'Tulsi Soap',
+    subtitle: '(Bacterial Infection)',
     description: 'Purifies the skin and fights bacterial infections with sacred herbs.',
-    tags: ['acne-control', 'antibacterial'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['acne-control', 'antibacterial', 'detox']
   },
   {
     img: './soap/flaxseed.png',
     title: 'Flaxseed Soap',
+    subtitle: '(Wrinkles)',
     description: 'Packed with Omega-3s to plump skin and reduce fine lines.',
-    tags: ['hydrating', 'dry-skin', 'anti-aging', 'sensitive-skin'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['hydrating', 'dry-skin', 'anti-aging', 'sensitive-skin']
   },
   {
     img: './soap/saffron.png',
     title: 'Saffron Soap',
+    subtitle: '(Tan Removal)',
     description: 'A royal formulation to illuminate the complexion and reduce tan.',
-    tags: ['brightening', 'tan-removal', 'luxury'],
-    rating: '★★★★★',
-    reviews: '99 reviews',
-    price: '₹160.00'
+    tags: ['brightening', 'tan-removal', 'luxury']
   },
   {
     img: './soap/multani.png',
     title: 'Multani Mitti Soap',
+    subtitle: '(Deep Cleanse)',
     description: 'Deep cleanses oil and dirt while tightening pores.',
-    tags: ['oily-skin', 'pigmentation', 'acne-control'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['oily-skin', 'pigmentation', 'detox', 'acne-control']
   },
   {
     img: './soap/liquorice.png',
     title: 'Licorice Soap',
+    subtitle: '(Sun Damage)',
     description: 'Brightens skin and soothes sun damage naturally.',
-    tags: ['brightening', 'pigmentation', 'sensitive-skin', 'tan-removal'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['brightening', 'pigmentation', 'sensitive-skin', 'tan-removal']
   },
   {
     img: './soap/nalangumaavu.png',
     title: 'Nalangu Maavu Soap',
+    subtitle: '(Traditional Glow)',
     description: 'Traditional herbal blend for glowing, blemish-free skin.',
-    tags: ['glow', 'traditional', 'all-skin-types'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['glow', 'traditional', 'all-skin-types']
   },
   {
     img: './soap/manjistha.png',
     title: 'Manjistha Soap',
+    subtitle: '(Detox)',
     description: 'Powerful Ayurvedic blood purifier for clear, radiant skin.',
-    tags: ['oily-skin', 'acne-control', 'ayurvedic'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['oily-skin', 'acne-control', 'detox', 'ayurvedic']
   },
   {
     img: './soap/kaolinclay.png',
     title: 'Kaolin Clay Soap',
+    subtitle: '(Exfoliation)',
     description: 'Gently exfoliates without drying, leaving a silky finish.',
-    tags: ['sensitive-skin', 'dry-skin'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['sensitive-skin', 'dry-skin', 'exfoliating']
   },
   {
     img: './soap/frenchclay.png',
-    title: 'French Green Clay Soap',
+    title: 'French Clay Soap',
+    subtitle: '(Pore Refining)',
     description: 'Absorbs toxins and impurities like a magnet.',
-    tags: ['oily-skin', 'acne-control'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['oily-skin', 'acne-control', 'detox']
   },
   {
     img: './soap/redclay.png',
     title: 'Red Clay Soap',
+    subtitle: '(Circulation)',
     description: 'Revitalizes tired skin and improves blood circulation.',
-    tags: ['brightening', 'dry-skin'],
-    rating: '★★★★★',
-    reviews: '99 reviews',
-    price: '₹160.00'
+    tags: ['brightening', 'dry-skin', 'revitalizing']
   },
   {
     img: './soap/pinkclay.png',
     title: 'Pink Clay Soap',
+    subtitle: '(Sensitive Skin)',
     description: 'The gentlest clay, perfect for calming sensitive skin.',
-    tags: ['sensitive-skin', 'dry-skin', 'calming'],
-    rating: '★★★★★',
-    reviews: '90 reviews',
-    price: '₹160.00'
+    tags: ['sensitive-skin', 'dry-skin', 'calming']
   },
   {
     img: './soap/carrot.png',
     title: 'Carrot Soap',
+    subtitle: '(Sun Protection)',
     description: 'Rich in Beta Carotene to protect against UV damage and aging.',
-    tags: ['anti-aging', 'dry-skin', 'glow'],
-    rating: '★★★★★',
-    reviews: '65 reviews',
-    price: '₹160.00'
+    tags: ['anti-aging', 'dry-skin', 'brightening', 'glow']
   },
 ];
 
@@ -232,32 +182,32 @@ export const babyProducts = [
   {
     id: 1,
     title: "Baby Talcum Powder",
+    subtitle: "(Tear Free)",
     description: "Tear-free, talc-free natural formula with chamomile to keep skin dry.",
-    price: "₹350.00",
     img: "./baby/powder.png",
     tags: ["tear-free", "sensitive-skin"]
   },
   {
     id: 2,
     title: "Nalangu Maavu Powder",
+    subtitle: "(Bath Powder)",
     description: "Traditional herbal bath powder that gently cleanses and protects delicate skin.",
-    price: "₹290.00",
     img: "./baby/babynalangu.png",
     tags: ["organic", "traditional", "bath-powder"]
   },
   {
     id: 3,
     title: "Natural Baby Soap",
+    subtitle: "(Calming)",
     description: "Infused with Lavender essential oil to promote calmness and better sleep.",
-    price: "₹420.00",
     img: "./baby/babysoap.png",
     tags: ["calming", "lavender", "moisturizing"]
   },
   {
     id: 4,
     title: "Natural Baby Kajal",
+    subtitle: "(Eye Care)",
     description: "Enriched with almond oil and organic ghee to soothe and cool eyes.",
-    price: "₹199.00",
     img: "./baby/kajal.png",
     tags: ["chemical-free", "eye-care"]
   }
@@ -266,39 +216,31 @@ export const babyProducts = [
 export const otherProducts = [
   {
     img: './others/lipbalm.jpeg',
-    title: 'Beetroot Lip Balm',
+    title: 'Natural Lip Balm',
+    subtitle: '(Tinted)',
     description: 'Gives a natural pink tint while healing cracked lips.',
-    tags: ['lip-care', 'moisturizing', 'tinted'],
-    rating: '★★★★★',
-    reviews: '250 reviews',
-    price: '₹175.00'
+    tags: ['lip-care', 'moisturizing', 'tinted']
   },
   {
     img: './others/aloeveragel.png',
     title: 'Aloe Vera Gel',
+    subtitle: '(Soothing)',
     description: 'Multi-purpose gel that cools skin, soothes burns, and hydrates hair.',
-    tags: ['skin-care', 'hair-care', 'soothing'],
-    rating: '★★★★☆',
-    reviews: '140 reviews',
-    price: '₹160.00'
+    tags: ['skin-care', 'hair-care', 'soothing']
   },
   {
     img: './others/potato.png',
     title: 'Potato Face Cream',
+    subtitle: '(Blemishes)',
     description: 'Intense hydration that reduces blemishes and evens skin tone.',
-    tags: [ 'dry-skin', 'brightening'],
-    rating: '★★★★★',
-    reviews: '190 reviews',
-    price: '₹180.00'
+    tags: ['face-cream', 'dry-skin', 'brightening']
   },
   {
     img: './others/moisturizer.jpeg',
     title: 'Daily Moisturizer',
+    subtitle: '(Hydration)',
     description: 'Non-greasy formula for long-lasting hydration.',
-    tags: [ 'dry-skin', 'daily-care'],
-    rating: '★★★★★',
-    reviews: '190 reviews',
-    price: '₹180.00'
+    tags: ['moisturizer', 'dry-skin', 'daily-care']
   }
 ];
 
@@ -307,152 +249,120 @@ export const faceWashProducts = [
   {
     img: './facewash/multani-mitti.png',
     title: 'Multani Mitti',
+    subtitle: '(Oil Control)',
     description: 'A natural clay that deep cleanses and absorbs excess oil.',
-    tags: ['oily-skin', 'combination-skin'],
-    rating: '★★★★★',
-    reviews: '120 reviews',
-    price: '₹150.00'
+    tags: ['oily-skin', 'combination-skin', 'detox']
   },
   {
     img: './facewash/neem-leaves.png',
     title: 'Neem Leaves Powder',
+    subtitle: '(Active Acne)',
     description: 'Antibacterial powder to purify skin and prevent active acne.',
-    tags: ['oily-skin', 'acne-control', 'antibacterial'],
-    rating: '★★★★★',
-    reviews: '95 reviews',
-    price: '₹130.00'
+    tags: ['oily-skin', 'acne-control', 'antibacterial']
   },
   {
     img: './facewash/tulasi.png',
     title: 'Tulsi Powder',
+    subtitle: '(Redness)',
     description: 'Sacred herb known to clear blemishes and calm redness.',
-    tags: ['oily-skin', 'acne-control', 'soothing'],
-    rating: '★★★★☆',
-    reviews: '88 reviews',
-    price: '₹140.00'
+    tags: ['oily-skin', 'acne-control', 'soothing']
   },
   {
     img: './facewash/liquorice.png',
     title: 'Licorice Powder',
+    subtitle: '(Dark Spots)',
     description: 'Soothes and brightens skin, helping to fade dark spots and tan.',
-    tags: ['oily-skin', 'dry-skin', 'brightening', 'pigmentation'],
-    rating: '★★★★★',
-    reviews: '210 reviews',
-    price: '₹160.00'
+    tags: ['oily-skin', 'dry-skin', 'brightening', 'pigmentation']
   },
   {
     img: './facewash/wild-turmeric.png',
     title: 'Wild Turmeric',
+    subtitle: '(Acne Scars)',
     description: 'Traditional brightener that reduces acne scars and adds a golden glow.',
-    tags: ['oily-skin', 'brightening', 'acne-scars'],
-    rating: '★★★★★',
-    reviews: '180 reviews',
-    price: '₹155.00'
+    tags: ['oily-skin', 'brightening', 'acne-scars']
   },
   // --- Dry Skin Filter ---
   {
     img: './facewash/oats.png',
     title: 'Oats Powder',
+    subtitle: '(Dry Skin)',
     description: 'Gentle colloidal powder that calms, soothes, and hydrates dry skin.',
-    tags: ['dry-skin', 'sensitive-skin', 'calming'],
-    rating: '★★★★★',
-    reviews: '115 reviews',
-    price: '₹145.00'
+    tags: ['dry-skin', 'sensitive-skin', 'calming']
   },
   {
     img: './facewash/cucumber.png',
     title: 'Cucumber Powder',
+    subtitle: '(Hydration)',
     description: 'Cools and hydrates, refreshing tired or irritated skin.',
-    tags: ['dry-skin', 'sensitive-skin', 'cooling'],
-    rating: '★★★★★',
-    reviews: '92 reviews',
-    price: '₹150.00'
+    tags: ['dry-skin', 'sensitive-skin', 'cooling']
   },
   {
     img: './facewash/rose-petals.png',
     title: 'Rose Petals Powder',
+    subtitle: '(Toning)',
     description: 'Tones and hydrates, leaving skin feeling soft and supple.',
-    tags: ['dry-skin', 'combination-skin', 'toning'],
-    rating: '★★★★★',
-    reviews: '160 reviews',
-    price: '₹170.00'
+    tags: ['dry-skin', 'combination-skin', 'toning']
   }
 ];
 
 export const shampooProducts = [
   {
     img: './shampoo/fenugreek.jpg',
-    title: 'Fenugreek & Soapnut Shampoo',
+    title: 'Fenugreek Shampoo',
+    subtitle: '(Hair Fall)',
     description: 'Chemical-free formula to reduce hair fall and fight stubborn dandruff.',
-    tags: ['hair-fall', 'dandruff', 'hair-growth', 'smooth'],
-    rating: '★★★★★',
-    reviews: '110 reviews',
-    price: '₹280.00'
+    tags: ['hair-fall', 'dandruff', 'hair-growth', 'smooth']
   },
   {
     img: './shampoo/hibiscus.jpg',
-    title: 'Hibiscus & Soapnut Shampoo',
+    title: 'Hibiscus Shampoo',
+    subtitle: '(Conditioning)',
     description: 'Cleans and conditions while strengthening roots for natural shine.',
-    tags: ['cleansing', 'conditioning', 'strength', 'shine'],
-    rating: '★★★★☆',
-    reviews: '76 reviews',
-    price: '₹265.00'
+    tags: ['cleansing', 'conditioning', 'strength', 'shine']
   },
   {
     img: './shampoo/rosemary.jpeg',
-    title: 'Rosemary & Soapnut Shampoo',
+    title: 'Rosemary Shampoo',
+    subtitle: '(Hair Growth)',
     description: 'Improves scalp blood flow to encourage faster, thicker hair growth.',
-    tags: ['scalp-care', 'hair-growth', 'circulation'],
-    rating: '★★★★☆',
-    reviews: '92 reviews',
-    price: '₹300.00'
+    tags: ['scalp-care', 'hair-growth', 'circulation']
   },
   {
     img: './shampoo/flaxseed.jpeg',
-    title: 'Flaxseed & Soapnut Shampoo',
+    title: 'Flaxseed Shampoo',
+    subtitle: '(Frizzy Hair)',
     description: 'Provides deep moisture and Omega-3s for frizzy, dry hair.',
-    tags: ['moisturizing', 'frizzy-hair', 'shine'],
-    rating: '★★★★★',
-    reviews: '85 reviews',
-    price: '₹290.00'
+    tags: ['moisturizing', 'frizzy-hair', 'shine']
   },
   {
     img: './shampoo/shikakai.png',
-    title: 'Natural Shikakai Shampoo',
+    title: 'Shikakai Shampoo',
+    subtitle: '(Root Strength)',
     description: 'A traditional gentle cleanser that strengthens hair roots.',
-    tags: ['cleansing', 'anti-dandruff', 'strengthening'],
-    rating: '★★★★★',
-    reviews: '102 reviews',
-    price: '₹280.00'
+    tags: ['cleansing', 'anti-dandruff', 'strengthening']
   },
 ];
 
 export const faceMaskProducts = [
   {
     img: './facemask/koreanglow.png',
-    title: 'Korean Glow Pack',
+    title: 'Korean Pack',
+    subtitle: '(Glass Skin)',
     description: 'Achieve glass-like skin with this intensive brightening treatment.',
-    tags: ['brightening', 'hydrating', 'glass-skin', 'anti-aging'],
-    rating: '★★★★★',
-    reviews: '45 reviews',
-    price: '₹350.00'
+    tags: ['brightening', 'hydrating', 'glass-skin', 'anti-aging']
   },
   {
     img: './facemask/pigmentation.png',
     title: 'Anti-Pigmentation Pack',
+    subtitle: '(Even Tone)',
     description: 'Targets dark spots and uneven skin tone with powerful natural extracts.',
-    tags: ['pigmentation', 'dark-spots', 'even-tone'],
-    rating: '★★★★☆',
-    reviews: '38 reviews',
-    price: '₹320.00'
+    tags: ['pigmentation', 'dark-spots', 'even-tone']
   },
   {
     img: './facemask/instantglow.png',
     title: 'Instant Glow Pack',
+    subtitle: '(Radiance)',
     description: 'Revitalizes dull skin instantly for a radiant, party-ready look.',
-    tags: ['glow', 'radiance', 'dull-skin', 'event-ready'],
-    rating: '★★★★★',
-    reviews: '52 reviews',
-    price: '₹300.00'
+    tags: ['glow', 'radiance', 'dull-skin', 'event-ready']
   }
 ];

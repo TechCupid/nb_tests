@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import ImageSlider from '../components/ImageSlider'; 
 
+const bannerImages = [
+  { src: './ban0.png', alt: 'Handmade Soaps', caption: 'Handmade Soaps' },
+  { src: './ban3.png', alt: 'Woman with healthy hair', caption: 'Nourish Your Hair, Naturally' },
+  { src: './ban5.jpg', alt: 'Natural lip balm products', caption: 'Hydrate & Protect Your Lips' }
+];
+
 function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
@@ -18,97 +24,122 @@ function ContactPage() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Thank you for your message! We'll get back to you soon.");
+
+    // --- 1. YOUR WHATSAPP NUMBER ---
+    // Replace this with your real number (Country Code + Number)
+    const phoneNumber = "919840808559"; 
+
+    // --- 2. MESSAGE WITH DIRECT EMOJIS ---
+    // We use template literals (backticks `) to keep the formatting and emojis.
+    const text = `
+🌿 New Inquiry from Nature Bubble 🌿
+
+👤 Name: ${formData.name}
+📧 Email: ${formData.email}
+
+💬 Message:
+${formData.message}
+
+--------------------------------
+🚀 _Sent via Website_
+`.trim();
+
+    // --- 3. USE THE API URL ---
+    // "api.whatsapp.com" is the standard endpoint for sending messages.
+    const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(text)}`;
+
+    // Open WhatsApp in a new tab
+    window.open(url, '_blank');
+
+    // Reset Form
     setFormData({ name: '', email: '', message: '' });
   };
 
-  const bannerImages = [
-  { src: './ban0.png', alt: 'Handmade Soaps', caption: 'Handmade Soaps' },
-  { src: './ban3.png', alt: 'Woman with healthy hair', caption: 'Nourish Your Hair, Naturally' },
-  { src: './ban5.jpg', alt: 'Natural lip balm products', caption: 'Hydrate & Protect Your Lips' }
-];
-
   return (
-    <div className="contact-page-split">
-       <div className="shop-page-header">
+    <div className="contact-page-wrapper">
+      
+      <div className="shop-page-header">
         <ImageSlider images={bannerImages} />
       </div>
-      <div className="contact-split-container">
 
-         
-        
-        {/* --- Left Side: Info --- */}
-        <div className="contact-info-panel">
-          <h1 className="contact-info-title">Get in Touch</h1>
-          <p className="contact-info-subtitle">
-            Have a question, a suggestion, or just want to share your experience? We're a small team and we love to hear from our community.
-          </p>
+      <div className="contact-page-split">
+        <div className="contact-split-container">
           
-          <div className="contact-info-group">
-            <div className="contact-info-item">
-              <i className="fas fa-envelope"></i>
-              <span>hello@naturebubble.com</span>
+          {/* --- Left Side: Info --- */}
+          <div className="contact-info-panel">
+            <h1 className="contact-info-title">Get in Touch</h1>
+            <p className="contact-info-subtitle">
+              Have a question, a suggestion, or just want to share your experience? We're a small team and we love to hear from our community.
+            </p>
+            
+            <div className="contact-info-group">
+              <div className="contact-info-item">
+                <i className="fas fa-envelope"></i>
+                <span>hello@naturebubble.com</span>
+              </div>
+              <div className="contact-info-item">
+                <i className="fas fa-phone"></i>
+                <span>+91 98765 43210</span>
+              </div>
+              <div className="contact-info-item">
+                <i className="fas fa-location-dot"></i>
+                <span>123 Nature Lane, Bangalore, India</span>
+              </div>
             </div>
-            <div className="contact-info-item">
-              <i className="fas fa-phone-alt"></i>
-              <span>+91 98765 43210</span>
-            </div>
-            <div className="contact-info-item">
-              <i className="fas fa-map-marker-alt"></i>
-              <span>123 Nature Lane, Bangalore, India</span>
+            
+            <h4 className="contact-info-subtitle-small">Follow Our Journey</h4>
+            <div className="contact-social-icons">
+              <a href="https://facebook.com" target="_blank" rel="noreferrer" title="Facebook"><i className="fab fa-facebook-f"></i></a>
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" title="Instagram"><i className="fab fa-instagram"></i></a>
+              <a href="https://twitter.com" target="_blank" rel="noreferrer" title="Twitter"><i className="fab fa-twitter"></i></a>
             </div>
           </div>
-          
-          <h4 className="contact-info-subtitle-small">Follow Our Journey</h4>
-          <div className="contact-social-icons">
-            <a href="www.ggole.com" title="Facebook"><i className="fab fa-facebook-f"></i></a>
-            <a href="www.com" title="Instagram"><i className="fab fa-instagram"></i></a>
-            <a href="www.com" title="Twitter"><i className="fab fa-twitter"></i></a>
+
+          {/* --- Right Side: Form --- */}
+          <div className="contact-form-panel">
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <div className="form-group">
+                <label htmlFor="name">Full Name</label>
+                <input 
+                  type="text" 
+                  id="name" 
+                  name="name" 
+                  value={formData.name}
+                  onChange={handleChange}
+                  required 
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email" 
+                  value={formData.email}
+                  onChange={handleChange}
+                  required 
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="message">Message</label>
+                <textarea 
+                  id="message" 
+                  name="message" 
+                  rows="6"
+                  value={formData.message}
+                  onChange={handleChange}
+                  placeholder="How can we help?"
+                  required
+                ></textarea>
+              </div>
+              <button type="submit" className="submit-btn">
+                <i className="fab fa-whatsapp" style={{marginRight: '8px'}}></i>
+                Send via WhatsApp
+              </button>
+            </form>
           </div>
-        </div>
 
-        {/* --- Right Side: Form --- */}
-        <div className="contact-form-panel">
-          <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="name">Full Name</label>
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                value={formData.name}
-                onChange={handleChange}
-                required 
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                value={formData.email}
-                onChange={handleChange}
-                required 
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea 
-                id="message" 
-                name="message" 
-                rows="6"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="How can we help?"
-                required
-              ></textarea>
-            </div>
-            <button type="submit" className="submit-btn">Send Message</button>
-          </form>
         </div>
-
       </div>
     </div>
   );

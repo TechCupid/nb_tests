@@ -3,7 +3,7 @@ import Hero from '../components/Hero';
 import ProductCarousel from '../components/ProductCarousel';
 import BabyCollection from '../components/BabyCollection'; 
 
-import { soapProducts, faceWashProducts, otherProducts, shampooProducts } from '../productdata';
+import { soapProducts, faceWashProducts, otherProducts, shampooProducts, faceMaskProducts } from '../productdata';
 
 // --- 1. Add the Quick View Modal Component here ---
 function QuickViewModal({ product, onClose }) {
@@ -15,9 +15,21 @@ function QuickViewModal({ product, onClose }) {
         <div className="modal-image"><img src={product.img} alt={product.title} /></div>
         <div className="modal-details">
           <h2>{product.title}</h2>
-          <div className="modal-rating">{product.rating} <span>({product.reviews})</span></div>
-          <div className="modal-price">{product.price}</div>
+          
           <p>{product.description}</p>
+          
+          {/* UPDATED: Tags displayed as a bulleted list */}
+          <div className="modal-tags-container">
+            <h4>Key Benefits:</h4>
+            <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+              {product.tags && product.tags.map((tag, index) => (
+                <li key={index} style={{ marginBottom: '5px' }}>
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </div>
+
           {/* You can add an Add to Cart button here if you want */}
         </div>
       </div>
@@ -60,6 +72,13 @@ function HomePage() {
           title={<>Powder<br />Facewash</>}
           products={faceWashProducts} 
           category="Facewash"
+          onQuickView={handleQuickView}
+      />
+
+      <ProductCarousel 
+          title={<>Powder<br />FaceMask</>}
+          products={faceMaskProducts}
+          category="FaceMask"
           onQuickView={handleQuickView}
       />
 
