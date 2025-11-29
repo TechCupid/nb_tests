@@ -191,7 +191,7 @@ export const babyProducts = [
     id: 2,
     title: "Nalangu Maavu Powder",
     subtitle: "(Bath Powder)",
-    description: "Traditional herbal bath powder that gently cleanses and protects delicate skin.",
+    description: "Herbal bath powder that gently cleanses and protects delicate skin.",
     img: "./baby/babynalangu.png",
     tags: ["organic", "traditional", "bath-powder"]
   },
