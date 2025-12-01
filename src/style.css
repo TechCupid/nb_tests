@@ -451,151 +451,6 @@ header nav a:hover::after {
     border-color: #3a3f37;
 }
 
-/* ============================================== */
-/* === "INTEGRATED" FOOTER STYLES === */
-/* ============================================== */
-.site-footer {
-    background-color: var(--dark-green);
-    color: var(--bg-color);
-    padding-top: 4rem;
-    margin: 0 -4rem; /* Full width */
-    border-radius: 0 0 1.875rem 1.875rem; /* 30px */
-}
-.footer-main {
-    max-width: 100rem; /* 1600px */
-    margin: 0 auto;
-    padding: 0 4rem;
-}
-.footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1.5fr 1.5fr 2fr;
-    gap: 2.5rem;
-    margin-bottom: 3rem;
-}
-.footer-col h4 {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-    color: white;
-}
-.footer-col.about-col .footer-logo {
-    font-family: var(--font-serif);
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: white;
-    margin-bottom: 1rem;
-}
-.footer-col p {
-    color: var(--accent-green);
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-.footer-col ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-.footer-col ul li {
-    margin-bottom: 0.75rem;
-}
-.footer-col ul li a {
-    text-decoration: none;
-    color: var(--accent-green);
-    transition: color 0.3s ease, padding-left 0.3s ease;
-}
-.footer-col ul li a:hover {
-    color: white;
-    padding-left: 0.3125rem; /* 5px */
-}
-.social-icons {
-    display: flex;
-    gap: 1rem;
-}
-.social-icons a {
-    color: var(--bg-color);
-    font-size: 1.2rem;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-.social-icons a:hover {
-    color: white;
-    transform: scale(1.1);
-}
-.footer-col.newsletter-col p {
-    margin-bottom: 1.5rem;
-}
-.newsletter-form input {
-    width: 100%;
-    border: 0.0625rem solid var(--accent-green); /* 1px */
-    padding: 0.75rem 1rem;
-    background: #3a3f37;
-    color: white;
-    font-family: var(--font-sans);
-    margin-bottom: 1rem;
-}
-.newsletter-form input::placeholder {
-    color: var(--text-light);
-}
-.newsletter-form .submit-btn {
-    width: 100%;
-    background: var(--accent-green);
-    border-color: var(--accent-green);
-    color: var(--dark-green);
-    transition: background 0.3s ease, border-color 0.3s ease;
-}
-.newsletter-form .submit-btn:hover {
-    background: white;
-    border-color: white;
-}
-.footer-bottom {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-    padding: 1.5rem 4rem;
-    border-top: 0.0625rem solid #3a3f37; /* 1px */
-    color: var(--text-light);
-}
-.payment-icons {
-    display: flex;
-    gap: 1rem;
-    font-size: 1.8rem;
-}
-.footer-bottom p {
-    font-size: 0.9rem;
-}
-
-/* ============================================== */
-/* === SCROLL TO TOP BUTTON === */
-/* ============================================== */
-.scroll-to-top-btn {
-    position: fixed; 
-    bottom: 1.875rem; /* 30px */
-    right: 1.875rem; /* 30px */
-    width: 3.125rem; /* 50px */
-    height: 3.125rem; /* 50px */
-    border-radius: 50%; 
-    background: var(--accent-green);
-    color: var(--dark-green);
-    border: 0.0625rem solid var(--dark-green); /* 1px */
-    font-size: 1.2rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000; 
-    opacity: 0; 
-    transform: translateY(1.25rem); /* 20px */
-    animation: fadeIn 0.3s ease forwards; 
-    box-shadow: 0 0.25rem 0.625rem rgba(0,0,0,0.1); /* 4px 10px */
-    transition: all 0.3s ease;
-}
-.scroll-to-top-btn:hover {
-    background: var(--dark-green); 
-    color: white;
-    transform: scale(1.1);
-}
 
 /* ============================================== */
 /* === ALL PRODUCTS PAGE STYLES (v6 - Sidebar Controls) === */
@@ -2099,7 +1954,7 @@ header nav a.active::after {
     padding: 3rem 0 2rem 0; 
     text-align: center;
     overflow: hidden; 
-    color: #fff;
+   
     perspective: 1000px; 
     border-radius: 1rem;
 }
@@ -2167,7 +2022,7 @@ header nav a.active::after {
     overflow: hidden; line-height: 0; z-index: 5; opacity: 0.95;
 }
 .baby-wave-top svg { display: block; width: calc(100% + 1.3px); height: 35px; }
-.baby-wave-top .shape-fill { fill: #FFFFFF; }
+.baby-wave-top .shape-fill { fill:#f1f1e9 ; }
 
 /* --- 4. Hanging Mobile --- */
 .mobile-string {
@@ -2384,3 +2239,176 @@ header nav a.active::after {
 @media (max-width: 1100px) { .baby-grid { width: 724px; } .baby-arrow.left { left: -5rem; } .baby-arrow.right { right: -5rem; } }
 @media (max-width: 800px) { .baby-grid { width: 472px; } }
 @media (max-width: 550px) { .baby-grid { width: 220px; gap: 0; } .mobile-string { display: none; } }
+
+/* ============================================== */
+/* === WAVY FOOTER STYLES (Final & Full Width) === */
+/* ============================================== */
+
+.wavy-footer {
+    position: relative;
+    
+    /* --- FIX: Pull footer to the edges of the container --- */
+    width: auto; 
+    margin-left: -4rem; 
+    margin-right: -4rem;
+    margin-top: 0; /* No gap above */
+    
+    /* --- FIX: Match container's bottom rounded corners --- */
+    border-bottom-left-radius: 1.875rem; 
+    border-bottom-right-radius: 1.875rem;
+    
+    overflow: hidden; 
+}
+
+/* --- 1. The Wave SVG --- */
+.footer-wave-container {
+    line-height: 0; 
+    width: 100%;
+    /* Pull wave down slightly to reduce height */
+    transform: translateY(5px); 
+}
+
+.footer-wave-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+}
+
+/* --- 2. Main Content Area --- */
+.footer-content {
+    background-color: var(--dark-green);
+    color: var(--bg-color);
+    
+    /* Tight Padding */
+    padding: 0 2rem 1.5rem 2rem; 
+    
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* Tight Gap */
+    gap: 1rem; 
+    
+    /* Remove any sub-pixel line gap */
+    margin-top: -1px; 
+}
+
+/* --- 3. Social Icons --- */
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0;
+}
+
+.footer-socials a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Smaller Buttons */
+    width: 2rem; 
+    height: 2rem;
+    font-size: 1rem;
+    
+    background-color: rgba(255, 255, 255, 0.1); 
+    color: var(--bg-color);
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-socials a:hover {
+    background-color: var(--accent-green);
+    color: var(--dark-green);
+    transform: translateY(-2px);
+}
+
+/* --- 4. Navigation Links --- */
+.footer-nav {
+    display: flex;
+    gap: 1.5rem; 
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.footer-nav a {
+    color: var(--bg-color);
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.95rem; 
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.footer-nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -2px;
+    left: 50%;
+    background-color: var(--accent-green);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.footer-nav a:hover {
+    color: var(--accent-green);
+}
+
+.footer-nav a:hover::after {
+    width: 100%;
+}
+
+/* --- 5. Copyright --- */
+.footer-copyright p {
+    font-size: 0.8rem; 
+    color: rgba(241, 241, 233, 0.6);
+    margin: 0;
+    font-family: var(--font-sans);
+}
+
+@media (max-width: 75rem) { /* 1200px / 16px */
+    .browser-frame {
+        padding: 0 2rem; /* The container padding is 2rem here */
+    }
+
+    /* ... (keep existing hero/contact/footer-grid styles) ... */
+
+    /* --- ADD THIS FIX FOR FOOTER --- */
+    .wavy-footer {
+        /* Match negative margin to the container padding (2rem) */
+        margin-left: -2rem; 
+        margin-right: -2rem;
+        /* Keep the rounded corners */
+        border-bottom-left-radius: 1.875rem; 
+        border-bottom-right-radius: 1.875rem;
+        width: auto;
+    }
+
+    /* ... (keep existing slider styles) ... */
+}
+
+@media (max-width: 56.25rem) { /* 900px / 16px */
+    .browser-frame {
+        padding: 0 1rem; /* The container padding is 1rem here */
+        /* ... */
+    }
+
+    /* ... (keep existing styles) ... */
+
+    /* --- UPDATE/CHECK THIS FIX FOR FOOTER --- */
+    .wavy-footer {
+        /* Match negative margin to the container padding (1rem) */
+        margin-left: -1rem; 
+        margin-right: -1rem;
+        /* Remove rounded corners on mobile for full-width look */
+        border-radius: 0; 
+        width: auto;
+    }
+    
+    /* ... (keep existing baby section styles) ... */
+}

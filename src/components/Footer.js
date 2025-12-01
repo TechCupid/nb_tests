@@ -1,21 +1,47 @@
 import React from 'react';
 
+
 function Footer() {
   return (
-    <footer className="site-footer">
-      <div className="footer-main">
-        <div className="footer-grid">
-          <div className="footer-col about-col"><div className="footer-logo">Nature Bubble</div><p>Pure, natural, and handcrafted...</p><div className="social-icons"><a href="#" aria-label="Facebook"><i className="fab fa-facebook-f"></i></a><a href="#" aria-label="Instagram"><i className="fab fa-instagram"></i></a><a href="#" aria-label="Pinterest"><i className="fab fa-pinterest-p"></i></a></div></div>
-          <div className="footer-col"><h4>Shop</h4><ul><li><a href="#">Natural Soaps</a></li><li><a href="#">Herbal Shampoos</a></li><li><a href="#">Lip Balms</a></li><li><a href="#">Powder Dyes</a></li></ul></div>
-          <div className="footer-col"><h4>Support</h4><ul><li><a href="#">About Us</a></li><li><a href="#">Contact</a></li><li><a href="#">FAQs</a></li><li><a href="#">Shipping & Returns</a></li></ul></div>
-          <div className="footer-col newsletter-col"><h4>Join Our List</h4><p>Get 10% off your first order...</p><form className="newsletter-form"><label htmlFor="footer-email" className="sr-only">Email</label><input id="footer-email" type="email" placeholder="Your email..." /><button type="submit" className="submit-btn">Subscribe</button></form></div>
+    <footer className="wavy-footer">
+      
+      {/* --- The SVG Wave --- */}
+      
+        <svg 
+          viewBox="0 0 1440 320" 
+          className="footer-wave-svg" 
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path 
+            fill="#4f554c" /* Matches var(--dark-green) */
+            fillOpacity="1" 
+            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,165.3C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+      
+
+      {/* --- Footer Content --- */}
+      <div className="footer-content">
+        
+        {/* 1. Social Icons */}
+        <div className="footer-socials">
+          <a href="https://facebook.com" target="_blank" rel="noreferrer"><i className="fab fa-facebook-f"></i></a>
+          <a href="https://twitter.com" target="_blank" rel="noreferrer"><i className="fab fa-twitter"></i></a>
+          <a href="https://linkedin.com" target="_blank" rel="noreferrer"><i className="fab fa-linkedin-in"></i></a>
+          <a href="https://instagram.com" target="_blank" rel="noreferrer"><i className="fab fa-instagram"></i></a>
         </div>
-      </div>
-      <div className="footer-bottom">
-        <div className="payment-icons"><i className="fab fa-cc-visa"></i><i className="fab fa-cc-mastercard"></i><i className="fab fa-cc-paypal"></i><i className="fab fa-cc-amex"></i></div>
-        <p>© {new Date().getFullYear()} Nature Bubble. All Rights Reserved.</p>
+
+        {/* 2. Navigation Links */}
+       
+
+        {/* 3. Copyright */}
+        <div className="footer-copyright">
+          <p>&copy; {new Date().getFullYear()} Nature Bubble | All Rights Reserved</p>
+        </div>
+
       </div>
     </footer>
   );
 }
+
 export default Footer;

@@ -27,7 +27,7 @@ function ContactPage() {
 
     // --- 1. YOUR WHATSAPP NUMBER ---
     // Replace this with your real number (Country Code + Number)
-    const phoneNumber = "919840808559"; 
+    const phoneNumber = "919492978284"; 
 
     // --- 2. MESSAGE WITH DIRECT EMOJIS ---
     // We use template literals (backticks `) to keep the formatting and emojis.
@@ -75,15 +75,15 @@ ${formData.message}
             <div className="contact-info-group">
               <div className="contact-info-item">
                 <i className="fas fa-envelope"></i>
-                <span>hello@naturebubble.com</span>
+                <span>poojitha542@gmail.com</span>
               </div>
               <div className="contact-info-item">
                 <i className="fas fa-phone"></i>
-                <span>+91 98765 43210</span>
+                <span>+91 94929 78284</span>
               </div>
               <div className="contact-info-item">
                 <i className="fas fa-location-dot"></i>
-                <span>123 Nature Lane, Bangalore, India</span>
+                <span>75, R.K.Avenue, Thinnur, Hosur.</span>
               </div>
             </div>
             
