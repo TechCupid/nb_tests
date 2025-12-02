@@ -40,8 +40,7 @@ function ContactPage() {
 💬 Message:
 ${formData.message}
 
---------------------------------
-🚀 _Sent via Website_
+
 `.trim();
 
     // --- 3. USE THE API URL ---
@@ -89,9 +88,9 @@ ${formData.message}
             
             <h4 className="contact-info-subtitle-small">Follow Our Journey</h4>
             <div className="contact-social-icons">
-              <a href="https://facebook.com" target="_blank" rel="noreferrer" title="Facebook"><i className="fab fa-facebook-f"></i></a>
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" title="Instagram"><i className="fab fa-instagram"></i></a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" title="Twitter"><i className="fab fa-twitter"></i></a>
+              <p title="Facebook"><i className="fab fa-facebook-f"></i></p>
+              <p title="Instagram"><i className="fab fa-instagram"></i></p>
+              <p title="Twitter"><i className="fab fa-twitter"></i></p>
             </div>
           </div>
 
