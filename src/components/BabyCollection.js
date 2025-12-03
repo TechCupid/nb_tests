@@ -18,8 +18,6 @@ const DuckIcon = () => (
     </svg>
 );
 
-// --- BUBBLE COMPONENT ---
-
 // --- STAR COMPONENT ---
 const Star = ({ style }) => (
     <div className="twinkle-star" style={style}>✦</div>
@@ -32,8 +30,6 @@ function BabyCollection() {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
   // --- GENERATE PARTICLES ---
- 
-
   const stars = Array.from({ length: 20 }).map((_, i) => ({
     id: i,
     top: Math.random() * 100 + '%',
@@ -53,7 +49,8 @@ function BabyCollection() {
     if (current) {
       const { scrollLeft, scrollWidth, clientWidth } = current;
       setCanScrollLeft(scrollLeft > 0);
-      setCanScrollRight(Math.ceil(scrollLeft + clientWidth) < scrollWidth);
+      // Added a small buffer (10px) to fix floating point errors
+      setCanScrollRight(Math.ceil(scrollLeft + clientWidth) < scrollWidth - 10);
     }
   };
 
@@ -66,25 +63,22 @@ function BabyCollection() {
   const scroll = (direction) => {
     if (scrollRef.current) {
       const { current } = scrollRef;
-      // Scroll amount = Card Width + Gap (Approx 260px)
-      const scrollAmount = direction === 'left' ? -260 : 260; 
+      // FIX: Exact math (Card 220px + Gap 32px = 252px)
+      // This ensures 1 click moves exactly 1 product
+      const scrollAmount = direction === 'left' ? -252 : 252; 
       current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
       setTimeout(checkForScroll, 500);
     }
   };
 
-  // --- HELPER TO SAFELY GET TAGS ---
   const getTags = (tags) => {
-    if (Array.isArray(tags)) return tags; // It's already an array ['New', 'Sale']
-    if (typeof tags === 'string') return tags.split(','); // It's a string "New, Sale"
-    return ['Pure']; // It's undefined/null
+    if (Array.isArray(tags)) return tags; 
+    if (typeof tags === 'string') return tags.split(','); 
+    return ['Pure']; 
   };
 
   return (
-    <section 
-        className="baby-section"
-        onMouseMove={handleMouseMove}
-    >
+    <section className="baby-section" onMouseMove={handleMouseMove}>
       
       {/* === BACKGROUND STARS === */}
       <div className="particles-layer">
@@ -92,8 +86,6 @@ function BabyCollection() {
             <Star key={s.id} style={{ top: s.top, left: s.left, animationDelay: s.delay, fontSize: s.size }} />
         ))}
       </div>
-
-     
 
       {/* === TOP WAVE === */}
       <div className="baby-wave-top">
@@ -103,18 +95,10 @@ function BabyCollection() {
       </div>
 
       {/* === HANGING MOBILE === */}
-      <div className="mobile-string string-1" style={{ transform: `rotate(2deg) translateX(${offset.x}px)` }}>
-         <MoonIcon />
-      </div>
-      <div className="mobile-string string-2" style={{ transform: `rotate(-1deg) translateX(${offset.x * 1.5}px)` }}>
-         <CloudIcon />
-      </div>
-       <div className="mobile-string string-3" style={{ transform: `rotate(1deg) translateX(${offset.x * 0.8}px)` }}>
-         <MoonIcon />
-      </div>
-      <div className="mobile-string string-4" style={{ transform: `rotate(-2deg) translateX(${offset.x * 1.2}px)` }}>
-         <CloudIcon />
-      </div>
+      <div className="mobile-string string-1" style={{ transform: `rotate(2deg) translateX(${offset.x}px)` }}> <MoonIcon /> </div>
+      <div className="mobile-string string-2" style={{ transform: `rotate(-1deg) translateX(${offset.x * 1.5}px)` }}> <CloudIcon /> </div>
+      <div className="mobile-string string-3" style={{ transform: `rotate(1deg) translateX(${offset.x * 0.8}px)` }}> <MoonIcon /> </div>
+      <div className="mobile-string string-4" style={{ transform: `rotate(-2deg) translateX(${offset.x * 1.2}px)` }}> <CloudIcon /> </div>
 
       {/* === HEADER === */}
       <div className="baby-header" style={{ transform: `translateY(${offset.y * -0.5}px)` }}>
@@ -143,14 +127,11 @@ function BabyCollection() {
           {babyProducts.map((product) => (
             <div className="baby-frame-card" key={product.id}>
               
-              <DuckIcon /> {/* Peekaboo Duck */}
+              <DuckIcon />
 
-              {/* --- FIXED TAG RENDERER --- */}
               <div className="tag-container">
                 {getTags(product.tags).map((tag, index) => (
-                    <span key={index} className="baby-pill">
-                        {tag.trim()}
-                    </span>
+                    <span key={index} className="baby-pill">{tag.trim()}</span>
                 ))}
               </div>
 
@@ -161,7 +142,6 @@ function BabyCollection() {
               <div className="frame-details">
                 <h3>{product.title}</h3>
                 <p>{product.description}</p>
-                
               </div>
             </div>
           ))}

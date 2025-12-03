@@ -245,63 +245,42 @@ export const otherProducts = [
 ];
 
 export const faceWashProducts = [
-  // --- Oily Skin Filter ---
   {
-    img: './facewash/multani-mitti.png',
-    title: 'Multani Mitti',
-    subtitle: '(Oil Control)',
-    description: 'A natural clay that deep cleanses and absorbs excess oil.',
-    tags: ['oily-skin', 'combination-skin', 'detox']
+    img: './facewash/multani-mitti.png', 
+    // We split the title using HTML directly in the data!
+    title: <>Powder Facewash <br/> <span className="skin-type-highlight">For Oily Skin</span></>,
+    description: 'Deep cleansing with Multani Mitti & Neem.',
+    tags: 'Oily Skin',
+    rating: '★★★★★',
+    reviews: '120 reviews',
+    price: '₹150.00'
   },
   {
-    img: './facewash/neem-leaves.png',
-    title: 'Neem Leaves Powder',
-    subtitle: '(Active Acne)',
-    description: 'Antibacterial powder to purify skin and prevent active acne.',
-    tags: ['oily-skin', 'acne-control', 'antibacterial']
+    img: './facewash/oats.png', 
+    title: <>Powder Facewash <br/> <span className="skin-type-highlight">For Dry Skin</span></>,
+    description: 'Gentle hydration with Oats & Honey.',
+    tags: 'Dry Skin',
+    rating: '★★★★★',
+    reviews: '115 reviews',
+    price: '₹145.00'
   },
   {
-    img: './facewash/tulasi.png',
-    title: 'Tulsi Powder',
-    subtitle: '(Redness)',
-    description: 'Sacred herb known to clear blemishes and calm redness.',
-    tags: ['oily-skin', 'acne-control', 'soothing']
+    img: './facewash/rose-petals.png', 
+    title: <>Powder Facewash <br/> <span className="skin-type-highlight">For Combo Skin</span></>,
+    description: 'Balancing care with Rose Petals.',
+    tags: 'Combination',
+    rating: '★★★★☆',
+    reviews: '95 reviews',
+    price: '₹160.00'
   },
   {
-    img: './facewash/liquorice.png',
-    title: 'Licorice Powder',
-    subtitle: '(Dark Spots)',
-    description: 'Soothes and brightens skin, helping to fade dark spots and tan.',
-    tags: ['oily-skin', 'dry-skin', 'brightening', 'pigmentation']
-  },
-  {
-    img: './facewash/wild-turmeric.png',
-    title: 'Wild Turmeric',
-    subtitle: '(Acne Scars)',
-    description: 'Traditional brightener that reduces acne scars and adds a golden glow.',
-    tags: ['oily-skin', 'brightening', 'acne-scars']
-  },
-  // --- Dry Skin Filter ---
-  {
-    img: './facewash/oats.png',
-    title: 'Oats Powder',
-    subtitle: '(Dry Skin)',
-    description: 'Gentle colloidal powder that calms, soothes, and hydrates dry skin.',
-    tags: ['dry-skin', 'sensitive-skin', 'calming']
-  },
-  {
-    img: './facewash/cucumber.png',
-    title: 'Cucumber Powder',
-    subtitle: '(Hydration)',
-    description: 'Cools and hydrates, refreshing tired or irritated skin.',
-    tags: ['dry-skin', 'sensitive-skin', 'cooling']
-  },
-  {
-    img: './facewash/rose-petals.png',
-    title: 'Rose Petals Powder',
-    subtitle: '(Toning)',
-    description: 'Tones and hydrates, leaving skin feeling soft and supple.',
-    tags: ['dry-skin', 'combination-skin', 'toning']
+    img: './facewash/cucumber.png', 
+    title: <>Powder Facewash <br/> <span className="skin-type-highlight">For Sensitive Skin</span></>,
+    description: 'Soothing relief with Cucumber & Aloe.',
+    tags: 'Sensitive',
+    rating: '★★★★★',
+    reviews: '88 reviews',
+    price: '₹155.00'
   }
 ];
 
