@@ -266,7 +266,7 @@ export const faceWashProducts = [
   },
   {
     img: './facewash/rose-petals.png', 
-    title: <>Powder Facewash <br/> <span className="skin-type-highlight">For Combo Skin</span></>,
+    title: <>Powder Facewash <br/> <span className="skin-type-highlight">For Combination Skin</span></>,
     description: 'Balancing care with Rose Petals.',
     tags: 'Combination',
     rating: '★★★★☆',
@@ -275,7 +275,7 @@ export const faceWashProducts = [
   },
   {
     img: './facewash/cucumber.png', 
-    title: <>Powder Facewash <br/> <span className="skin-type-highlight">For Combination Skin</span></>,
+    title: <>Powder Facewash <br/> <span className="skin-type-highlight">For Sensitive Skin</span></>,
     description: 'Soothing relief with Cucumber & Aloe.',
     tags: 'Sensitive',
     rating: '★★★★★',

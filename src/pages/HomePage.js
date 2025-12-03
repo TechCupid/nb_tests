@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import ProductCarousel from '../components/ProductCarousel';
-import BabyCollection from '../components/BabyCollection'; 
 
-import { soapProducts, faceWashProducts, otherProducts, shampooProducts, faceMaskProducts } from '../productdata';
+
+import { soapProducts, faceWashProducts, otherProducts, shampooProducts, faceMaskProducts,babyProducts } from '../productdata';
 
 // --- 1. Add the Quick View Modal Component here ---
 function QuickViewModal({ product, onClose }) {
@@ -66,7 +66,12 @@ function HomePage() {
       {/* Optional: Add Banner here if you want */}
       {/* <div className="shop-page-header"><ImageSlider images={bannerImages} /></div> */}
       
-      <BabyCollection/>
+      <ProductCarousel
+          title={<>Baby<br />Products</>}
+          products={babyProducts}
+          category="Baby"
+          onQuickView={handleQuickView}
+      />
 
       {/* --- 3. Pass 'onQuickView' to ALL Carousels --- */}
       
@@ -91,7 +96,7 @@ function HomePage() {
               category="FaceMask"
               onQuickView={handleQuickView}
           />
-      )y
+      
 
       <ProductCarousel
           title={<>Our <br />Shampoo</>}
