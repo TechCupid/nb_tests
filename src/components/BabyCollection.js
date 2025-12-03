@@ -2,13 +2,18 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { babyProducts } from '../productdata';
 
-// --- ICONS ---
+/* =========================== */
+/* === 1. HELPER COMPONENTS === */
+/* =========================== */
+
 const MoonIcon = () => (
   <svg viewBox="0 0 24 24" className="mobile-toy"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg>
 );
+
 const CloudIcon = () => (
   <svg viewBox="0 0 24 24" className="mobile-toy"><path d="M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.487 -3.465 3.487h-11.878" /></svg>
 );
+
 const DuckIcon = () => (
     <svg viewBox="0 0 24 24" fill="#FFD700" className="peekaboo-icon">
         <path d="M11 17a3 3 0 0 1 -2.75 -4.24l.58 -.89a2 2 0 0 0 -.32 -2.57l-.3 -.29a2.5 2.5 0 0 1 3.54 -3.54l.29 .3a2 2 0 0 0 2.57 .32l.89 -.58a3 3 0 0 1 4.24 2.75v1a6 6 0 0 1 -6 6h-2z" />
@@ -18,10 +23,13 @@ const DuckIcon = () => (
     </svg>
 );
 
-// --- STAR COMPONENT ---
 const Star = ({ style }) => (
     <div className="twinkle-star" style={style}>✦</div>
 );
+
+/* =========================== */
+/* === 2. MAIN COMPONENT    === */
+/* =========================== */
 
 function BabyCollection() {
   const scrollRef = useRef(null);
@@ -29,42 +37,62 @@ function BabyCollection() {
   const [canScrollRight, setCanScrollRight] = useState(true);
   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
-  // --- GENERATE PARTICLES ---
-  const stars = Array.from({ length: 20 }).map((_, i) => ({
-    id: i,
-    top: Math.random() * 100 + '%',
-    left: Math.random() * 100 + '%',
-    delay: Math.random() * 5 + 's',
-    size: Math.random() * 10 + 8 + 'px'
-  }));
+  // --- Generate Stars Once ---
+  const [stars] = useState(() => 
+    Array.from({ length: 20 }).map((_, i) => ({
+      id: i,
+      top: Math.random() * 100 + '%',
+      left: Math.random() * 100 + '%',
+      delay: Math.random() * 5 + 's',
+      size: Math.random() * 10 + 8 + 'px'
+    }))
+  );
 
+  // --- Mouse Parallax ---
   const handleMouseMove = (e) => {
-    const x = (window.innerWidth / 2 - e.clientX) / 30; 
-    const y = (window.innerHeight / 2 - e.clientY) / 30;
+    const x = (window.innerWidth / 2 - e.clientX) / 40; 
+    const y = (window.innerHeight / 2 - e.clientY) / 40;
     setOffset({ x, y });
   };
 
+  // --- SCROLL CHECK LOGIC (THE FIX) ---
   const checkForScroll = () => {
     const { current } = scrollRef;
     if (current) {
       const { scrollLeft, scrollWidth, clientWidth } = current;
-      setCanScrollLeft(scrollLeft > 0);
-      // Added a small buffer (10px) to fix floating point errors
-      setCanScrollRight(Math.ceil(scrollLeft + clientWidth) < scrollWidth - 10);
+
+      // 1. If all content fits (e.g. tablet with few items), hide BOTH arrows
+      if (scrollWidth <= clientWidth + 2) {
+        setCanScrollLeft(false);
+        setCanScrollRight(false);
+        return;
+      }
+
+      // 2. Left Arrow: Only show if scrolled MORE than 4px
+      // This fixes the issue where iPhone shows the arrow at the very start
+      setCanScrollLeft(scrollLeft > 4);
+
+      // 3. Right Arrow: Hide if near the end
+      setCanScrollRight(Math.ceil(scrollLeft + clientWidth) < scrollWidth - 4);
     }
   };
 
   useEffect(() => {
     checkForScroll();
+    // Double check after render to catch layout shifts
+    const timer = setTimeout(checkForScroll, 100); 
     window.addEventListener('resize', checkForScroll);
-    return () => window.removeEventListener('resize', checkForScroll);
+    
+    return () => {
+        window.removeEventListener('resize', checkForScroll);
+        clearTimeout(timer);
+    };
   }, []);
 
   const scroll = (direction) => {
     if (scrollRef.current) {
       const { current } = scrollRef;
-      // FIX: Exact math (Card 220px + Gap 32px = 252px)
-      // This ensures 1 click moves exactly 1 product
+      // Scroll amount = 220px (Card) + 32px (Gap) = 252px
       const scrollAmount = direction === 'left' ? -252 : 252; 
       current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
       setTimeout(checkForScroll, 500);
@@ -80,11 +108,14 @@ function BabyCollection() {
   return (
     <section className="baby-section" onMouseMove={handleMouseMove}>
       
-      {/* === BACKGROUND STARS === */}
+      {/* === BACKGROUND PARTICLES === */}
       <div className="particles-layer">
         {stars.map(s => (
             <Star key={s.id} style={{ top: s.top, left: s.left, animationDelay: s.delay, fontSize: s.size }} />
         ))}
+        {/* Bubbles */}
+        <div className="soap-bubble" style={{ left: '10%', animationDuration: '8s', width: '60px', height: '60px' }}><div className="bubble-shine"></div></div>
+        <div className="soap-bubble" style={{ left: '80%', animationDuration: '10s', width: '80px', height: '80px', animationDelay: '4s' }}><div className="bubble-shine"></div></div>
       </div>
 
       {/* === TOP WAVE === */}
@@ -113,6 +144,7 @@ function BabyCollection() {
       <div className="baby-slider-wrapper">
         <button 
           className="baby-arrow left" 
+          aria-label="Scroll Left"
           onClick={() => scroll('left')}
           style={{ opacity: canScrollLeft ? 1 : 0, pointerEvents: canScrollLeft ? 'all' : 'none' }}
         >
@@ -149,6 +181,7 @@ function BabyCollection() {
 
         <button 
           className="baby-arrow right" 
+          aria-label="Scroll Right"
           onClick={() => scroll('right')}
           style={{ opacity: canScrollRight ? 1 : 0, pointerEvents: canScrollRight ? 'all' : 'none' }}
         >

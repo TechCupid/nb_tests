@@ -8,6 +8,13 @@ import { soapProducts, faceWashProducts, otherProducts, shampooProducts, faceMas
 // --- 1. Add the Quick View Modal Component here ---
 function QuickViewModal({ product, onClose }) {
   if (!product) return null;
+
+  // --- FIX: Ensure tags is always an array before mapping ---
+  // This prevents the crash if tags is just a string like "Oily Skin"
+  const tags = product.tags 
+    ? (Array.isArray(product.tags) ? product.tags : [product.tags]) 
+    : [];
+
   return (
     <div className="quick-view-modal-overlay" onClick={onClose}>
       <div className="quick-view-modal-content" onClick={(e) => e.stopPropagation()}>
@@ -18,17 +25,19 @@ function QuickViewModal({ product, onClose }) {
           
           <p>{product.description}</p>
           
-          {/* UPDATED: Tags displayed as a bulleted list */}
-          <div className="modal-tags-container">
-            <h4>Key Benefits:</h4>
-            <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
-              {product.tags && product.tags.map((tag, index) => (
-                <li key={index} style={{ marginBottom: '5px' }}>
-                  {tag}
-                </li>
-              ))}
-            </ul>
-          </div>
+          {/* UPDATED: Safely render tags */}
+          {tags.length > 0 && (
+            <div className="modal-tags-container">
+                <h4>Key Benefits:</h4>
+                <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+                {tags.map((tag, index) => (
+                    <li key={index} style={{ marginBottom: '5px' }}>
+                    {tag}
+                    </li>
+                ))}
+                </ul>
+            </div>
+          )}
 
           {/* You can add an Add to Cart button here if you want */}
         </div>
@@ -75,12 +84,14 @@ function HomePage() {
           onQuickView={handleQuickView}
       />
 
-      <ProductCarousel 
-          title={<>Powder<br />FaceMask</>}
-          products={faceMaskProducts}
-          category="FaceMask"
-          onQuickView={handleQuickView}
-      />
+      
+          <ProductCarousel 
+              title={<>Powder<br />FaceMask</>}
+              products={faceMaskProducts}
+              category="FaceMask"
+              onQuickView={handleQuickView}
+          />
+      )y
 
       <ProductCarousel
           title={<>Our <br />Shampoo</>}

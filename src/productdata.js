@@ -275,7 +275,7 @@ export const faceWashProducts = [
   },
   {
     img: './facewash/cucumber.png', 
-    title: <>Powder Facewash <br/> <span className="skin-type-highlight">For Sensitive Skin</span></>,
+    title: <>Powder Facewash <br/> <span className="skin-type-highlight">For Combination Skin</span></>,
     description: 'Soothing relief with Cucumber & Aloe.',
     tags: 'Sensitive',
     rating: '★★★★★',
