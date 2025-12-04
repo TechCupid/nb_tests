@@ -245,8 +245,15 @@ header nav a:hover::after {
     flex-direction: column; 
     align-items: flex-start; 
     gap: 1.5rem; 
-    flex-shrink: 0;
+    
+    /* --- FIX: Lock the width --- */
+    flex: 0 0 18rem; /* Fixed width of 288px */
+    width: 18rem;    /* Ensure it respects this */
+    
     padding-left: 3rem; 
+    
+    /* Optional: Handle very long words gracefully */
+    word-wrap: break-word;
 }
 .carousel-sidebar h2 {
     font-family: var(--font-serif);
@@ -1648,12 +1655,14 @@ header nav a.active::after {
     .product-carousel {
         flex-direction: column;
         padding: 2rem 1rem;
-        gap: 1.5rem;
+        gap: 2rem;
     }
     .carousel-sidebar {
+        height: auto !important;
         padding-left: 0;
         align-items: center;
         text-align: center;
+        margin-bottom: -5rem;
     }
     .slider-container {
         max-width: 18.75rem; /* --- 300px --- */
@@ -2376,12 +2385,12 @@ header nav a.active::after {
 
 /* Mobile Adjustment */
 @media (max-width: 56.25rem) {
-    .sunscreen-floating-badge {
-        position: relative; /* Stack it on mobile */
-        top: 0;
-        right: 0;
-        margin-top: 10px;
-        display: inline-flex;
+   .sunscreen-floating-badge {
+       
+        position:absolute; 
+        top: -8px; 
+        right: 0px; /* Adjust this if it covers too much text */
+        left: -9rem;
     }
 }
 
@@ -2836,4 +2845,48 @@ header nav a.active::after {
     width: 100%;
   }
   */
+}
+/* =======================================================
+   MOBILE FILTER POPUP FIX (Center Screen)
+   ======================================================= */
+
+/* Default Desktop Style (Keep this as is for Desktop) */
+.elegant-dropdown-menu {
+  position: absolute;
+  top: 55px; 
+  right: 0;
+  width: 340px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  padding: 20px;
+  z-index: 2000; /* Ensure this is high */
+  border: 1px solid #eee;
+  animation: slideDown 0.2s ease-out;
+}
+
+/* --- MOBILE OVERRIDE: FORCE CENTER POSITION --- */
+@media (max-width: 600px) {
+  .elegant-dropdown-menu {
+    /* Break out of the parent container */
+    position: fixed !important; 
+    
+    /* Center exactly on screen */
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    
+    /* Sizing */
+    width: 90% !important;
+    max-width: 350px !important;
+    max-height: 80vh; /* Prevent it from being too tall */
+    overflow-y: auto; /* Scroll inside if too tall */
+    
+    /* Dim the background behind it (The "Backdrop" effect) */
+    box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5) !important;
+    
+    /* Reset margins */
+    margin: 0 !important;
+    right: auto !important;
+  }
 }

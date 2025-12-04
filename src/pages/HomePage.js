@@ -88,7 +88,7 @@ function HomePage() {
           <div className="facemask-carousel-wrapper">
             <ProductCarousel 
                 title={
-                    <div style={{ position: 'relative', display: 'inline-block' }}>
+                    <div style={{ position:'relative', display: 'inline-block' }}>
                         <div className="sunscreen-floating-badge">
                             <div className="sun-icon-glow">
                                 <i className="fas fa-sun"></i>

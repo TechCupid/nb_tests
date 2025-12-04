@@ -66,7 +66,6 @@ function AllProductsPage() {
   const path = location.pathname; 
 
    const [selectedProduct, setSelectedProduct] = useState(null);
-    const handleQuickView = (product) => setSelectedProduct(product);
     const closeQuickView = () => setSelectedProduct(null);
 
   const [sort, setSort] = useState('default');
