@@ -2414,3 +2414,47 @@ header nav a.active::after {
         width: 100%;
     }
 }
+
+/* --- Horizontal Category Chips Container --- */
+.category-chips-container {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto; /* Allows horizontal scrolling */
+  padding: 10px 0 20px 0; /* Space below before grid starts */
+  white-space: nowrap;
+  scrollbar-width: none; /* Firefox: Hide scrollbar */
+  -ms-overflow-style: none;
+  
+}
+/* Hide scrollbar for Chrome/Safari/Opera */
+.category-chips-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- The Individual Chip Button --- */
+.category-chip {
+  padding: 8px 16px;
+  border-radius: 6px; /* Slightly rounded corners like screenshot */
+  border: 1px solid var(--accent-green); /* Green Border */
+  background-color: var(--card-bg); /* Neutral Background */
+  color: var(--accent-green); /* Green Text */
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  border-radius: 4rem; /* Prevents button from getting squished */
+}
+
+/* --- Active State (Selected) --- */
+.category-chip.active {
+  background-color: #e8f5e9; /* Light Green Background */
+  border-color: var(--dark-green); /* Darker Green Border */
+  color: var(--dark-green); /* Darker Green Text */
+  font-weight: 600;
+}
+
+/* --- Hover State --- */
+.category-chip:hover {
+  background-color: #f1f8e9;
+}

@@ -3,8 +3,7 @@ import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import ProductCard from '../components/ProductCard'; 
 import { soapProducts, otherProducts, faceWashProducts, faceMaskProducts, shampooProducts, babyProducts } from '../productdata';
 import ImageSlider from '../components/ImageSlider'; 
-
-// --- 1. REMOVED: import { FiSliders } from "react-icons/fi"; ---
+ 
 
 // --- Helper Function to sanitize IDs ---
 const sanitizeId = (text) => {
@@ -42,7 +41,7 @@ const bannerImages = [
   { src: './ban5.jpg', alt: 'Natural lip balm products', caption: 'Hydrate & Protect Your Lips' }
 ];
 
-// --- 2. NEW: Custom Filter Button Component (No Install Needed) ---
+// --- Custom Filter Button Component ---
 function FilterButton({ onClick }) {
     return (
       <button 
@@ -65,13 +64,11 @@ function FilterButton({ onClick }) {
         <span style={{ fontSize: '14px', fontWeight: '600' }}>Filter</span>
       </button>
     );
-  }
+}
 
-// --- 3. UPDATED: Quick View Modal with "Best For" List ---
+// --- Quick View Modal ---
 function QuickViewModal({ product, onClose }) {
   if (!product) return null;
-  
-  // Ensure we have an array of tags to map over
   const tagsToDisplay = Array.isArray(product.tags) ? product.tags : [product.primaryTag];
 
   return (
@@ -83,7 +80,6 @@ function QuickViewModal({ product, onClose }) {
           <h2>{product.title}</h2>
           <p>{product.subtitle}</p>
           <p>{product.description}</p>
-          
           <div className="modal-tags-container" style={{ marginTop: '15px' }}>
             <h4>Best For:</h4>
             <ul style={{ paddingLeft: '20px', listStyleType: 'disc', marginTop: '5px' }}>
@@ -94,7 +90,6 @@ function QuickViewModal({ product, onClose }) {
               ))}
             </ul>
           </div>
-
         </div>
       </div>
     </div>
@@ -125,15 +120,13 @@ function AllProductsPage() {
   const [isFiltersOpen, setIsFiltersOpen] = useState(false); 
   const [selectedProduct, setSelectedProduct] = useState(null); 
 
-  // --- DYNAMIC CONCERN TITLE ---
   const getConcernTitle = () => {
     if (category === 'Shampoos' || path === '/shampoos') return 'Hair Concern';
     if (category === 'Baby' || path === '/baby') return 'Benefit';
     if (category === 'Other' || path === '/other') return 'Type';
-    return 'Skin Concern';
+    return 'Concern';
   };
 
-  // --- DYNAMIC TAG GENERATION ---
   const allConcerns = useMemo(() => {
     let relevantProducts = products;
     if (isAllProductsView && category !== 'All') {
@@ -144,22 +137,17 @@ function AllProductsPage() {
     return ['All', ...uniqueTags.sort()];
   }, [products, category, isAllProductsView]);
 
-  
-  // --- Filter Logic ---
   const filteredProducts = useMemo(() => {
     let prods = [...products];
-
     if (isAllProductsView && category !== 'All') {
       prods = prods.filter(p => p.category === category);
     }
-
     if (concern !== 'All') {
       prods = prods.filter(p => {
           const pTags = Array.isArray(p.tags) ? p.tags : [p.tags];
           return pTags.includes(concern);
       });
     }
-    
     if (searchTerm) {
       const lowerSearch = searchTerm.toLowerCase();
       prods = prods.filter(p => 
@@ -167,7 +155,6 @@ function AllProductsPage() {
         (p.description && p.description.toLowerCase().includes(lowerSearch))
       );
     }
-
     if (sort === 'name-asc') prods.sort((a, b) => a.title.localeCompare(b.title));
     else if (sort === 'name-desc') prods.sort((a, b) => b.title.localeCompare(a.title));
     
@@ -180,14 +167,13 @@ function AllProductsPage() {
 
   const productsToShow = filteredProducts.slice(0, visibleProducts);
 
-  // --- Handlers ---
-  const handleCategoryChange = (e) => {
-    const newCategory = e.target.value;
+  // NEW: Direct handler for clicking a category chip
+  const handleCategoryClick = (newCategory) => {
     setSearchParams(prev => {
         const newParams = new URLSearchParams(prev);
         if (newCategory === 'All') newParams.delete('category');
         else newParams.set('category', newCategory);
-        newParams.delete('concern'); 
+        newParams.delete('concern'); // Reset sub-filters
         return newParams;
     });
   };
@@ -212,33 +198,13 @@ function AllProductsPage() {
   const openQuickView = (product) => setSelectedProduct(product);
   const closeQuickView = () => setSelectedProduct(null);
   
-  // --- RENDER FILTERS FUNCTION ---
+  // --- UPDATED RENDER FILTERS (Removed Category from here) ---
   const renderFilters = (viewType) => (
-    <>
-      {isAllProductsView && (
-        <div className="filter-group">
-          <h4>Category</h4>
-          {['All', 'Soaps', 'Facewash', 'Shampoos', 'Face Masks', 'Baby', 'Other'].map(cat => {
-            const uniqueId = `cat-${sanitizeId(cat)}-${viewType}`;
-            return (
-              <div key={cat} className="radio-group">
-                <input 
-                  type="radio" 
-                  id={uniqueId} 
-                  name={`category-${viewType}`} 
-                  value={cat}
-                  checked={category === cat}
-                  onChange={handleCategoryChange} 
-                />
-                <label htmlFor={uniqueId}>{cat}</label>
-              </div>
-            );
-          })}
-        </div>
-      )}
-
-      <div className="filter-group">
-        <h4>{getConcernTitle()}</h4>
+    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
+      
+      {/* 1. SCROLLABLE MIDDLE SECTION: Concerns only now */}
+      <div className="filter-group-scrollable" style={{ flex: 1, overflowY: 'auto', padding: '15px 0' }}>
+      
         {allConcerns.length > 1 ? (
            allConcerns.map(con => {
             const uniqueId = `concern-${sanitizeId(con)}-${viewType}`;
@@ -263,22 +229,34 @@ function AllProductsPage() {
         )}
       </div>
       
-      <button className="clear-filters-btn" onClick={clearFilters}>
-        Clear All Filters
-      </button>
-    </>
+      {/* 2. FIXED BOTTOM SECTION: Clear Button */}
+      <div className="filter-group-bottom" style={{ flexShrink: 0, paddingTop: '10px', borderTop: '1px solid #eee' }}>
+        <button className="clear-filters-btn" onClick={clearFilters} style={{ width: '100%' }}>
+            Clear All Filters
+        </button>
+      </div>
+
+    </div>
   );
 
-  
-  const sidebarControlsJSX = (
-    <>
-      <div className="product-count">
-        Showing {productsToShow.length} of {filteredProducts.length} products
-      </div>
-     
-     
-    </>
-  );
+  // --- NEW COMPONENT: Horizontal Category Chips ---
+  const CategoryChips = () => {
+    const categories = ['All', 'Soaps', 'Facewash', 'Shampoos', 'Face Masks', 'Baby', 'Other'];
+    
+    return (
+        <div className="category-chips-container">
+            {categories.map((cat) => (
+                <button
+                    key={cat}
+                    onClick={() => handleCategoryClick(cat)}
+                    className={`category-chip ${category === cat ? 'active' : ''}`}
+                >
+                    {cat}
+                </button>
+            ))}
+        </div>
+    );
+  };
 
   return (
     <div className="all-products-page-wrapper">
@@ -289,14 +267,14 @@ function AllProductsPage() {
       <div className="shop-layout-container">
         
         {/* --- LEFT SIDEBAR (Desktop) --- */}
-        <aside className="shop-sidebar">
+        <aside className="shop-sidebar" style={{ height: 'calc(100vh - 150px)', position: 'sticky', top: '100px', overflow: 'hidden' }}>
           <Link to="/" className="back-to-home-btn" title="Back to Home">
             <i className="fas fa-arrow-left"></i>
           </Link>
           <h2 className="shop-all-products-title-desktop">{pageTitle}</h2>
-          {sidebarControlsJSX}
+          
           <div className="sidebar-header"><h3>Filters</h3></div>
-          <div className="filters-sidebar">
+          <div className="filters-sidebar" style={{ height: 'calc(100% - 100px)' }}> 
             {renderFilters('desktop')}
           </div>
         </aside>
@@ -304,15 +282,15 @@ function AllProductsPage() {
         {/* --- MOBILE Filter Popup --- */}
         <aside className={`filters-sidebar-mobile ${isFiltersOpen ? 'open' : ''}`}>
           <div className="mobile-filter-overlay-CLICK-TARGET" onClick={() => setIsFiltersOpen(false)}></div>
-          <div className="sidebar-content-wrapper">
-            <div className="sidebar-header">
+          <div className="sidebar-content-wrapper" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+            <div className="sidebar-header" style={{ flexShrink: 0 }}>
               <h3>Filters</h3>
               <button className="mobile-close-filter" onClick={() => setIsFiltersOpen(false)}><i className="fas fa-times"></i></button>
             </div>
-            <div className="mobile-sidebar-controls">
-              {sidebarControlsJSX}
+            
+            <div style={{ flex: 1, overflow: 'hidden', padding: '10px 20px' }}>
+                {renderFilters('mobile')}
             </div>
-            {renderFilters('mobile')}
           </div>
         </aside>
 
@@ -322,11 +300,11 @@ function AllProductsPage() {
                 <i className="fas fa-arrow-left"></i>
             </Link>
             <h2 className="shop-all-products-title-mobile">{pageTitle}</h2>
-            
-            {/* --- 4. REPLACED: New Filter Button Component --- */}
             <FilterButton onClick={() => setIsFiltersOpen(true)} />
-
           </div>
+
+          {/* --- RENDER CATEGORY CHIPS HERE (Only if on All Products View) --- */}
+          {isAllProductsView && <CategoryChips />}
 
           <div className={`product-grid ${viewMode === 'list' ? 'list-view' : ''}`}>
             {productsToShow.length > 0 ? (
