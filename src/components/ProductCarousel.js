@@ -2,28 +2,27 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from './ProductCard'; 
 
-// --- Helper function to get the correct rem breakpoint -
-
 // --- A helper object to map categories to their page links ---
 const categoryLinks = {
   Soaps: '/soaps',
   Facewash: '/facewash',
   Other: '/other',
+  Baby: '/baby',
+  Shampoos: '/shampoos',
+  // FIX: Changed key to match the prop passed from HomePage ("FaceMask")
+  FaceMask: '/facemasks', 
 };
 
-// --- PATCH: Added onQuickView to props ---
 function ProductCarousel({ title, products, category, onQuickView }) {
   const [currentPage, setCurrentPage] = useState(0);
-  const [cardsPerView, setCardsPerView] = useState(3); // Default to 3
+  const [cardsPerView, setCardsPerView] = useState(3); 
   
-  // --- NEW: State to track touch swipe ---
   const [touchStartPos, setTouchStartPos] = useState(0);
   const [touchEndPos, setTouchEndPos] = useState(0);
 
   const sliderTrackRef = useRef(null);
   const wrapperRef = useRef(null); 
 
-  // --- This effect watches the SLIDER WRAPPER's width ---
   useEffect(() => {
     const wrapper = wrapperRef.current;
     if (typeof window === 'undefined' || typeof ResizeObserver === 'undefined' || !wrapper) {
@@ -36,12 +35,11 @@ function ProductCarousel({ title, products, category, onQuickView }) {
         const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
         const widthInRem = wrapperWidth / rootFontSize;
         
-       // --- These values match your CSS breakpoints ---
-        if (widthInRem >= 80) { // 4-card layout
+        if (widthInRem >= 80) { 
           setCardsPerView(3);
-        } else if (widthInRem >= 39) { // 2-card layout
+        } else if (widthInRem >= 39) { 
           setCardsPerView(2);
-        } else { // 1-card layout
+        } else { 
           setCardsPerView(1);
         }
       }
@@ -52,13 +50,14 @@ function ProductCarousel({ title, products, category, onQuickView }) {
     
   }, []); 
 
-  
   const maxPage = Math.max(0, products.length - cardsPerView);
+  
+  // --- FIX: Logic to ensure a valid link ---
+  // If the category exists in our map, use it. Otherwise default to /shop
   const viewAllLink = categoryLinks[category] || '/shop';
 
   const slide = (direction) => {
       const newPage = currentPage + direction;
-      // Clamp the page to be between 0 and maxPage
       if (newPage < 0) {
         setCurrentPage(0);
       } else if (newPage > maxPage) {
@@ -68,9 +67,8 @@ function ProductCarousel({ title, products, category, onQuickView }) {
       }
   };
 
-  // This effect moves the slider when 'currentPage' changes
   useEffect(() => {
-    const scrollAmountInRem = 20.625; // Card (18.75rem) + Gap (1.875rem)
+    const scrollAmountInRem = 20.625; 
     const newTransformX = -currentPage * scrollAmountInRem;
 
     if (sliderTrackRef.current) {
@@ -78,14 +76,12 @@ function ProductCarousel({ title, products, category, onQuickView }) {
     }
   }, [currentPage]);
 
-  // This effect resets the slider if the layout changes (e.g., on zoom)
   useEffect(() => {
-    setCurrentPage(0); // Reset to first slide on resize/zoom
+    setCurrentPage(0); 
   }, [cardsPerView]);
 
-  // --- NEW: Touch event handlers ---
   const handleTouchStart = (e) => {
-    setTouchEndPos(0); // Reset end position
+    setTouchEndPos(0); 
     setTouchStartPos(e.targetTouches[0].clientX);
   };
 
@@ -94,22 +90,16 @@ function ProductCarousel({ title, products, category, onQuickView }) {
   };
 
   const handleTouchEnd = () => {
-    if (touchStartPos === 0 || touchEndPos === 0) {
-      return; // Not a swipe
-    }
+    if (touchStartPos === 0 || touchEndPos === 0) return; 
 
     const diff = touchStartPos - touchEndPos;
-    const swipeThreshold = 50; // User must swipe at least 50px
+    const swipeThreshold = 50; 
 
     if (diff > swipeThreshold) {
-      // Swiped Left (Next)
       slide(1);
     } else if (diff < -swipeThreshold) {
-      // Swiped Right (Previous)
       slide(-1);
     }
-
-    // Reset positions
     setTouchStartPos(0);
     setTouchEndPos(0);
   };
@@ -120,6 +110,7 @@ function ProductCarousel({ title, products, category, onQuickView }) {
           <div className="carousel-sidebar">
               <h2>{title}</h2>
               
+              {/* This link now correctly points to /baby, /soaps, etc. */}
               <Link to={viewAllLink} className="view-all-btn">
                 View All
               </Link>
@@ -133,7 +124,6 @@ function ProductCarousel({ title, products, category, onQuickView }) {
               )}
               
               <div className="slider-wrapper" ref={wrapperRef}>
-                  {/* --- NEW: Added touch event listeners --- */}
                   <div 
                     className="slider-track" 
                     ref={sliderTrackRef}
@@ -145,7 +135,6 @@ function ProductCarousel({ title, products, category, onQuickView }) {
                           <ProductCard 
                             key={product.title} 
                             product={product} 
-                            /* --- PATCH: Pass the function down --- */
                             onQuickView={() => onQuickView && onQuickView(product)}
                           />
                       ))}

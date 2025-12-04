@@ -1,24 +1,17 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import ProductCard from '../components/ProductCard'; 
 import { soapProducts, otherProducts, faceWashProducts, faceMaskProducts, shampooProducts, babyProducts } from '../productdata';
 import ImageSlider from '../components/ImageSlider'; 
- 
 
-// --- Helper Function to sanitize IDs ---
-const sanitizeId = (text) => {
-  if (!text) return 'unknown';
-  return text.toString().toLowerCase().replace(/\s+/g, '-');
-};
-
-// --- Helper Function to get primary tag ---
+// --- Helper Functions ---
 const getPrimaryTag = (tags) => {
-  if (!tags) return 'general';
+  if (!tags) return 'General';
   const tagArray = Array.isArray(tags) ? tags : [tags];
   return tagArray.find(tag => tag !== 'general') || 'general';
 };
 
-// --- Process all product lists ---
+// --- Process Data ---
 const allSoapProducts = soapProducts.map(p => ({ ...p, id: p.title, category: 'Soaps', primaryTag: getPrimaryTag(p.tags) }));
 const allOtherProducts = otherProducts.map(p => ({ ...p, id: p.title, category: 'Other', primaryTag: getPrimaryTag(p.tags) }));
 const allFaceWashProducts = faceWashProducts.map(p => ({ ...p, id: p.title, category: 'Facewash', primaryTag: getPrimaryTag(p.tags) }));
@@ -27,234 +20,163 @@ const allShampooProducts = shampooProducts.map(p => ({ ...p, id: p.title, catego
 const allBabyProducts = babyProducts.map(p => ({ ...p, id: p.title, category: 'Baby', primaryTag: getPrimaryTag(p.tags) }));
 
 const allProducts = [
-  ...allSoapProducts,
-  ...allOtherProducts,
-  ...allFaceWashProducts,
-  ...allFaceMaskProducts,
-  ...allShampooProducts,
-  ...allBabyProducts
+  ...allSoapProducts, ...allOtherProducts, ...allFaceWashProducts,
+  ...allFaceMaskProducts, ...allShampooProducts, ...allBabyProducts
 ];
 
 const bannerImages = [
-  { src: './ban0.png', alt: 'Handmade Soaps', caption: 'Handmade Soaps' },
-  { src: './ban3.png', alt: 'Woman with healthy hair', caption: 'Nourish Your Hair, Naturally' },
-  { src: './ban5.jpg', alt: 'Natural lip balm products', caption: 'Hydrate & Protect Your Lips' }
+  { src: './ban0.png', alt: 'Handmade Soaps' },
+  { src: './ban3.png', alt: 'Hair Care' },
 ];
-
-// --- Custom Filter Button Component ---
-function FilterButton({ onClick }) {
-    return (
-      <button 
-        className="mobile-filter-btn-custom" 
-        onClick={onClick} 
-        title="Open Filters"
-        style={{
-            display: 'flex', alignItems: 'center', gap: '8px', 
-            background: '#fff', border: '1px solid #ddd', 
-            padding: '8px 16px', borderRadius: '20px', cursor: 'pointer'
-        }}
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <line x1="4" y1="21" x2="4" y2="14"></line><line x1="4" y1="10" x2="4" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="12"></line><line x1="12" y1="8" x2="12" y2="3"></line>
-          <line x1="20" y1="21" x2="20" y2="16"></line><line x1="20" y1="12" x2="20" y2="3"></line>
-          <line x1="1" y1="14" x2="7" y2="14"></line><line x1="9" y1="8" x2="15" y2="8"></line>
-          <line x1="17" y1="16" x2="23" y2="16"></line>
-        </svg>
-        <span style={{ fontSize: '14px', fontWeight: '600' }}>Filter</span>
-      </button>
-    );
-}
-
-// --- Quick View Modal ---
-function QuickViewModal({ product, onClose }) {
-  if (!product) return null;
-  const tagsToDisplay = Array.isArray(product.tags) ? product.tags : [product.primaryTag];
-
-  return (
-    <div className="quick-view-modal-overlay" onClick={onClose}>
-      <div className="quick-view-modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="modal-close-btn" onClick={onClose}><i className="fas fa-times"></i></button>
-        <div className="modal-image"><img src={product.img} alt={product.title} /></div>
-        <div className="modal-details">
-          <h2>{product.title}</h2>
-          <p>{product.subtitle}</p>
-          <p>{product.description}</p>
-          <div className="modal-tags-container" style={{ marginTop: '15px' }}>
-            <h4>Best For:</h4>
-            <ul style={{ paddingLeft: '20px', listStyleType: 'disc', marginTop: '5px' }}>
-              {tagsToDisplay.map((tag, index) => (
-                <li key={index} style={{ marginBottom: '5px', textTransform: 'capitalize' }}>
-                  {tag.toString().replace(/-/g, ' ')}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function AllProductsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation(); 
   const path = location.pathname; 
 
+  const [sort, setSort] = useState('default');
+  const [visibleProducts, setVisibleProducts] = useState(12);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); 
+  const dropdownRef = useRef(null); 
+
   const category = searchParams.get('category') || 'All';
   const concern = searchParams.get('concern') || 'All';
 
-  const { products, pageTitle,  isAllProductsView } = useMemo(() => {
-    if (path === '/soaps') return { products: allSoapProducts, pageTitle: 'Shop Soaps', isAllProductsView: false };
-    if (path === '/facewash') return { products: allFaceWashProducts, pageTitle: 'Shop Facewash', isAllProductsView: false };
-    if (path === '/shampoos') return { products: allShampooProducts, pageTitle: 'Shop Shampoos', isAllProductsView: false };
-    if (path === '/baby') return { products: allBabyProducts, pageTitle: 'Shop Baby Care', isAllProductsView: false };
-    if (path === '/other') return { products: allOtherProducts, pageTitle: 'Shop Other Products', isAllProductsView: false };
-    return { products: allProducts, pageTitle: 'Shop All Products', isAllProductsView: true };
-  }, [path]); 
+  // --- Dynamic Title Logic ---
+  const { products, pageTitle, isAllProductsView } = useMemo(() => {
+    if (path === '/soaps') return { products: allSoapProducts, pageTitle: 'Handmade Soaps', isAllProductsView: false };
+    if (path === '/facewash') return { products: allFaceWashProducts, pageTitle: 'Natural Facewash', isAllProductsView: false };
+    if (path === '/shampoos') return { products: allShampooProducts, pageTitle: 'Herbal Shampoos', isAllProductsView: false };
+    if (path === '/baby') return { products: allBabyProducts, pageTitle: 'Baby Care', isAllProductsView: false };
+    if (path === '/other') return { products: allOtherProducts, pageTitle: 'Wellness & More', isAllProductsView: false };
+    
+    let dynamicTitle = 'All Collection';
+    if (category !== 'All') dynamicTitle = category; 
+    
+    return { products: allProducts, pageTitle: dynamicTitle, isAllProductsView: true };
+  }, [path, category]); 
 
-  const [searchTerm, setSearchTerm] = useState('');
-  const [sort, setSort] = useState('default');
-  const [viewMode, setViewMode] = useState('grid'); 
-  const [visibleProducts, setVisibleProducts] = useState(12);
-  const [isFiltersOpen, setIsFiltersOpen] = useState(false); 
-  const [selectedProduct, setSelectedProduct] = useState(null); 
-
-  const getConcernTitle = () => {
-    if (category === 'Shampoos' || path === '/shampoos') return 'Hair Concern';
-    if (category === 'Baby' || path === '/baby') return 'Benefit';
-    if (category === 'Other' || path === '/other') return 'Type';
-    return 'Concern';
-  };
-
+  // --- Filter Logic ---
   const allConcerns = useMemo(() => {
     let relevantProducts = products;
     if (isAllProductsView && category !== 'All') {
       relevantProducts = products.filter(p => p.category === category);
     }
     const allTags = relevantProducts.flatMap(p => Array.isArray(p.tags) ? p.tags : [p.tags]);
-    const uniqueTags = [...new Set(allTags)]; 
-    return ['All', ...uniqueTags.sort()];
+    return ['All', ...[...new Set(allTags)].filter(t => t !== 'General').sort()];
   }, [products, category, isAllProductsView]);
 
   const filteredProducts = useMemo(() => {
     let prods = [...products];
-    if (isAllProductsView && category !== 'All') {
-      prods = prods.filter(p => p.category === category);
-    }
-    if (concern !== 'All') {
-      prods = prods.filter(p => {
-          const pTags = Array.isArray(p.tags) ? p.tags : [p.tags];
-          return pTags.includes(concern);
-      });
-    }
-    if (searchTerm) {
-      const lowerSearch = searchTerm.toLowerCase();
-      prods = prods.filter(p => 
-        p.title.toLowerCase().includes(lowerSearch) ||
-        (p.description && p.description.toLowerCase().includes(lowerSearch))
-      );
-    }
+    if (isAllProductsView && category !== 'All') prods = prods.filter(p => p.category === category);
+    if (concern !== 'All') prods = prods.filter(p => (Array.isArray(p.tags) ? p.tags : [p.tags]).includes(concern));
+    
     if (sort === 'name-asc') prods.sort((a, b) => a.title.localeCompare(b.title));
     else if (sort === 'name-desc') prods.sort((a, b) => b.title.localeCompare(a.title));
     
     return prods;
-  }, [products, searchTerm, category, concern, sort, isAllProductsView]); 
-
-  useEffect(() => {
-    setVisibleProducts(12);
-  }, [filteredProducts]);
+  }, [products, category, concern, sort, isAllProductsView]); 
 
   const productsToShow = filteredProducts.slice(0, visibleProducts);
 
-  // NEW: Direct handler for clicking a category chip
-  const handleCategoryClick = (newCategory) => {
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsDropdownOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [dropdownRef]);
+
+  // Handlers
+  const handleCategoryChange = (val) => {
     setSearchParams(prev => {
         const newParams = new URLSearchParams(prev);
-        if (newCategory === 'All') newParams.delete('category');
-        else newParams.set('category', newCategory);
-        newParams.delete('concern'); // Reset sub-filters
+        if (val === 'All') newParams.delete('category');
+        else newParams.set('category', val);
+        newParams.delete('concern'); 
         return newParams;
     });
   };
 
-  const handleConcernChange = (e) => {
-    const newConcern = e.target.value;
+  const handleConcernChange = (val) => {
     setSearchParams(prev => {
         const newParams = new URLSearchParams(prev);
-        if (newConcern === 'All') newParams.delete('concern');
-        else newParams.set('concern', newConcern);
+        if (val === 'All') newParams.delete('concern');
+        else newParams.set('concern', val);
         return newParams;
     });
+    setIsDropdownOpen(false); 
   };
 
   const clearFilters = () => {
-    setSearchTerm('');
     setSort('default');
-    setSearchParams({}); 
+    setSearchParams({});
+    setIsDropdownOpen(false);
   };
 
-  const loadMore = () => setVisibleProducts(prev => prev + 12); 
-  const openQuickView = (product) => setSelectedProduct(product);
-  const closeQuickView = () => setSelectedProduct(null);
-  
-  // --- UPDATED RENDER FILTERS (Removed Category from here) ---
-  const renderFilters = (viewType) => (
-    <div style={{ display: 'flex', flexDirection: 'column', height: '100%', overflow: 'hidden' }}>
-      
-      {/* 1. SCROLLABLE MIDDLE SECTION: Concerns only now */}
-      <div className="filter-group-scrollable" style={{ flex: 1, overflowY: 'auto', padding: '15px 0' }}>
-      
-        {allConcerns.length > 1 ? (
-           allConcerns.map(con => {
-            const uniqueId = `concern-${sanitizeId(con)}-${viewType}`;
-            return (
-              <div key={con} className="radio-group">
-                <input 
-                  type="radio" 
-                  id={uniqueId} 
-                  name={`concern-${viewType}`} 
-                  value={con}
-                  checked={concern === con}
-                  onChange={handleConcernChange} 
-                />
-                <label htmlFor={uniqueId}>
-                    {con === 'All' ? 'All' : con.charAt(0).toUpperCase() + con.slice(1).replace(/-/g, ' ')}
-                </label>
-              </div>
-            );
-          })
-        ) : (
-          <p style={{fontSize: '0.9rem', color: '#888'}}>No filters available.</p>
-        )}
-      </div>
-      
-      {/* 2. FIXED BOTTOM SECTION: Clear Button */}
-      <div className="filter-group-bottom" style={{ flexShrink: 0, paddingTop: '10px', borderTop: '1px solid #eee' }}>
-        <button className="clear-filters-btn" onClick={clearFilters} style={{ width: '100%' }}>
-            Clear All Filters
-        </button>
-      </div>
-
-    </div>
-  );
-
-  // --- NEW COMPONENT: Horizontal Category Chips ---
-  const CategoryChips = () => {
+  // --- NEW COMPONENT: Top Filter Bar ---
+  const TopFilterBar = () => {
     const categories = ['All', 'Soaps', 'Facewash', 'Shampoos', 'Face Masks', 'Baby', 'Other'];
-    
+    const filterLabel = category === 'All' ? 'All' : category;
+
     return (
-        <div className="category-chips-container">
-            {categories.map((cat) => (
-                <button
-                    key={cat}
-                    onClick={() => handleCategoryClick(cat)}
-                    className={`category-chip ${category === cat ? 'active' : ''}`}
-                >
-                    {cat}
-                </button>
+      <div className="sticky-filter-header">
+        <div className="filter-bar-layout">
+          
+          <div className="categories-scroll-section">
+             {isAllProductsView && categories.map(cat => (
+              <button 
+                key={cat}
+                onClick={() => handleCategoryChange(cat)}
+                className={`rail-chip ${category === cat ? 'active' : ''}`}
+              >
+                {cat}
+              </button>
             ))}
+             {/* Space for Pill */}
+             <div style={{minWidth: '40px'}}></div>
+          </div>
+
+          <div className="fixed-filter-section" ref={dropdownRef}>
+            <div className="filter-separator"></div>
+            
+            <button 
+              className={`filter-pill-btn ${isDropdownOpen || concern !== 'All' ? 'active-filter' : ''}`}
+              onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              title="Filter & Sort"
+            >
+              <span className="filter-label-text">{filterLabel}</span>
+              <i className="fas fa-sliders-h"></i>
+              {concern !== 'All' && <span className="filter-dot"></span>}
+            </button>
+
+            {isDropdownOpen && (
+              <div className="elegant-dropdown-menu">
+                
+                
+                <div className="dropdown-section">
+                  <h4>Filter by Needs</h4>
+                  <div className="dropdown-tags">
+                    {allConcerns.map(con => (
+                      <button key={con} onClick={() => handleConcernChange(con)} className={`dropdown-tag ${concern === con ? 'selected' : ''}`}>
+                        {con}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="dropdown-footer">
+                  <button onClick={clearFilters} className="text-btn">Reset</button>
+                  <button onClick={() => setIsDropdownOpen(false)} className="done-btn">Show Results</button>
+                </div>
+              </div>
+            )}
+          </div>
+
         </div>
+      </div>
     );
   };
 
@@ -266,80 +188,42 @@ function AllProductsPage() {
 
       <div className="shop-layout-container">
         
-        {/* --- LEFT SIDEBAR (Desktop) --- */}
-        <aside className="shop-sidebar" style={{ height: 'calc(100vh - 150px)', position: 'sticky', top: '100px', overflow: 'hidden' }}>
-          <Link to="/" className="back-to-home-btn" title="Back to Home">
-            <i className="fas fa-arrow-left"></i>
-          </Link>
-          <h2 className="shop-all-products-title-desktop">{pageTitle}</h2>
+        {/* --- LEFT SIDEBAR REMOVED --- */}
+        
+        <div className="shop-product-grid-wrapper full-width">
           
-          <div className="sidebar-header"><h3>Filters</h3></div>
-          <div className="filters-sidebar" style={{ height: 'calc(100% - 100px)' }}> 
-            {renderFilters('desktop')}
-          </div>
-        </aside>
-
-        {/* --- MOBILE Filter Popup --- */}
-        <aside className={`filters-sidebar-mobile ${isFiltersOpen ? 'open' : ''}`}>
-          <div className="mobile-filter-overlay-CLICK-TARGET" onClick={() => setIsFiltersOpen(false)}></div>
-          <div className="sidebar-content-wrapper" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
-            <div className="sidebar-header" style={{ flexShrink: 0 }}>
-              <h3>Filters</h3>
-              <button className="mobile-close-filter" onClick={() => setIsFiltersOpen(false)}><i className="fas fa-times"></i></button>
-            </div>
-            
-            <div style={{ flex: 1, overflow: 'hidden', padding: '10px 20px' }}>
-                {renderFilters('mobile')}
-            </div>
-          </div>
-        </aside>
-
-        <div className="shop-product-grid-wrapper">
-          <div className="all-products-header-mobile">
-            <Link to="/" className="back-to-home-btn" title="Back to Home">
-                <i className="fas fa-arrow-left"></i>
-            </Link>
-            <h2 className="shop-all-products-title-mobile">{pageTitle}</h2>
-            <FilterButton onClick={() => setIsFiltersOpen(true)} />
+          {/* --- NEW HEADER: Arrow + Dynamic Title --- */}
+          <div className="dynamic-page-header">
+             <Link to="/" className="header-back-arrow" title="Back to Home"><i className="fas fa-arrow-left"></i></Link>
+             <div className="header-text-group">
+                <h1 className="header-title">{pageTitle}</h1>
+                <span className="header-count">{filteredProducts.length} Products</span>
+             </div>
           </div>
 
-          {/* --- RENDER CATEGORY CHIPS HERE (Only if on All Products View) --- */}
-          {isAllProductsView && <CategoryChips />}
+          {/* --- NEW FILTER BAR --- */}
+          <TopFilterBar />
 
-          <div className={`product-grid ${viewMode === 'list' ? 'list-view' : ''}`}>
+          <div className="product-grid">
             {productsToShow.length > 0 ? (
-              productsToShow.map((product, index) => (
-                <ProductCard 
-                  key={product.id || product.title} 
-                  product={product}
-                  subtitle={product.subtitle}
-                  viewMode={viewMode}
-                  onQuickView={() => openQuickView(product)}
-                />
+              productsToShow.map(product => (
+                <ProductCard key={product.id || product.title} product={product} />
               ))
             ) : (
               <div className="empty-state-container">
-                <i className="fas fa-boxes"></i>
                 <h3>No Products Found</h3>
-                <p>Try adjusting your filters or search terms.</p>
-                <button className="clear-filters-btn" onClick={clearFilters}>
-                  Clear All Filters
-                </button>
+                <button className="clear-filters-btn" onClick={clearFilters}>Clear All Filters</button>
               </div>
             )}
           </div>
 
           {productsToShow.length < filteredProducts.length && (
             <div className="load-more-container">
-              <button className="load-more-btn" onClick={loadMore}>
-                Load More Products
-              </button>
+              <button className="load-more-btn" onClick={() => setVisibleProducts(p => p + 12)}>Load More</button>
             </div>
           )}
         </div>
       </div>
-
-      <QuickViewModal product={selectedProduct} onClose={closeQuickView} />
     </div>
   );
 }

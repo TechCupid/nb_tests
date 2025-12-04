@@ -7,13 +7,13 @@ import AllProductsPage from './pages/AllProductsPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 
-// --- MODIFIED: Import all your new product data ---
 import { 
   soapProducts, 
   otherProducts, 
   faceWashProducts,
   faceMaskProducts,
-  shampooProducts
+  shampooProducts,
+  babyProducts
 } from './productdata';
 
 const allProducts = [
@@ -21,13 +21,12 @@ const allProducts = [
   ...otherProducts.map((p, i) => ({ ...p, id: `other-${i}`, category: 'Other' })),
   ...faceWashProducts.map((p, i) => ({ ...p, id: `facewash-${i}`, category: 'Facewash' })),
   ...faceMaskProducts.map((p, i) => ({ ...p, id: `facemask-${i}`, category: 'Face Masks' })),
-  ...shampooProducts.map((p, i) => ({ ...p, id: `shampoo-${i}`, category: 'Shampoos' }))
+  ...shampooProducts.map((p, i) => ({ ...p, id: `shampoo-${i}`, category: 'Shampoos' })),
+  ...babyProducts.map((p, i) => ({ ...p, id: `baby-${i}`, category: 'Baby' })),
 ];
 
-// --- Create Toast Context ---
 export const ToastContext = createContext();
 
-// --- Toast Provider Component ---
 function ToastProvider({ children }) {
   const [toast, setToast] = useState({ message: '', isVisible: false });
 
@@ -46,7 +45,6 @@ function ToastProvider({ children }) {
   );
 }
 
-// --- Toast Component (The pop-up) ---
 function Toast({ message, isVisible }) {
   if (!isVisible) return null;
   return (
@@ -56,7 +54,6 @@ function Toast({ message, isVisible }) {
   );
 }
 
-// Scrolls to top on page change
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -65,7 +62,6 @@ function ScrollToTop() {
   return null;
 }
 
-// --- Main App Component ---
 function App() {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -82,7 +78,6 @@ function App() {
   };
 
   return (
-    // Make sure <BrowserRouter> is in your index.js file!
     <ToastProvider> 
       <div className="browser-frame">
           <Header />
@@ -96,6 +91,10 @@ function App() {
               <Route path="/shampoos" element={<AllProductsPage products={allProducts} />} />
               <Route path="/facewash" element={<AllProductsPage products={allProducts} />} />
               <Route path="/other" element={<AllProductsPage products={allProducts} />} />
+              {/* --- FIX: Added Missing Routes --- */}
+              <Route path="/baby" element={<AllProductsPage products={allProducts} />} />
+              <Route path="/facemasks" element={<AllProductsPage products={allProducts} />} />
+
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>

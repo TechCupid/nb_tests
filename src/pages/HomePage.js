@@ -12,15 +12,13 @@ const getPrimaryTag = (tags) => {
 };
 
 // --- 1. PREPARE DATA ---
-const safebaby = babyProducts.map(p => ({ ...p, id: p.title, category: 'Baby Products', primaryTag: getPrimaryTag(p.tags) }));
-// Handle soaps, facewash, shampoos, and other products safely
+const safebaby = babyProducts.map(p => ({ ...p, id: p.title, category: 'Baby', primaryTag: getPrimaryTag(p.tags) }));
 const safeSoaps = soapProducts.map(p => ({ ...p, id: p.title, category: 'Soaps', primaryTag: getPrimaryTag(p.tags) }));
 const safeFacewash = faceWashProducts.map(p => ({ ...p, id: p.title, category: 'Facewash', primaryTag: getPrimaryTag(p.tags) }));
 const safeShampoos = shampooProducts.map(p => ({ ...p, id: p.title, category: 'Shampoos', primaryTag: getPrimaryTag(p.tags) }));
 const safeOther = otherProducts.map(p => ({ ...p, id: p.title, category: 'Other', primaryTag: getPrimaryTag(p.tags) }));
-// Handle face masks safely
 const safeMasks = faceMaskProducts ? faceMaskProducts.map(p => ({ 
-  ...p, id: p.title, category: 'Face Masks', primaryTag: getPrimaryTag(p.tags) 
+  ...p, id: p.title, category: 'FaceMasks', primaryTag: getPrimaryTag(p.tags) 
 })) : [];
 
 
@@ -68,7 +66,7 @@ function HomePage() {
       <ProductCarousel 
           title={<>Baby<br />Products</>}
           products={safebaby}
-          category="Baby Products"
+          category="Baby"
           onQuickView={handleQuickView}
       />
 
@@ -86,15 +84,11 @@ function HomePage() {
           onQuickView={handleQuickView}
       />
 
-      {/* --- FACE MASK SECTION --- */}
-     {safeMasks.length > 0 && (
+      {safeMasks.length > 0 && (
           <div className="facemask-carousel-wrapper">
             <ProductCarousel 
                 title={
                     <div style={{ position: 'relative', display: 'inline-block' }}>
-                        
-                        
-                        {/* --- THE FLOATING BADGE --- */}
                         <div className="sunscreen-floating-badge">
                             <div className="sun-icon-glow">
                                 <i className="fas fa-sun"></i>

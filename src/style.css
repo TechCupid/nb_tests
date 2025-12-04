@@ -2458,3 +2458,285 @@ header nav a.active::after {
 .category-chip:hover {
   background-color: #f1f8e9;
 }
+/* --- EXISTING CSS VARIABLES (Ensure these are at the top) --- */
+:root {
+  --org-bg: #f1f1e9;
+  --org-accent: #a8b5a0;
+  --org-dark: #4f554c;
+  --org-text: #6c7268;
+  --org-white: #ffffff;
+}
+
+/* --- NEW HEADER STYLES --- */
+.dynamic-page-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(168, 181, 160, 0.3); /* Subtle green line */
+}
+
+/* The Arrow Circle */
+.header-back-arrow {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--org-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--org-dark);
+  background-color: var(--org-white);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.header-back-arrow:hover {
+  background-color: var(--org-dark);
+  color: var(--org-white);
+  border-color: var(--org-dark);
+}
+
+.header-back-arrow i {
+  font-size: 1.1rem;
+}
+
+/* Text Group */
+.header-text-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--org-dark);
+  line-height: 1.2;
+}
+
+.header-count {
+  font-size: 0.9rem;
+  color: var(--org-text);
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 600px) {
+  .header-title {
+    font-size: 1.4rem;
+  }
+  .header-back-arrow {
+    width: 36px;
+    height: 36px;
+  }
+}
+/* ========================================================
+   NEW FEATURES STYLING (Header & Filter Bar)
+   Add this to the bottom of your CSS file
+   ======================================================== */
+
+/* --- Colors for New Elements --- */
+:root {
+  --new-accent: #a8b5a0;
+  --new-dark: #4f554c;
+  --new-white: #ffffff;
+}
+
+/* Ensure Grid Wrapper is Full Width (Removes Sidebar Gap) */
+.shop-product-grid-wrapper.full-width {
+  width: 100% !important;
+  max-width: 100% !important;
+  flex: 0 0 100% !important;
+}
+
+/* Hide old sidebars if present */
+.shop-sidebar, .filters-sidebar-mobile { display: none !important; }
+
+
+/* --- 1. DYNAMIC HEADER (Arrow + Title) --- */
+.dynamic-page-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.header-back-arrow {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  background-color: #fff;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.header-back-arrow:hover {
+  background-color: var(--new-dark);
+  color: #fff;
+  border-color: var(--new-dark);
+}
+
+.header-text-group { display: flex; flex-direction: column; }
+.header-title { margin: 0; font-size: 1.8rem; font-weight: 700; color: #222; line-height: 1.2; }
+.header-count { font-size: 0.9rem; color: #666; margin-top: 2px; }
+
+
+/* --- 2. STICKY FILTER BAR CONTAINER --- */
+.sticky-filter-header {
+  position: relative;
+  z-index: 900; /* High z-index to stay on top */
+  margin-bottom: 25px;
+}
+
+.filter-bar-layout {
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: transparent; /* Transparent so it blends with your existing bg */
+}
+
+
+/* --- 3. SCROLLABLE CATEGORIES (Left Side) --- */
+.categories-scroll-section {
+  flex-grow: 1;
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 5px;
+  padding-right: 120px; /* IMPORTANT: Space for the fixed Pill */
+  scrollbar-width: none;
+}
+.categories-scroll-section::-webkit-scrollbar { display: none; }
+
+.rail-chip {
+  flex-shrink: 0;
+  background-color: #f9f9f9;
+  border: 1px solid transparent;
+  color: #444;
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+.rail-chip.active {
+  background-color: var(--new-dark);
+  color: #fff;
+}
+
+
+/* --- 4. FIXED FILTER PILL (Right Side) --- */
+.fixed-filter-section {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+ 
+}
+
+/* Fade Gradient Separator */
+.filter-separator {
+  position: absolute;
+  left: -25px;
+  top: 0;
+  bottom: 0;
+  width: 25px;
+  background: linear-gradient(to right, rgba(255,255,255,0));
+  pointer-events: none;
+}
+
+.filter-pill-btn {
+  height: 44px;
+  padding: 0 20px;
+  border-radius: 30px;
+  background: #fff;
+  border: 1px solid var(--new-accent);
+  color: var(--new-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  transition: all 0.2s ease;
+  position: relative;
+  white-space: nowrap;
+}
+
+.filter-pill-btn:hover { transform: scale(1.03); }
+.filter-pill-btn.active-filter {
+  background: var(--new-dark);
+  color: #fff;
+  border-color: var(--new-dark);
+}
+
+.filter-label-text { font-weight: 600; font-size: 0.95rem; text-transform: capitalize; }
+.filter-dot {
+  position: absolute;
+  top: 5px; right: 5px; width: 8px; height: 8px;
+  background: #ff6b6b; border: 2px solid #fff; border-radius: 50%;
+}
+
+
+/* --- 5. ELEGANT DROPDOWN --- */
+.elegant-dropdown-menu {
+  position: absolute;
+  top: 55px; right: 0; width: 300px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  padding: 20px;
+  z-index: 1000;
+  border: 1px solid #eee;
+  animation: slideDown 0.2s ease-out;
+}
+
+@media (max-width: 480px) {
+  .elegant-dropdown-menu {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%; max-width: 350px;
+    box-shadow: 0 0 0 1000px rgba(0,0,0,0.4);
+  }
+}
+
+.dropdown-section h4 { font-size: 0.85rem; text-transform: uppercase; color: #888; margin-bottom: 12px; font-weight: 700; }
+
+.sort-options-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
+.sort-chip {
+  text-align: left; padding: 10px 15px; background: #f9f9f9;
+  border: 1px solid transparent; border-radius: 8px; color: #333; font-size: 0.9rem; cursor: pointer;
+}
+.sort-chip.selected { background: #eef3f0; border-color: var(--new-accent); font-weight: 600; color: var(--new-dark); }
+
+.dropdown-tags { display: flex; flex-wrap: wrap; gap: 8px; max-height: 200px; overflow-y: auto; }
+.dropdown-tag {
+  background: #f9f9f9; border: 1px solid transparent; padding: 8px 14px;
+  border-radius: 20px; font-size: 0.9rem; color: #555; cursor: pointer;
+}
+.dropdown-tag.selected { background: var(--new-dark); color: #fff; }
+
+.dropdown-footer {
+  display: flex; justify-content: space-between; align-items: center; padding-top: 15px; border-top: 1px solid #f0f0f0;
+}
+.text-btn { background: none; border: none; color: #999; cursor: pointer; font-weight: 500; }
+.done-btn { background: var(--new-dark); color: white; border: none; padding: 8px 20px; border-radius: 20px; cursor: pointer; }
+
+@keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
