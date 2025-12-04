@@ -275,39 +275,8 @@ function AllProductsPage() {
       <div className="product-count">
         Showing {productsToShow.length} of {filteredProducts.length} products
       </div>
-      <div className="search-bar">
-        <i className="fas fa-search"></i>
-        <input 
-          type="text" 
-          placeholder="Search..." 
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)} 
-        />
-      </div>
-      <div className="sidebar-controls">
-        <div className="control-group">
-          <label htmlFor="sort-by">Sort by</label>
-          <select id="sort-by" value={sort} onChange={(e) => setSort(e.target.value)}>
-            <option value="default">Default</option>
-            <option value="name-asc">Name (A-Z)</option>
-            <option value="name-desc">Name (Z-A)</option>
-          </select>
-        </div>
-        <div className="view-controls">
-          <button 
-            className={`view-toggle-btn ${viewMode === 'grid' ? 'active' : ''}`}
-            onClick={() => setViewMode('grid')} title="Grid View"
-          >
-            <i className="fas fa-th-large"></i>
-          </button>
-          <button 
-            className={`view-toggle-btn ${viewMode === 'list' ? 'active' : ''}`}
-            onClick={() => setViewMode('list')} title="List View"
-          >
-            <i className="fas fa-list"></i>
-          </button>
-        </div>
-      </div>
+     
+     
     </>
   );
 

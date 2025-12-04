@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import ProductCarousel from '../components/ProductCarousel';
 
-import { soapProducts, faceWashProducts, otherProducts, shampooProducts, faceMaskProducts } from '../productdata';
+import { soapProducts, faceWashProducts, otherProducts, shampooProducts, faceMaskProducts, babyProducts } from '../productdata';
 
 // --- Helper to safely get tags ---
 const getPrimaryTag = (tags) => {
@@ -12,6 +12,8 @@ const getPrimaryTag = (tags) => {
 };
 
 // --- 1. PREPARE DATA ---
+const safebaby = babyProducts.map(p => ({ ...p, id: p.title, category: 'Baby Products', primaryTag: getPrimaryTag(p.tags) }));
+// Handle soaps, facewash, shampoos, and other products safely
 const safeSoaps = soapProducts.map(p => ({ ...p, id: p.title, category: 'Soaps', primaryTag: getPrimaryTag(p.tags) }));
 const safeFacewash = faceWashProducts.map(p => ({ ...p, id: p.title, category: 'Facewash', primaryTag: getPrimaryTag(p.tags) }));
 const safeShampoos = shampooProducts.map(p => ({ ...p, id: p.title, category: 'Shampoos', primaryTag: getPrimaryTag(p.tags) }));
@@ -34,8 +36,7 @@ function QuickViewModal({ product, onClose }) {
         <div className="modal-image"><img src={product.img} alt={product.title} /></div>
         <div className="modal-details">
           <h2>{product.title}</h2>
-          <div className="modal-rating">{product.rating} <span>({product.reviews})</span></div>
-          <div className="modal-price">{product.price}</div>
+          
           <p>{product.description}</p>
           
           {tags.length > 0 && (
@@ -48,7 +49,7 @@ function QuickViewModal({ product, onClose }) {
                 </ul>
             </div>
           )}
-          <button className="add-to-cart-btn modal-add-btn">Add To Cart</button>
+          
         </div>
       </div>
     </div>
@@ -64,7 +65,12 @@ function HomePage() {
     <>
       <Hero />
       
-      
+      <ProductCarousel 
+          title={<>Baby<br />Products</>}
+          products={safebaby}
+          category="Baby Products"
+          onQuickView={handleQuickView}
+      />
 
       <ProductCarousel 
           title={<>Handmade<br />Soaps</>}
