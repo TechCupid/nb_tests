@@ -74,7 +74,7 @@ ${formData.message}
             <div className="contact-info-group">
               <div className="contact-info-item">
                 <i className="fas fa-envelope"></i>
-                <span>poojitha542@gmail.com</span>
+                <span>info@naturebubbles.in</span>
               </div>
               <div className="contact-info-item">
                 <i className="fas fa-phone"></i>

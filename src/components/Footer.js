@@ -31,7 +31,7 @@ function Footer() {
 
         {/* 2. Copyright */}
         <div className="footer-copyright">
-          <p>&copy; {new Date().getFullYear()} Nature Bubble | Designed and Developed by TECH INFORMATIC SOLUTIONS</p>
+          <p> Copyright &copy; {new Date().getFullYear()} Tech Informatic solutions.</p>
         </div>
 
       </div>

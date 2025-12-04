@@ -87,7 +87,7 @@ header {
 .logo-img {
     margin-left: -2rem;
     margin-top: 0.5rem;
-    height: 4rem;  
+    height: 6rem;  
     width: auto;     
     object-fit: contain;
 }
@@ -97,7 +97,7 @@ header {
 @media (max-width: 56.25rem) { 
     .logo-img {
         margin-left: -1rem;
-        height: 4rem; /* Adjust this for mobile screens */
+        height: 6rem; /* Adjust this for mobile screens */
     }
     header{
     margin-top: -3rem;
@@ -2198,7 +2198,6 @@ header nav a.active::after {
     background-color: #4f554c; 
     color: #f1f1e9;
     
-    /* CENTERED LAYOUT */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2317,4 +2316,101 @@ header nav a.active::after {
     font-size: 1.2rem; /* Slightly larger */
     color: var(--accent-green); /* Use your accent color */
     font-style: italic; /* Make it elegant */
+}
+/* ============================================== */
+/* === OPTION A: FLOATING SUN BADGE === */
+/* ============================================== */
+
+.sunscreen-floating-badge {
+    position: absolute;
+    
+    /* --- POSITION: TOP LEFT --- */
+    top: -90px;   /* Move it UP above the text */
+    left: -10px;    /* Align with the start of the text */
+    right: auto;  /* Ignore the right side */
+    
+    /* Styles */
+    background: white;
+    border-radius: 50px;
+    padding: 8px 15px 8px 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 10px 25px rgba(249, 168, 37, 0.2);
+    animation: floatBadge 3s ease-in-out infinite;
+    border: 1px solid #FFF59D;
+    width: max-content;
+    max-width: 80rem; /* Ensure it doesn't squish */
+}
+.sun-icon-glow {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #FDD835, #F57F17);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: 0 0 15px rgba(253, 216, 53, 0.6);
+}
+
+.sun-icon-glow i {
+    animation: spinSun 10s infinite linear;
+}
+
+.sunscreen-floating-badge span {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.2;
+    text-align: left;
+}
+
+@keyframes floatBadge {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Mobile Adjustment */
+@media (max-width: 56.25rem) {
+    .sunscreen-floating-badge {
+        position: relative; /* Stack it on mobile */
+        top: 0;
+        right: 0;
+        margin-top: 10px;
+        display: inline-flex;
+    }
+}
+
+@media (max-width: 56.25rem) { /* Mobile Breakpoint */
+    
+    /* ... keep your other mobile styles (hero, baby section, etc.) ... */
+
+    /* --- FOOTER CENTER FIX --- */
+    .footer-content {
+        align-items: center !important; 
+        text-align: center !important;
+    }
+
+    .footer-nav {
+        /* Ensure links are centered */
+        justify-content: center !important; 
+    }
+
+    .footer-copyright {
+        width: 100%;
+        /* Ensure the container text is centered */
+        text-align: center !important; 
+    }
+
+    .footer-copyright p {
+        /* Force the paragraph text itself to center */
+        text-align: center !important;
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
 }
