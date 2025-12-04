@@ -29,10 +29,45 @@ const bannerImages = [
   { src: './ban3.png', alt: 'Hair Care' },
 ];
 
+function QuickViewModal({ product, onClose }) {
+  if (!product) return null;
+  const tags = product.tags ? (Array.isArray(product.tags) ? product.tags : [product.tags]) : [];
+
+  return (
+    <div className="quick-view-modal-overlay" onClick={onClose}>
+      <div className="quick-view-modal-content" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close-btn" onClick={onClose}><i className="fas fa-times"></i></button>
+        <div className="modal-image"><img src={product.img} alt={product.title} /></div>
+        <div className="modal-details">
+          <h2>{product.title}</h2>
+          
+          <p>{product.description}</p>
+          
+          {tags.length > 0 && (
+            <div className="modal-tags-container">
+                <h4>Key Benefits:</h4>
+                <ul style={{ paddingLeft: '20px', listStyleType: 'disc' }}>
+                {tags.map((tag, index) => (
+                    <li key={index} style={{ marginBottom: '5px' }}>{tag}</li>
+                ))}
+                </ul>
+            </div>
+          )}
+          
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function AllProductsPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const location = useLocation(); 
   const path = location.pathname; 
+
+   const [selectedProduct, setSelectedProduct] = useState(null);
+    const handleQuickView = (product) => setSelectedProduct(product);
+    const closeQuickView = () => setSelectedProduct(null);
 
   const [sort, setSort] = useState('default');
   const [visibleProducts, setVisibleProducts] = useState(12);
@@ -89,6 +124,8 @@ function AllProductsPage() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [dropdownRef]);
 
+
+
   // Handlers
   const handleCategoryChange = (val) => {
     setSearchParams(prev => {
@@ -116,7 +153,7 @@ function AllProductsPage() {
     setIsDropdownOpen(false);
   };
 
-  // --- NEW COMPONENT: Top Filter Bar ---
+ // --- COMPONENT: Top Filter Bar ---
   const TopFilterBar = () => {
     const categories = ['All', 'Soaps', 'Facewash', 'Shampoos', 'Face Masks', 'Baby', 'Other'];
     const filterLabel = category === 'All' ? 'All' : category;
@@ -135,7 +172,6 @@ function AllProductsPage() {
                 {cat}
               </button>
             ))}
-             {/* Space for Pill */}
              <div style={{minWidth: '40px'}}></div>
           </div>
 
@@ -145,7 +181,7 @@ function AllProductsPage() {
             <button 
               className={`filter-pill-btn ${isDropdownOpen || concern !== 'All' ? 'active-filter' : ''}`}
               onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-              title="Filter & Sort"
+              title="Filter"
             >
               <span className="filter-label-text">{filterLabel}</span>
               <i className="fas fa-sliders-h"></i>
@@ -154,13 +190,18 @@ function AllProductsPage() {
 
             {isDropdownOpen && (
               <div className="elegant-dropdown-menu">
-                
+                {/* --- SORT SECTION REMOVED --- */}
                 
                 <div className="dropdown-section">
                   <h4>Filter by Needs</h4>
-                  <div className="dropdown-tags">
+                  {/* Changed class to 'dropdown-tags-grid' for 3-column layout */}
+                  <div className="dropdown-tags-grid">
                     {allConcerns.map(con => (
-                      <button key={con} onClick={() => handleConcernChange(con)} className={`dropdown-tag ${concern === con ? 'selected' : ''}`}>
+                      <button 
+                        key={con} 
+                        onClick={() => handleConcernChange(con)}
+                        className={`dropdown-tag ${concern === con ? 'selected' : ''}`}
+                      >
                         {con}
                       </button>
                     ))}
@@ -207,7 +248,10 @@ function AllProductsPage() {
           <div className="product-grid">
             {productsToShow.length > 0 ? (
               productsToShow.map(product => (
-                <ProductCard key={product.id || product.title} product={product} />
+                <ProductCard key={product.id || product.title} product={product} 
+                onQuickView={() => setSelectedProduct(product)}
+                />
+                
               ))
             ) : (
               <div className="empty-state-container">
@@ -223,6 +267,8 @@ function AllProductsPage() {
             </div>
           )}
         </div>
+
+        <QuickViewModal product={selectedProduct} onClose={closeQuickView} />
       </div>
     </div>
   );

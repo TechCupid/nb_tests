@@ -254,45 +254,30 @@ export const otherProducts = [
 export const faceWashProducts = [
   {
     img: './facewash/multani-mitti.png', 
-    title: 'Powder Facewash', 
-    subtitle: '(Oil Control)',
-    description: 'Deep cleansing with nature\'s mud.',
-    tags: ['Oil Control', 'Deep Clean'], 
-    rating: '★★★★★',
-    reviews: '120 reviews',
-    price: '₹150.00'
+    title: <>Powder Facewash <br/> <span className="skin-type-highlight">For Oily Skin</span></>,
+    description: 'Deep cleansing with Multani Mitti & Neem.',
+    tags: 'Oily Skin',
   },
   {
     img: './facewash/oats.png', 
-    title: 'Oats Powder Facewash', 
-    subtitle: '(Gentle Wash)',
-    description: 'Soft and milky wash for sensitive faces.',
-    tags: ['Soft Skin', 'Sensitive Skin'], 
-    rating: '★★★★★',
-    reviews: '115 reviews',
-    price: '₹145.00'
+    title: <>Powder Facewash <br/> <span className="skin-type-highlight">For Dry Skin</span></>,
+    description: 'Gentle hydration with Oats & Honey.',
+    tags: 'Dry Skin',
   },
   {
     img: './facewash/rose-petals.png', 
-    title: 'Rose Powder Facewash', 
-    subtitle: '(Fresh Face)',
-    description: 'Balances skin so it is not too dry or too oily.',
-    tags: ['Glow', 'Daily Use'], 
-    rating: '★★★★☆',
-    reviews: '95 reviews',
-    price: '₹160.00'
+    title: <>Powder Facewash <br/> <span className="skin-type-highlight">For Combination Skin</span></>,
+    description: 'Balancing care with Rose Petals.',
+    tags: 'Combination',
   },
   {
     img: './facewash/cucumber.png', 
-    title: 'Cucumber Facewash', 
-    subtitle: '(Cool & Calm)',
-    description: 'Soothing wash that feels like a cold breeze.',
-    tags: ['Cooling', 'Sensitive Skin'], 
-    rating: '★★★★★',
-    reviews: '88 reviews',
-    price: '₹155.00'
+    title: <>Powder Facewash <br/> <span className="skin-type-highlight">For Sensitive Skin</span></>,
+    description: 'Soothing relief with Cucumber & Aloe.',
+    tags: 'Sensitive',
   }
 ];
+
 
 export const shampooProducts = [
   {

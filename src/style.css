@@ -2697,7 +2697,9 @@ header nav a.active::after {
 /* --- 5. ELEGANT DROPDOWN --- */
 .elegant-dropdown-menu {
   position: absolute;
-  top: 55px; right: 0; width: 300px;
+  top: 55px;
+  right: 0;
+  width: 340px; /* Made slightly wider to fit 3 columns comfortably */
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 10px 40px rgba(0,0,0,0.15);
@@ -2706,18 +2708,18 @@ header nav a.active::after {
   border: 1px solid #eee;
   animation: slideDown 0.2s ease-out;
 }
-
 @media (max-width: 480px) {
   .elegant-dropdown-menu {
     position: fixed;
     top: 50%; left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%; max-width: 350px;
+    width: 90%;
+    max-width: 350px;
     box-shadow: 0 0 0 1000px rgba(0,0,0,0.4);
   }
 }
-
-.dropdown-section h4 { font-size: 0.85rem; text-transform: uppercase; color: #888; margin-bottom: 12px; font-weight: 700; }
+.dropdown-section { margin-bottom: 10px; }
+.dropdown-section h4 { font-size: 0.85rem; text-transform: uppercase; color: #888; margin-bottom: 15px; font-weight: 700;border-bottom: 1px solid #f5f5f5; padding-bottom: 10px }
 
 .sort-options-grid { display: grid; grid-template-columns: 1fr; gap: 8px; }
 .sort-chip {
@@ -2740,3 +2742,98 @@ header nav a.active::after {
 .done-btn { background: var(--new-dark); color: white; border: none; padding: 8px 20px; border-radius: 20px; cursor: pointer; }
 
 @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+
+.dropdown-tags-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Exactly 3 items per row */
+  gap: 10px; /* Space between items */
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 5px; /* Prevent scrollbar overlap */
+}
+
+.dropdown-tag {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  padding: 10px 5px; /* Taller padding */
+  border-radius: 20px; /* Slightly more square like a table cell */
+  font-size: 0.85rem;
+  color: #555;
+  cursor: pointer;
+  text-align: center; /* Center text */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Handle long names */
+  transition: all 0.2s;
+}
+
+.dropdown-tag:hover {
+    border-color: #ddd;
+}
+
+.dropdown-tag.selected {
+  background: var(--org-dark);
+  color: #fff;
+  border-color: var(--org-dark);
+}
+
+/* Footer styling remains the same */
+.dropdown-footer {
+  display: flex; justify-content: space-between; align-items: center; 
+  padding-top: 15px; border-top: 1px solid #f0f0f0; margin-top: 15px;
+}
+/* =========================================================
+   MOBILE LAYOUT: MOVE FILTER BUTTON BELOW CATEGORIES
+   Add this to the very bottom of your CSS file.
+   ========================================================= */
+
+@media (max-width: 600px) {
+  
+  /* 1. Stack the layout vertically */
+  .filter-bar-layout {
+    flex-direction: column;
+    align-items: flex-start; /* Align contents to start */
+    padding-bottom: 10px;
+  }
+
+  /* 2. Categories take full width (Remove space reserved for button) */
+  .categories-scroll-section {
+    width: 100%;
+    padding-right: 0; /* Remove the padding that was for the fixed button */
+    margin-bottom: 12px; /* Add space between categories and filter button */
+    border-bottom: 1px solid #f5f5f5; /* Optional: subtle separator line */
+    padding-bottom: 12px;
+  }
+  
+  /* Remove the spacer div inside categories if possible via CSS, 
+     or just let it collapse since it's empty */
+
+  /* 3. Reset the Filter Section Position */
+  .fixed-filter-section {
+    position: relative; /* Stop floating absolute right */
+    width: 100%;
+    height: auto;
+    padding-left: 0;
+    justify-content: flex-end; /* Align button to the RIGHT */
+    background: transparent;
+  }
+
+  /* 4. Hide the gradient fade separator on mobile */
+  .filter-separator {
+    display: none;
+  }
+
+  /* 5. Adjust Dropdown Position for this new layout */
+  .elegant-dropdown-menu {
+    top: 50px; /* Push it down slightly */
+    right: 0;
+    width: 300px; /* Ensure it fits well */
+  }
+  
+  /* Optional: Make the filter button span full width on mobile? 
+     If you prefer that, uncomment below: */
+  /* .filter-pill-btn {
+    width: 100%;
+  }
+  */
+}
