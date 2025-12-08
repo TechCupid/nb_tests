@@ -35,7 +35,7 @@ function ProductCarousel({ title, products, category, onQuickView }) {
         const rootFontSize = parseFloat(getComputedStyle(document.documentElement).fontSize);
         const widthInRem = wrapperWidth / rootFontSize;
         
-        if (widthInRem >= 80) { 
+        if (widthInRem >= 55) { 
           setCardsPerView(3);
         } else if (widthInRem >= 39) { 
           setCardsPerView(2);

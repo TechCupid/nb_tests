@@ -427,6 +427,7 @@ header nav a:hover::after {
     box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,0.05); /* 4px 12px */
     padding: 2.5rem; 
     border: 0.0625rem solid #eee; /* 1px */
+    align-items: center;
 }
 .form-group {
     margin-bottom: 1.5rem;
@@ -1053,10 +1054,19 @@ header nav a:hover::after {
    background-color: var(--accent-green); 
     min-height: 100vh; ;
     width: 100%;
-    margin: 4rem 0rem 4rem 0rem;
     padding: 3rem 3rem 3rem 3rem;
+    margin: 4rem 0rem 4rem 0rem;
     border-radius: 1.875rem; 
     align-items: center;
+    padding-bottom: 2rem !important; /* Reduces it to a small neat gap */
+   margin-top: 4rem;
+   margin-bottom: 4rem;
+    min-height: auto
+    
+}
+.contact-page-wrapper {
+    padding-bottom: 0 !important;
+    margin-bottom: 0 !important;
 }
 
 .contact-split-container {
@@ -1065,7 +1075,10 @@ header nav a:hover::after {
   gap: 3rem;
   max-width: 81.25rem; /* 1300px */
   margin: 0 auto;
-  align-items: flex-start;
+  align-items: center;
+  margin-bottom: 4rem;
+  margin-top: 3rem;
+  
 }
 
 /* --- Left Side: Info --- */

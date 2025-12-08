@@ -39,6 +39,7 @@ const allProducts = [
 const bannerImages = [
   { src: './ban0.png', alt: 'Handmade Soaps' },
   { src: './ban3.png', alt: 'Hair Care' },
+  { src: './ban5.jpg', alt: 'Natural lip balm products'}
 ];
 
 function QuickViewModal({ product, onClose }) {
