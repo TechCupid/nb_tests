@@ -93,7 +93,7 @@ function HomePage() {
                             <div className="sun-icon-glow">
                                 <i className="fas fa-sun"></i>
                             </div>
-                            <span>Sunscreen Essential<br/>After FaceMask</span>
+                            <span>Sunscreen Essential<br/>After Face Packs</span>
                         </div><br />
                         <>Natural<br />Face Packs</>
                     </div>
@@ -106,7 +106,7 @@ function HomePage() {
       )}
 
       <ProductCarousel
-          title={<>Natural<br />Shampoo</>}
+          title={<>Natural<br />Shampoos</>}
           products={safeShampoos} 
           category="Shampoos"
           onQuickView={handleQuickView}

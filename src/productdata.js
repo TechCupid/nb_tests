@@ -1,5 +1,3 @@
-// This file contains all product data for the homepage rows.
-
 export const soapProducts = [
   {
     img: './soap/avocado.png',
@@ -81,7 +79,7 @@ export const soapProducts = [
   {
     img: './soap/turmeric.png',
     title: 'Turmeric Soap',
-    subtitle: '(Golden Glow)',
+    subtitle: '(Glow)',
     description: 'Fights pimples, removes sun tan, and gives a golden glow.',
     tags: ['Glow', 'Remove Tan']
   },
@@ -130,13 +128,13 @@ export const soapProducts = [
   {
     img: './soap/liquorice.png',
     title: 'Licorice Soap',
-    subtitle: '(Sun Repair)',
+    subtitle: '(Skin White & Pigmentation)',
     description: 'Protects skin from sun damage and keeps it looking fresh.',
     tags: ['Sun Protect', 'Glow']
   },
   {
-    img: './soap/nalangumaavu.png',
-    title: 'Nalangu Maavu Soap',
+    img: './soap/nalugumaavu.png',
+    title: 'Nalugu Maavu Soap',
     subtitle: '(Herbal Bath)',
     description: 'Gently cleanses to remove sun tan and give a fresh glow.',
     tags: ['Remove Tan', 'Glow']
@@ -179,7 +177,7 @@ export const soapProducts = [
   {
     img: './soap/carrot.png',
     title: 'Carrot Soap',
-    subtitle: '(Sun Shield)',
+    subtitle: '(Brightening and revitating)',
     description: 'Rich in vitamins to protect skin from harsh sunlight.',
     tags: ['Sun Protect', 'Glow']
   },
@@ -196,16 +194,16 @@ export const babyProducts = [
   },
   {
     id: 2,
-    title: "Nalangu Maavu Powder",
-    subtitle: "(Herbal Bath)",
+    title: "Nalugu Maavu Powder",
+    subtitle: "(Above 5 Months)",
     description: "A traditional herbal bath that is super gentle on baby skin.",
-    img: "./baby/babynalangu.png",
+    img: "./baby/babynalugu.png",
     tags: ["Safe for Baby", "Natural"]
   },
   {
     id: 3,
     title: "Natural Baby Soap",
-    subtitle: "(Sleepy Time)",
+    subtitle: "(Tears Free)",
     description: "Smells like Lavender to help baby sleep better.",
     img: "./baby/babysoap.png",
     tags: ["Sleep Well", "Soft Skin"]
@@ -281,40 +279,33 @@ export const faceWashProducts = [
 
 export const shampooProducts = [
   {
-    img: './shampoo/fenugreek.jpg',
-    title: 'Fenugreek Shampoo',
-    subtitle: '(No Dandruff)',
-    description: 'Stops hair fall and fights white flakes.',
-    tags: ['No Dandruff', 'Stop Hair Fall']
+    img: './shampoo/fenugreek.jpg', // Ensure you have this image
+    title: 'Fenugreek & Soapnut Shampoo',
+    subtitle: '(Hair Fall & Dandruff)',
+    description: 'Chemical free formula that reduces hair fall, dandruff and promotes hair growth & shine.',
+    tags: ['Hair Fall', 'Dandruff']
   },
   {
-    img: './shampoo/hibiscus.jpg',
-    title: 'Hibiscus Shampoo',
-    subtitle: '(Silky Shine)',
-    description: 'Makes hair feel like silk and shine bright.',
-    tags: ['Shiny Hair', 'Soft Hair']
+    img: './shampoo/hibiscus.jpg', // Ensure you have this image
+    title: 'Hibiscus & Soapnut Shampoo',
+    subtitle: '(Condition & Strength)',
+    description: 'Cleanses, conditions & strengthens hair, promoting growth & shine.',
+    tags: ['Conditioning', 'Strengthening']
   },
   {
-    img: './shampoo/rosemary.jpeg',
-    title: 'Rosemary Shampoo',
-    subtitle: '(Hair Growth)',
-    description: 'Helps hair grow faster and thicker.',
-    tags: ['Hair Growth', 'Thick Hair']
+    img: './shampoo/rosemary.jpeg', // Ensure you have this image
+    title: 'Rosemary & Soapnut Shampoo',
+    subtitle: '(Scalp Care)',
+    description: 'Improves blood flow, feeds your scalp & encourages hair growth.',
+    tags: ['Scalp Care', 'Hair Growth', 'Circulation']
   },
   {
-    img: './shampoo/flaxseed.jpeg',
-    title: 'Flaxseed Shampoo',
-    subtitle: '(Curly Care)',
-    description: 'Best friend for curly and frizzy hair.',
-    tags: ['Curly Hair', 'Soft Hair']
-  },
-  {
-    img: './shampoo/shikakai.png',
-    title: 'Shikakai Shampoo',
-    subtitle: '(Strong Roots)',
-    description: 'Old traditional way to make roots strong.',
-    tags: ['Strong Roots', 'Deep Clean']
-  },
+    img: './shampoo/flaxseed.jpeg', // Ensure you have this image
+    title: 'Flaxseed & Soapnut Shampoo',
+    subtitle: '(Moisture & Shine)',
+    description: 'Moisturises, promotes hair growth & shine.',
+    tags: ['Moisturizing', 'Hair Growth']
+  }
 ];
 
 export const faceMaskProducts = [
