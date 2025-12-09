@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import ImageSlider from '../components/ImageSlider'; 
 
 const bannerImages = [
-  { src: './ban0.png', alt: 'Handmade Soaps', caption: 'Handmade Soaps' },
-  { src: './ban3.png', alt: 'Woman with healthy hair', caption: 'Nourish Your Hair, Naturally' },
-  { src: './ban5.jpg', alt: 'Natural lip balm products', caption: 'Hydrate & Protect Your Lips' }
+  { src: './ban7.jpg', alt: 'Handmade Soaps' },
 ];
 
 function ContactPage() {

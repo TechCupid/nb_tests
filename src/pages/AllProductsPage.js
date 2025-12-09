@@ -24,11 +24,11 @@ const processData = (products, categoryName) => {
   }));
 };
 
-const allSoapProducts = processData(soapProducts, 'Soaps');
-const allOtherProducts = processData(otherProducts, 'Other');
+const allSoapProducts = processData(soapProducts, 'Soap');
+const allOtherProducts = processData(otherProducts, 'Others');
 const allFaceWashProducts = processData(faceWashProducts, 'Facewash');
 const allFaceMaskProducts = processData(faceMaskProducts, 'Facepack');
-const allShampooProducts = processData(shampooProducts, 'Shampoos');
+const allShampooProducts = processData(shampooProducts, 'Shampoo');
 const allBabyProducts = processData(babyProducts, 'Baby');
 
 const allProducts = [
@@ -37,9 +37,9 @@ const allProducts = [
 ];
 
 const bannerImages = [
-  { src: './ban0.png', alt: 'Handmade Soaps', caption: 'Handmade Soaps' },
-  { src: './ban3.png', alt: 'Woman with healthy hair', caption: 'Nourish Your Hair, Naturally' },
-  { src: './ban5.jpg', alt: 'Natural lip balm products', caption: 'Hydrate & Protect Your Lips' }
+  { src: './banner1.jpg', alt: 'Handmade Soaps' },
+  { src: './banner2.jpg', alt: 'Woman with healthy hair'},
+  { src: './ban5.jpg', alt: 'Natural lip balm products'}
 ];
 
 function QuickViewModal({ product, onClose }) {
@@ -91,12 +91,12 @@ function AllProductsPage() {
   
   // --- Dynamic Title Logic ---
   const { products, pageTitle, isAllProductsView } = useMemo(() => {
-    if (path === '/soaps') return { products: allSoapProducts, pageTitle: 'Handmade Soaps', isAllProductsView: false };
+    if (path === '/soap') return { products: allSoapProducts, pageTitle: 'Handmade Soap', isAllProductsView: false };
     if (path === '/facewash') return { products: allFaceWashProducts, pageTitle: 'Powder Facewash', isAllProductsView: false };
-    if (path === '/shampoos') return { products: allShampooProducts, pageTitle: 'Natural Shampoos', isAllProductsView: false };
-    if (path === '/baby') return { products: allBabyProducts, pageTitle: 'Baby Products', isAllProductsView: false };
-    if (path === '/other') return { products: allOtherProducts, pageTitle: 'Other Products', isAllProductsView: false };
-    if (path === '/facemasks') return { products: allFaceMaskProducts, pageTitle: 'Natural Facepacks', isAllProductsView: false };
+    if (path === '/shampoo') return { products: allShampooProducts, pageTitle: 'Natural Shampoo', isAllProductsView: false };
+    if (path === '/baby') return { products: allBabyProducts, pageTitle: 'Baby Product', isAllProductsView: false };
+    if (path === '/others') return { products: allOtherProducts, pageTitle: 'Other Product', isAllProductsView: false };
+    if (path === '/facemask') return { products: allFaceMaskProducts, pageTitle: 'Natural Facepack', isAllProductsView: false };
     
     let dynamicTitle = 'All Collection';
     if (category !== 'All') dynamicTitle = category; 
@@ -131,7 +131,7 @@ function AllProductsPage() {
 
   // --- TOP BAR (Categories Only) ---
   const TopCategoryBar = () => {
-    const categories = ['All', 'Soaps', 'Facewash', 'Shampoos', 'Facepack', 'Baby', 'Other'];
+    const categories = ['All', 'Soap', 'Facewash', 'Shampoo', 'Facepack', 'Baby', 'Others'];
     
     // If not on "All Products" view (e.g. inside /soaps), we don't need categories
     if (!isAllProductsView) return null;
@@ -155,9 +155,43 @@ function AllProductsPage() {
     );
   };
 
+  
+
    const [selectedProduct, setSelectedProduct] = useState(null);
     const handleQuickView = (product) => setSelectedProduct(product);
     const closeQuickView = () => setSelectedProduct(null);
+
+   // --- INFINITE SCROLL LOGIC ---
+  const loaderRef = React.useRef(null); // The sensor
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      const target = entries[0];
+      if (target.isIntersecting) {
+        // Automatically add 12 more products when scrolled to bottom
+        setVisibleProducts((prev) => prev + 12);
+      }
+    }, {
+      root: null,
+      rootMargin: "20px",
+      threshold: 1.0
+    });
+
+    const currentLoader = loaderRef.current; // Copy ref to variable for cleanup safety
+
+    if (currentLoader) {
+      observer.observe(currentLoader);
+    }
+
+    return () => {
+      if (currentLoader) {
+        observer.unobserve(currentLoader);
+      }
+    };
+  }, []);
+
+
+  
 
   return (
     <div className="all-products-page-wrapper">
@@ -191,11 +225,16 @@ function AllProductsPage() {
             )}
           </div>
 
-          {productsToShow.length < filteredProducts.length && (
-            <div className="load-more-container">
-              <button className="load-more-btn" onClick={() => setVisibleProducts(p => p + 12)}>Load More</button>
-            </div>
-          )}
+          {/* --- INFINITE SCROLL SENSOR --- */}
+{productsToShow.length < filteredProducts.length && (
+    <div 
+      ref={loaderRef} 
+      className="load-more-container" 
+      style={{ height: '60px', margin: '20px 0', textAlign: 'center', color: '#888', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '10px' }}
+    >
+      <i className="fas fa-spinner fa-spin"></i> Loading more...
+    </div>
+)}
         </div>
         <QuickViewModal product={selectedProduct} onClose={closeQuickView} />
       </div>

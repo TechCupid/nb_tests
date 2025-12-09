@@ -13,12 +13,12 @@ const getPrimaryTag = (tags) => {
 
 // --- 1. PREPARE DATA ---
 const safebaby = babyProducts.map(p => ({ ...p, id: p.title, category: 'Baby', primaryTag: getPrimaryTag(p.tags) }));
-const safeSoaps = soapProducts.map(p => ({ ...p, id: p.title, category: 'Soaps', primaryTag: getPrimaryTag(p.tags) }));
+const safeSoaps = soapProducts.map(p => ({ ...p, id: p.title, category: 'Soap', primaryTag: getPrimaryTag(p.tags) }));
 const safeFacewash = faceWashProducts.map(p => ({ ...p, id: p.title, category: 'Facewash', primaryTag: getPrimaryTag(p.tags) }));
-const safeShampoos = shampooProducts.map(p => ({ ...p, id: p.title, category: 'Shampoos', primaryTag: getPrimaryTag(p.tags) }));
-const safeOther = otherProducts.map(p => ({ ...p, id: p.title, category: 'Other', primaryTag: getPrimaryTag(p.tags) }));
+const safeShampoos = shampooProducts.map(p => ({ ...p, id: p.title, category: 'Shampoo', primaryTag: getPrimaryTag(p.tags) }));
+const safeOther = otherProducts.map(p => ({ ...p, id: p.title, category: 'Others', primaryTag: getPrimaryTag(p.tags) }));
 const safeMasks = faceMaskProducts ? faceMaskProducts.map(p => ({ 
-  ...p, id: p.title, category: 'FaceMasks', primaryTag: getPrimaryTag(p.tags) 
+  ...p, id: p.title, category: 'Facepack', primaryTag: getPrimaryTag(p.tags) 
 })) : [];
 
 
@@ -71,14 +71,14 @@ function HomePage() {
       <Hero />
       
       <ProductCarousel 
-          title={<>Baby<br />Products</>}
+          title={<>Baby<br />Product</>}
           products={safebaby}
           category="Baby"
           onQuickView={handleQuickView}
       />
 
       <ProductCarousel 
-          title={<>Handmade<br />Soaps</>}
+          title={<>Handmade<br />Soap</>}
           products={safeSoaps} 
           category="Soaps"
           onQuickView={handleQuickView} 
@@ -100,9 +100,9 @@ function HomePage() {
                             <div className="sun-icon-glow">
                                 <i className="fas fa-sun"></i>
                             </div>
-                            <span>Sunscreen Essential<br/>After Face Packs</span>
+                            <span>Sunscreen Essential<br/>After Facepack</span>
                         </div><br />
-                        <>Natural<br />Face Packs</>
+                        <>Natural<br />FacePack</>
                     </div>
                 }
                 products={safeMasks}
@@ -113,14 +113,14 @@ function HomePage() {
       )}
 
       <ProductCarousel
-          title={<>Natural<br />Shampoos</>}
+          title={<>Natural<br />Shampoo</>}
           products={safeShampoos} 
           category="Shampoos"
           onQuickView={handleQuickView}
       />
       
       <ProductCarousel 
-          title={<>Other<br />Products</>}
+          title={<>Other<br />Product</>}
           products={safeOther} 
           category="Other"
           onQuickView={handleQuickView}

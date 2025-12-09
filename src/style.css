@@ -117,11 +117,12 @@ header .logo {
 header nav {
     display: flex;
     gap: 2.5rem;
+    margin-left: auto;
 }
 header nav a {
     text-decoration: none;
     color: var(--dark-green);
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500; 
     position: relative;
     padding-bottom: 0.3125rem; /* 5px */
@@ -962,8 +963,8 @@ header nav a:hover::after {
 .shop-page-header {
     padding: 1rem 0 2.5rem 0;
     margin: 0 auto;
-    max-width: 95%;
-    margin-bottom: 2.5rem;
+    max-width: 99%;
+    margin-top: 2.5rem;
 }
 
 .shop-main-title {
@@ -980,6 +981,7 @@ header nav a:hover::after {
     overflow: hidden;
     border-radius: 1.25rem; /* 20px */
     background: #eee; /* Fallback */
+    height: auto;
 }
 
 .shop-slider-track {
@@ -1007,7 +1009,7 @@ header nav a:hover::after {
     display: block;
     border-radius: 0.9375rem; /* 15px */
     object-fit: cover;
-    height: 25rem; /* 250px */
+    height: 26rem; /* 250px */
 }
 
 .shop-slide-caption {
@@ -1060,7 +1062,7 @@ header nav a:hover::after {
     border-radius: 1.875rem; 
     align-items: center;
     padding-bottom: 2rem !important; /* Reduces it to a small neat gap */
-   margin-top: 4rem;
+  
    margin-bottom: 4rem;
     min-height: auto
     
@@ -2265,7 +2267,7 @@ header nav a.active::after {
 
 /* --- 4. Copyright --- */
 .footer-copyright p {
-    font-size: 0.8rem; 
+    font-size: 1rem; 
     color: rgba(241, 241, 233, 0.7);
     margin: 0;
     font-family: 'Quicksand', sans-serif;

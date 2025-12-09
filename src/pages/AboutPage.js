@@ -25,7 +25,7 @@ function AboutPage() {
         <div className="about-content-text">
           <h2 className="section-title">Our Story</h2>
           <p>
-            Nature Bubbles began with a simple idea: skincare should be kind. Tired of harsh chemicals and long, unpronounceable ingredient lists, we turned to nature for an answer. 
+            <b>Nature Bubbles</b> began with a simple idea: skincare should be kind. Tired of harsh chemicals and long, unpronounceable ingredient lists, we turned to nature for an answer. 
           </p>
           <p>
             What started in a small kitchen, inspired by traditional recipes and a passion for herbalism, has blossomed into a full line of products. We believe that what you put on your body is as important as what you put in it.
@@ -35,7 +35,7 @@ function AboutPage() {
           </p>
         </div>
         <div className="about-content-image">
-          <img src="./ban4.jpg" alt="Crafting natural soap" />
+          <img src="./ban4.png" alt="Crafting natural soap" />
         </div>
       </section>
 
@@ -77,7 +77,7 @@ function AboutPage() {
           <blockquote className="founder-quote">
             "We're not just making soap. We're crafting a small moment of peace and purity in your day. My dream was to create products that I could trust for my own family, and it's a joy to share them with yours."
           </blockquote>
-          <p className="founder-name">- Founder of Nature Bubbles</p>
+         
         </div>
       </section>
 
