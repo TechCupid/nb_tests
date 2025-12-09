@@ -27,7 +27,7 @@ const processData = (products, categoryName) => {
 const allSoapProducts = processData(soapProducts, 'Soaps');
 const allOtherProducts = processData(otherProducts, 'Other');
 const allFaceWashProducts = processData(faceWashProducts, 'Facewash');
-const allFaceMaskProducts = processData(faceMaskProducts, 'Face Masks');
+const allFaceMaskProducts = processData(faceMaskProducts, 'Facepack');
 const allShampooProducts = processData(shampooProducts, 'Shampoos');
 const allBabyProducts = processData(babyProducts, 'Baby');
 
@@ -37,9 +37,9 @@ const allProducts = [
 ];
 
 const bannerImages = [
-  { src: './ban0.png', alt: 'Handmade Soaps' },
-  { src: './ban3.png', alt: 'Hair Care' },
-  { src: './ban5.jpg', alt: 'Natural lip balm products'}
+  { src: './ban0.png', alt: 'Handmade Soaps', caption: 'Handmade Soaps' },
+  { src: './ban3.png', alt: 'Woman with healthy hair', caption: 'Nourish Your Hair, Naturally' },
+  { src: './ban5.jpg', alt: 'Natural lip balm products', caption: 'Hydrate & Protect Your Lips' }
 ];
 
 function QuickViewModal({ product, onClose }) {
@@ -55,6 +55,13 @@ function QuickViewModal({ product, onClose }) {
           <h2>{product.title}</h2>
           
           <p>{product.description}</p>
+
+          {product.howToUse && (
+            <div className="modal-how-to">
+                <h4>How to Use:</h4>
+                <p>{product.howToUse}</p>
+            </div>
+          )}
           
           {tags.length > 0 && (
             <div className="modal-tags-container">
@@ -89,7 +96,7 @@ function AllProductsPage() {
     if (path === '/shampoos') return { products: allShampooProducts, pageTitle: 'Natural Shampoos', isAllProductsView: false };
     if (path === '/baby') return { products: allBabyProducts, pageTitle: 'Baby Products', isAllProductsView: false };
     if (path === '/other') return { products: allOtherProducts, pageTitle: 'Other Products', isAllProductsView: false };
-    if (path === '/facemasks') return { products: allFaceMaskProducts, pageTitle: 'Natural Face Packs', isAllProductsView: false };
+    if (path === '/facemasks') return { products: allFaceMaskProducts, pageTitle: 'Natural Facepacks', isAllProductsView: false };
     
     let dynamicTitle = 'All Collection';
     if (category !== 'All') dynamicTitle = category; 
@@ -124,7 +131,7 @@ function AllProductsPage() {
 
   // --- TOP BAR (Categories Only) ---
   const TopCategoryBar = () => {
-    const categories = ['All', 'Soaps', 'Facewash', 'Shampoos', 'Face Masks', 'Baby', 'Other'];
+    const categories = ['All', 'Soaps', 'Facewash', 'Shampoos', 'Facepack', 'Baby', 'Other'];
     
     // If not on "All Products" view (e.g. inside /soaps), we don't need categories
     if (!isAllProductsView) return null;

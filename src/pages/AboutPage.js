@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 // --- Placeholder images ---
 // Replace these with your own high-quality images
-const heroImageUrl = "./ban0.png"; // A beautiful, wide shot of nature, herbs, or a rustic workshop
+const heroImageUrl = "./ban6.png"; // A beautiful, wide shot of nature, herbs, or a rustic workshop
  // A picture of hands mixing ingredients, or a close-up of soap
 
 function AboutPage() {
@@ -25,7 +25,7 @@ function AboutPage() {
         <div className="about-content-text">
           <h2 className="section-title">Our Story</h2>
           <p>
-            Nature Bubble began with a simple idea: skincare should be kind. Tired of harsh chemicals and long, unpronounceable ingredient lists, we turned to nature for an answer. 
+            Nature Bubbles began with a simple idea: skincare should be kind. Tired of harsh chemicals and long, unpronounceable ingredient lists, we turned to nature for an answer. 
           </p>
           <p>
             What started in a small kitchen, inspired by traditional recipes and a passion for herbalism, has blossomed into a full line of products. We believe that what you put on your body is as important as what you put in it.
@@ -70,14 +70,14 @@ function AboutPage() {
       <section className="about-section about-founder">
         <div className="about-content-image">
           {/* Replace with a photo of the founder */}
-          <img src="./ban1.png" alt="Founder of Nature Bubble" />
+          <img src="./ban1.png" alt="Founder of Nature Bubbles" />
         </div>
         <div className="about-content-text">
           <h2 className="section-title">A Word From Our Founder</h2>
           <blockquote className="founder-quote">
             "We're not just making soap. We're crafting a small moment of peace and purity in your day. My dream was to create products that I could trust for my own family, and it's a joy to share them with yours."
           </blockquote>
-          <p className="founder-name">- Jane Doe, Founder of Nature Bubble</p>
+          <p className="founder-name">- Founder of Nature Bubbles</p>
         </div>
       </section>
 

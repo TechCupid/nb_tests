@@ -984,13 +984,14 @@ header nav a:hover::after {
 
 .shop-slider-track {
     display: flex;
+    width: 100%;
     /* This transition is for when JS changes the transform */
     transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .shop-slide {
     min-width: 100%; /* --- MODIFIED: Show 1 slide --- */
-    flex-shrink: 0;
+    flex-shrink: 0 0 100%;
     box-sizing: border-box;
     position: relative;
     padding: 0; /* --- MODIFIED: No padding between --- */
@@ -2902,4 +2903,30 @@ header nav a.active::after {
     margin: 0 !important;
     right: auto !important;
   }
+}
+
+/* ============================================== */
+/* === MODAL "HOW TO USE" BOX === */
+/* ============================================== */
+
+.modal-how-to {
+    background-color: #F1F8E9; /* Light Green background */
+    border-left: 4px solid #8BC34A; /* Green accent line */
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+}
+
+.modal-how-to h4 {
+    margin: 0 0 5px 0;
+    font-size: 0.9rem;
+    color: #33691E;
+    text-transform: uppercase;
+}
+
+.modal-how-to p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #555;
+    font-style: italic;
 }

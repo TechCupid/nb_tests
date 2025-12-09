@@ -32,7 +32,7 @@ function ContactPage() {
     // --- 2. MESSAGE WITH DIRECT EMOJIS ---
     // We use template literals (backticks `) to keep the formatting and emojis.
     const text = `
-🌿 New Inquiry from Nature Bubble 🌿
+🌿 New Inquiry from Nature Bubbles 🌿
 
 👤 Name: ${formData.name}
 📧 Email: ${formData.email}

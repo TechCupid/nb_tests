@@ -36,6 +36,13 @@ function QuickViewModal({ product, onClose }) {
           <h2>{product.title}</h2>
           
           <p>{product.description}</p>
+
+          {product.howToUse && (
+            <div className="modal-how-to">
+                <h4>How to Use:</h4>
+                <p>{product.howToUse}</p>
+            </div>
+          )}
           
           {tags.length > 0 && (
             <div className="modal-tags-container">

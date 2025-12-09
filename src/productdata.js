@@ -177,7 +177,7 @@ export const soapProducts = [
   {
     img: './soap/carrot.png',
     title: 'Carrot Soap',
-    subtitle: '(Brightening and revitating)',
+    subtitle: '(Brightening)',
     description: 'Rich in vitamins to protect skin from harsh sunlight.',
     tags: ['Sun Protect', 'Glow']
   },
@@ -195,14 +195,14 @@ export const babyProducts = [
   {
     id: 2,
     title: "Nalugu Maavu Powder",
-    subtitle: "(Above 5 Months)",
+    subtitle: "(Above 5 Months Only)",
     description: "A traditional herbal bath that is super gentle on baby skin.",
     img: "./baby/babynalugu.png",
     tags: ["Safe for Baby", "Natural"]
   },
   {
     id: 3,
-    title: "Natural Baby Soap",
+    title: "Baby Soap",
     subtitle: "(Tears Free)",
     description: "Smells like Lavender to help baby sleep better.",
     img: "./baby/babysoap.png",
@@ -210,7 +210,7 @@ export const babyProducts = [
   },
   {
     id: 4,
-    title: "Natural Baby Kajal",
+    title: "Baby Kajal",
     subtitle: "(Cool Eyes)",
     description: "Made with almond oil to cool and protect little eyes.",
     img: "./baby/kajal.png",
@@ -221,7 +221,7 @@ export const babyProducts = [
 export const otherProducts = [
   {
     img: './others/lipbalm.jpeg',
-    title: 'Natural Lip Balm',
+    title: 'Lip Balm',
     subtitle: '(Pink Tint)',
     description: 'Heals dry lips and gives a cute pink color.',
     tags: ['Lip Care', 'Soft Lips']
@@ -246,6 +246,88 @@ export const otherProducts = [
     subtitle: '(All Day Soft)',
     description: 'Keeps skin soft all day without feeling sticky.',
     tags: ['Soft Skin', 'Daily Use']
+  },
+  {
+    img: './others/anti-acne.png', 
+    title: 'Anti-Acne Oil Serum',
+    description: 'Helps to remove redspots and give smoothness.',
+    tags: ['no-spots', 'smooth-skin', 'clean-face'],
+    howToUse: 'For ages 17+: Use at night. Apply with a cotton pad.'
+  },
+  {
+    img: './others/dry-skin.png', 
+    title: 'Dry Skin Oil Serum',
+    description: 'Makes your face soft and not scratchy.',
+    tags: ['soft-skin', 'no-dry-patches', 'happy-face'],
+    howToUse: 'For ages 17+: Use at night. Apply with a cotton pad.'
+  },
+  {
+    img: './others/brightening.png', 
+    title: 'Brightening Oil Serum',
+    description: 'Makes your face bright.',
+    tags: ['bright-face', 'sunny-look', 'awake-skin'],
+    howToUse: 'For ages 17+: Use at night. Apply with a cotton pad.'
+  },
+  {
+    img: './others/glow.png', 
+    title: 'Glow Face Serum',
+    description: 'Makes your cheeks shine nicely like a little star.',
+    tags: ['shiny-skin', 'super-glow', 'healthy-look'],
+    howToUse: 'For ages 17+: Use at night. Apply with a cotton pad.'
+  },
+  {
+    img: './others/coffee.png', 
+    title: 'Coffee Scrub',
+    description: 'Scrub away dead skin and make your face fresh.',
+    tags: ['scrubbing', 'fresh-skin', 'coffee'],
+  },
+  {
+    img: './others/cinnamon-coffee.png', 
+    title: 'Cinnamon & Coffee Scrub',
+    description: 'Cleans deep and helps blood flow.',
+    tags: ['warming', 'deep-clean', 'blood-flow']
+  },
+  {
+    img: './others/moisturizing.png', 
+    title: 'Moisturizing Scrub',
+    description: 'Gently cleans your skin and stays soft.',
+    tags: ['gentle', 'soft-skin', 'hydrating']
+  },
+  {
+    img: './others/foot.png', 
+    title: 'Foot Scrub',
+    description: 'A strong scrub used only for feet to smooth out rough heels.',
+    tags: ['rough-skin', 'smooth-heels', 'feet-only']
+  },
+  {
+    img: './others/sandalwood.png', 
+    title: 'Sandalwood Face Gel',
+    description: 'Cools the skin down and helps reducing redness or irritation.',
+    tags: ['cooling', 'soothing', 'redness']
+  },
+  {
+    img: './others/mulethi.png', 
+    title: 'Mulethi Gel',
+    description: 'Helps fade dark marks and brightens the skin tone naturally.',
+    tags: ['dark-marks', 'brightening', 'uneven-skin']
+  },
+  {
+    img: './others/rose.png', 
+    title: 'Rose Face Gel',
+    description: 'Adds light moisture to the skin and helps tighten pores.',
+    tags: ['hydrating', 'pores', 'refreshing']
+  },
+  {
+    img: './others/papaya.png', 
+    title: 'Papaya Face Gel',
+    description: 'Softens the skin and helps clear up dark patches.',
+    tags: ['softening', 'dark-patches', 'clear-skin']
+  },
+  {
+    img: './others/glow-gel.png', 
+    title: 'Glow Gel',
+    description: 'Make the skin look healthy and shiny.',
+    tags: ['healthy-look', 'shiny', 'hydrating']
   }
 ];
 

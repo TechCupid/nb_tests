@@ -15,7 +15,7 @@ function Header() {
     <>
       <header>
           <Link to="/" className="logo-link">
-          <img src="./soap/logo.png" alt="Nature Bubble Logo" className="logo-img" />
+          <img src="./soap/logo.png" alt="Nature Bubbles Logo" className="logo-img" />
           
           </Link>
           
