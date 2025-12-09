@@ -982,6 +982,7 @@ header nav a:hover::after {
     border-radius: 1.25rem; /* 20px */
     background: #eee; /* Fallback */
     height: auto;
+    margin-top: -3rem;
 }
 
 .shop-slider-track {
@@ -2932,3 +2933,20 @@ header nav a.active::after {
     color: #555;
     font-style: italic;
 }
+/* ContactPage.css */
+
+.contact-page-header {
+  width: 99%;              /* full width */
+  position: relative;       /* keeps it in normal flow */
+  overflow: hidden;
+  border-radius: 2rem;  
+  margin-top: 4rem;       /* hides any overflow from image */
+}
+
+.banner-image {
+  width: 100%;              /* stretch across the page */
+  height: 26rem;            /* fixed height for banner */
+  object-fit: cover;        /* crop nicely without distortion */
+  display: block;           /* remove inline spacing */
+}
+

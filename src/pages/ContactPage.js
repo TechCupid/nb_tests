@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import ImageSlider from '../components/ImageSlider'; 
 
-const bannerImages = [
-  { src: './ban7.jpg', alt: 'Handmade Soaps' },
-];
 
 function ContactPage() {
   const [formData, setFormData] = useState({
@@ -55,9 +51,14 @@ ${formData.message}
   return (
     <div className="contact-page-wrapper">
       
-      <div className="shop-page-header">
-        <ImageSlider images={bannerImages} />
-      </div>
+      <div className="contact-page-header">
+  <img 
+    src="./ban7.jpg" 
+    alt="Handmade Soaps" 
+    className="banner-image" 
+  />
+</div>
+
 
       <div className="contact-page-split">
         <div className="contact-split-container">
