@@ -1033,6 +1033,7 @@ header nav a:hover::after {
     transform: translateX(-50%);
     display: flex;
     gap: 0.625rem; /* 10px */
+    display: none;
 }
 
 .shop-slider-dot {
@@ -1542,6 +1543,30 @@ header nav a.active::after {
     .browser-frame {
         padding: 0 2rem; /* Reduce side padding */
     }
+    .shop-slider-container {
+  width: 100%;
+  overflow: hidden;   /* hides extra slides */
+  position: relative;
+  max-height: 25rem;
+}
+
+.shop-slider-track {
+  display: flex;      /* line up slides horizontally */
+  width: 100%;
+}
+
+.shop-slide {
+  flex: 0 0 100%;     /* each slide takes 100% of container width */
+  max-width: 100%;
+}
+
+.shop-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-position: center bottom;
+}
+
 
     /* --- Stack Hero & Contact --- */
     .hero {
@@ -2933,20 +2958,40 @@ header nav a.active::after {
     color: #555;
     font-style: italic;
 }
-/* ContactPage.css */
-
+/* Base style for all screens */
 .contact-page-header {
-  width: 99%;              /* full width */
-  position: relative;       /* keeps it in normal flow */
+  width: 100%;
+  position: relative;
   overflow: hidden;
-  border-radius: 2rem;  
-  margin-top: 4rem;       /* hides any overflow from image */
 }
 
 .banner-image {
-  width: 100%;              /* stretch across the page */
-  height: 26rem;            /* fixed height for banner */
+  width: 100%;              /* full width */
+  height: 325px;            /* default height */
   object-fit: cover;        /* crop nicely without distortion */
-  display: block;           /* remove inline spacing */
+  display: block;
+  margin-top: 4rem;
 }
+
+/* Tablet screens */
+@media (max-width: 1024px) {
+  .banner-image {
+    height: 250px;          /* slightly smaller height */
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  .banner-image {
+    height: 200px;          /* reduce height for mobile */
+  }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+  .banner-image {
+    height: 150px;          /* compact banner */
+  }
+}
+
 
