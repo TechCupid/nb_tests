@@ -28,8 +28,9 @@ function Header() {
              <NavLink to="/shop" className="nav-dropdown-toggle" onClick={toggleMobileMenu}>
                 Products
               </NavLink>
-            <NavLink to="/contact" onClick={toggleMobileMenu}>Contact Us</NavLink>
-            <NavLink to="/about" onClick={toggleMobileMenu}>About Us</NavLink>
+              <NavLink to="/about" onClick={toggleMobileMenu}>About Us</NavLink>
+            <NavLink to="/contact" onClick={toggleMobileMenu}>Contact</NavLink>
+            
           </nav>
 
           <div className="header-icons">

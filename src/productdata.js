@@ -3,147 +3,147 @@ export const soapProducts = [
     img: './soap/avocado.png',
     title: 'Avocado Soap',
     subtitle: '(Deep Moisture)',
-    description: 'Deeply hydrates dry skin, calms redness, and nourishes mature skin.',
+    description: 'Deeply hydrates dry skin, calms redness & nourishes skin.',
     tags: ['Soft Skin', 'Dry Skin']
   },
   {
     img: './soap/ashwagandha.png',
     title: 'Ashwagandha Soap',
     subtitle: '(Youth Boost)',
-    description: 'Reduces dark spots and blemishes while keeping skin looking young.',
+    description: 'Reduces dark spots & blemishes while keeping skin looking young.',
     tags: ['Young Skin', 'Glow']
   },
   {
     img: './soap/strawberry.png',
     title: 'Strawberry Soap',
     subtitle: '(Fruit Scrub)',
-    description: 'Rich in Vitamin C to scrub away dead skin and reveal a bright glow.',
+    description: 'Rich in Vitamin C to scrub away dead skin & reveal a bright glow.',
     tags: ['Glow', 'No Pimples']
   },
   {
     img: './soap/grape.png',
     title: 'Grape Soap',
     subtitle: '(Clear Tone)',
-    description: 'A versatile soap that fights pimples and brightens skin tone.',
+    description: 'A versatile soap that fights pimples & brightens skin tone.',
     tags: ['Clear Skin', 'No Pimples']
   },
   {
     img: './soap/papaya.png',
     title: 'Papaya Soap',
     subtitle: '(Spot Remover)',
-    description: 'Removes dead skin cells to brighten face and reduce dark patches.',
+    description: 'Removes dead skin cells to brighten face & reduce dark patches.',
     tags: ['Remove Dark Spots', 'Glow']
   },
   {
     img: './soap/orange.png',
     title: 'Orange Soap',
     subtitle: '(Vitamin C)',
-    description: 'Rich in Vitamin C to fight dullness and tighten pores.',
+    description: 'Rich in Vitamin C to fight dullness & tighten pores.',
     tags: ['Glow', 'Oil Control']
   },
   {
     img: './soap/pomegranate.png',
     title: 'Pomegranate Soap',
     subtitle: '(Skin Tightening)',
-    description: 'Fights wrinkles and balances oil for firm, happy skin.',
+    description: 'Fights wrinkles & balances oil for firm, happy skin.',
     tags: ['Young Skin', 'Firm Skin']
   },
   {
     img: './soap/jamun.png',
     title: 'Jamun Soap',
     subtitle: '(Pimple Fighter)',
-    description: 'Controls sticky oil and fights pimple-causing bacteria.',
+    description: 'Controls sticky oil & fights pimple-causing bacteria.',
     tags: ['No Pimples', 'Oil Control']
   },
   {
     img: './soap/cucumber.png',
     title: 'Cucumber Soap',
     subtitle: '(Cooling)',
-    description: 'Cools down hot, irritated skin and fades dark spots.',
+    description: 'Cools down hot, irritated skin & fades dark spots.',
     tags: ['Cooling', 'Soft Skin']
   },
   {
     img: './soap/beetroot.png',
     title: 'Beetroot Soap',
     subtitle: '(Pink Glow)',
-    description: 'Natural ingredients to brighten skin tone and smooth fine lines.',
+    description: 'Natural ingredients to brighten skin tone & smooth fine lines.',
     tags: ['Glow', 'Young Skin']
   },
   {
     img: './soap/potato.png',
     title: 'Potato Soap',
     subtitle: '(Tan Remover)',
-    description: 'Brightens skin and cleans up dark patches from the sun.',
+    description: 'Brightens skin & cleans up dark patches from the sun.',
     tags: ['Remove Dark Spots', 'Remove Tan']
   },
   {
     img: './soap/turmeric.png',
     title: 'Turmeric Soap',
     subtitle: '(Glow)',
-    description: 'Fights pimples, removes sun tan, and gives a golden glow.',
+    description: 'Fights pimples, removes tan & gives a glow.',
     tags: ['Glow', 'Remove Tan']
   },
   {
     img: './soap/rose.png',
     title: 'Rose Soap',
     subtitle: '(Soft & Bright)',
-    description: 'Hydrates and soothes skin for a fresh, rosy look.',
+    description: 'Hydrates & soothes skin for a fresh, rosy look.',
     tags: ['Soft Skin', 'Glow']
   },
   {
     img: './soap/tulsi.png',
     title: 'Tulsi Soap',
     subtitle: '(Skin Detox)',
-    description: 'Cleans out dirt and oil to stop pimples before they start.',
+    description: 'Cleans out dirt & oil to stop pimples before they start.',
     tags: ['No Pimples', 'Deep Clean']
   },
   {
     img: './soap/flaxseed.png',
     title: 'Flaxseed Soap',
     subtitle: '(Skin Food)',
-    description: 'Feeds the skin with moisture to make it look plump and young.',
+    description: 'Feeds the skin with moisture to make it look plump & young.',
     tags: ['Young Skin', 'Soft Skin']
   },
   {
     img: "./soap/neem.png",
     title: "Neem Soap",
     subtitle: "(Germ Fighter)",
-    description: "A powerful cleaner that fights pimples and stops itching.",
+    description: "A powerful cleaner that fights pimples & stops itching.",
     tags: ["No Pimples", "Itch Relief"]
   },
   {
     img: './soap/saffron.png',
     title: 'Saffron Soap',
     subtitle: '(Luxury Glow)',
-    description: 'Brightens skin color and reduces dark marks.',
+    description: 'Brightens skin color & reduces dark marks.',
     tags: ['Glow', 'Remove Dark Spots']
   },
   {
     img: './soap/multani.png',
     title: 'Multani Mitti Soap',
     subtitle: '(Oil Absorber)',
-    description: 'Soaks up extra oil like a sponge and clears pimple marks.',
+    description: 'Soaks up extra oil like a sponge & clears pimple marks.',
     tags: ['Oil Control', 'Clear Skin']
   },
   {
     img: './soap/liquorice.png',
     title: 'Licorice Soap',
     subtitle: '(Skin White & Pigmentation)',
-    description: 'Protects skin from sun damage and keeps it looking fresh.',
+    description: 'Protects skin from sun damage & keeps it looking fresh.',
     tags: ['Sun Protect', 'Glow']
   },
   {
     img: './soap/nalugumaavu.png',
     title: 'Nalugu Maavu Soap',
     subtitle: '(Herbal Bath)',
-    description: 'Gently cleanses to remove sun tan and give a fresh glow.',
+    description: 'Gently cleanses to remove tan & give a glow.',
     tags: ['Remove Tan', 'Glow']
   },
   {
     img: './soap/manjistha.png',
     title: 'Manjistha Soap',
     subtitle: '(Clear Skin)',
-    description: 'Heals skin problems and reduces dark patches.',
+    description: 'Heals skin problems & reduces dark patches.',
     tags: ['Clear Skin', 'Remove Dark Spots']
   },
   {
@@ -157,21 +157,21 @@ export const soapProducts = [
     img: './soap/frenchclay.png',
     title: 'French Clay Soap',
     subtitle: '(Pore Cleaner)',
-    description: 'Pulls out dirt and toxins from deep inside pores.',
+    description: 'Pulls out dirt & toxins from deep inside pores.',
     tags: ['Deep Clean', 'Oil Control']
   },
   {
     img: './soap/redclay.png',
     title: 'Red Clay Soap',
     subtitle: '(Firming)',
-    description: 'Cleans deep and tightens skin to make it look strong.',
+    description: 'Cleans deep & tightens skin to make it look strong.',
     tags: ['Young Skin', 'Deep Clean']
   },
   {
     img: './soap/pinkclay.png',
     title: 'Pink Clay Soap',
     subtitle: '(Balancing)',
-    description: 'Gently cleans and brightens for smooth, happy skin.',
+    description: 'Gently cleans & brightens for smooth, happy skin.',
     tags: ['Glow', 'Soft Skin']
   },
   {
@@ -204,7 +204,7 @@ export const babyProducts = [
     id: 3,
     title: "Baby Soap",
     subtitle: "(Tears Free)",
-    description: "Smells like Lavender to help baby sleep better.",
+    description: "Gentle & natural cleansing for your baby's delicate skin.",
     img: "./baby/babysoap.png",
     tags: ["Sleep Well", "Soft Skin"]
   },
@@ -212,7 +212,7 @@ export const babyProducts = [
     id: 4,
     title: "Baby Kajal",
     subtitle: "(Cool Eyes)",
-    description: "Made with almond oil to cool and protect little eyes.",
+    description: "Made with almond oil to cool & protect little eyes.",
     img: "./baby/kajal.png",
     tags: ["Eye Care", "Cooling"]
   }
@@ -223,21 +223,21 @@ export const otherProducts = [
     img: './others/lipbalm.jpeg',
     title: 'Lip Balm',
     subtitle: '(Pink Tint)',
-    description: 'Heals dry lips and gives a cute pink color.',
+    description: 'Heals dry lips & gives a cute pink color.',
     tags: ['Lip Care', 'Soft Lips']
   },
   {
     img: './others/aloeveragel.png',
     title: 'Aloe Vera Gel',
     subtitle: '(Cooling Gel)',
-    description: 'Cools down burns and hydrates hair and skin.',
+    description: 'Cools down burns & hydrates hair & skin.',
     tags: ['Cooling', 'Soft Skin']
   },
   {
     img: './others/potato.png',
     title: 'Potato Face Cream',
     subtitle: '(Spot Eraser)',
-    description: 'Moisturizes face and erases dark spots.',
+    description: 'Moisturizes face & erases dark spots.',
     tags: ['Remove Dark Spots', 'Soft Skin']
   },
   {
@@ -250,14 +250,14 @@ export const otherProducts = [
   {
     img: './others/anti-acne.png', 
     title: 'Anti-Acne Oil Serum',
-    description: 'Helps to remove redspots and give smoothness.',
+    description: 'Helps to remove redspots & give smoothness.',
     tags: ['no-spots', 'smooth-skin', 'clean-face'],
     howToUse: 'For ages 17+: Use at night. Apply with a cotton pad.'
   },
   {
     img: './others/dry-skin.png', 
     title: 'Dry Skin Oil Serum',
-    description: 'Makes your face soft and not scratchy.',
+    description: 'Makes your face soft & not scratchy.',
     tags: ['soft-skin', 'no-dry-patches', 'happy-face'],
     howToUse: 'For ages 17+: Use at night. Apply with a cotton pad.'
   },
@@ -278,19 +278,19 @@ export const otherProducts = [
   {
     img: './others/coffee.png', 
     title: 'Coffee Scrub',
-    description: 'Scrub away dead skin and make your face fresh.',
+    description: 'Scrub away dead skin & make your face fresh.',
     tags: ['scrubbing', 'fresh-skin', 'coffee'],
   },
   {
     img: './others/cinnamon-coffee.png', 
     title: 'Cinnamon & Coffee Scrub',
-    description: 'Cleans deep and helps blood flow.',
+    description: 'Cleans deep & helps blood flow.',
     tags: ['warming', 'deep-clean', 'blood-flow']
   },
   {
     img: './others/moisturizing.png', 
     title: 'Moisturizing Scrub',
-    description: 'Gently cleans your skin and stays soft.',
+    description: 'Gently cleans your skin & stays soft.',
     tags: ['gentle', 'soft-skin', 'hydrating']
   },
   {
@@ -302,31 +302,31 @@ export const otherProducts = [
   {
     img: './others/sandalwood.png', 
     title: 'Sandalwood Face Gel',
-    description: 'Cools the skin down and helps reducing redness or irritation.',
+    description: 'Cools the skin down & helps reducing redness or irritation.',
     tags: ['cooling', 'soothing', 'redness']
   },
   {
     img: './others/mulethi.png', 
     title: 'Mulethi Gel',
-    description: 'Helps fade dark marks and brightens the skin tone naturally.',
+    description: 'Helps fade dark marks & brightens the skin tone naturally.',
     tags: ['dark-marks', 'brightening', 'uneven-skin']
   },
   {
     img: './others/rose.png', 
     title: 'Rose Face Gel',
-    description: 'Adds light moisture to the skin and helps tighten pores.',
+    description: 'Adds light moisture to the skin & helps tighten pores.',
     tags: ['hydrating', 'pores', 'refreshing']
   },
   {
     img: './others/papaya.png', 
     title: 'Papaya Face Gel',
-    description: 'Softens the skin and helps clear up dark patches.',
+    description: 'Softens the skin & helps clear up dark patches.',
     tags: ['softening', 'dark-patches', 'clear-skin']
   },
   {
     img: './others/glow-gel.png', 
     title: 'Glow Gel',
-    description: 'Make the skin look healthy and shiny.',
+    description: 'Make the skin look healthy & shiny.',
     tags: ['healthy-look', 'shiny', 'hydrating']
   }
 ];
@@ -364,7 +364,7 @@ export const shampooProducts = [
     img: './shampoo/fenugreek.jpg', // Ensure you have this image
     title: 'Fenugreek & Soapnut Shampoo',
     subtitle: '(Hair Fall & Dandruff)',
-    description: 'Chemical free formula that reduces hair fall, dandruff and promotes hair growth & shine.',
+    description: 'Chemical free formula that reduces hair fall, dandruff & promotes hair growth & shine.',
     tags: ['Hair Fall', 'Dandruff']
   },
   {

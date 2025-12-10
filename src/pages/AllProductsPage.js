@@ -37,9 +37,10 @@ const allProducts = [
 ];
 
 const bannerImages = [
-  { src: './banner1.jpg', alt: 'Banner - 1' },
-  { src: './banner2.jpg', alt: 'Banner - 2'},
-  { src: './banner3.jpg', alt: 'Banner - 3'}
+  { src: './banner/soapbanner.png', alt: 'Banner - 1' },
+  { src: './banner/shampoobanner.png', alt: 'Banner - 2'},
+  { src: './banner/packbanner.png', alt: 'Banner - 3'},
+  { src: './banner/washbanner.png', alt: 'Banner - 4' }
 ];
 
 function QuickViewModal({ product, onClose }) {

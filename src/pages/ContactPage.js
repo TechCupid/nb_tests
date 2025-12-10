@@ -53,7 +53,7 @@ ${formData.message}
       
       <div className="contact-page-header">
   <img 
-    src="./ban7.jpg" 
+    src="./banner/ban (7).png" 
     alt="Handmade Soaps" 
     className="banner-image" 
   />
@@ -87,9 +87,10 @@ ${formData.message}
             
             <h4 className="contact-info-subtitle-small">Follow Our Journey</h4>
             <div className="contact-social-icons">
-              <p title="Facebook"><i className="fab fa-facebook-f"></i></p>
-              <p title="Instagram"><i className="fab fa-instagram"></i></p>
-              <p title="Twitter"><i className="fab fa-twitter"></i></p>
+              <a href="#fb" className="social-icon fb"><i className="fab fa-facebook-f"></i></a>
+          <a href="#tw" className="social-icon tw"><i className="fab fa-twitter"></i></a>
+          <a href="#li" className="social-icon li"><i className="fab fa-linkedin-in"></i></a>
+          <a href="#ig" className="social-icon ig"><i className="fab fa-instagram"></i></a>
             </div>
           </div>
 

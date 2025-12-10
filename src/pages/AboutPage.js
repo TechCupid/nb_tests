@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 // --- Placeholder images ---
 // Replace these with your own high-quality images
-const heroImageUrl = "./ban6.png"; // A beautiful, wide shot of nature, herbs, or a rustic workshop
+const heroImageUrl = "./banner/ban6.png"; // A beautiful, wide shot of nature, herbs, or a rustic workshop
  // A picture of hands mixing ingredients, or a close-up of soap
 
 function AboutPage() {
@@ -35,7 +35,7 @@ function AboutPage() {
           </p>
         </div>
         <div className="about-content-image">
-          <img src="./ban4.png" alt="Crafting natural soap" />
+          <img src="./banner/ban4.png" alt="Crafting natural soap" />
         </div>
       </section>
 
@@ -70,7 +70,7 @@ function AboutPage() {
       <section className="about-section about-founder">
         <div className="about-content-image">
           {/* Replace with a photo of the founder */}
-          <img src="./ban1.png" alt="Founder of Nature Bubbles" />
+          <img src="./banner/ban1.png" alt="Founder of Nature Bubbles" />
         </div>
         <div className="about-content-text">
           <h2 className="section-title">A Word From Our Founder</h2>

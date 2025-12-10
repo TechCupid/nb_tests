@@ -23,15 +23,15 @@ function Footer() {
         
         {/* 1. Social Icons */}
         <div className="footer-socials">
-          <a href="#fb"><i className="fab fa-facebook-f"></i></a>
-          <a href="#tw"><i className="fab fa-twitter"></i></a>
-          <a href="#li"><i className="fab fa-linkedin-in"></i></a>
-          <a href="#ig"><i className="fab fa-instagram"></i></a>
+          <a href="#fb" className="social-icon fb"><i className="fab fa-facebook-f"></i></a>
+          <a href="#tw" className="social-icon tw"><i className="fab fa-twitter"></i></a>
+          <a href="#li" className="social-icon li"><i className="fab fa-linkedin-in"></i></a>
+          <a href="#ig" className="social-icon ig"><i className="fab fa-instagram"></i></a>
         </div>
 
         {/* 2. Copyright */}
-        <div className="footer-copyright">
-          <p> Copyright &copy; {new Date().getFullYear()} Tech Informatic solutions.</p>
+        <div className="footer-copyrigh">
+          <h3> Copyright &copy; {new Date().getFullYear()} Tech Informatic solutions.</h3>
         </div>
 
       </div>
