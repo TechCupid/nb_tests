@@ -31,7 +31,7 @@ function Footer() {
 
         {/* 2. Copyright */}
         <div className="footer-copyrigh">
-          <h3> Copyright &copy; {new Date().getFullYear()} Tech Informatic solutions.</h3>
+          <h3> Copyright &copy; {new Date().getFullYear()} Tech Informatic Solutions.</h3>
         </div>
 
       </div>
