@@ -87,13 +87,13 @@ function App() {
               <Route path="/" element={<HomePage />} />
               
               <Route path="/shop" element={<AllProductsPage products={allProducts} />} />
-              <Route path="/soaps" element={<AllProductsPage products={allProducts} />} />
-              <Route path="/shampoos" element={<AllProductsPage products={allProducts} />} />
+              <Route path="/soap" element={<AllProductsPage products={allProducts} />} />
+              <Route path="/shampoo" element={<AllProductsPage products={allProducts} />} />
               <Route path="/facewash" element={<AllProductsPage products={allProducts} />} />
-              <Route path="/other" element={<AllProductsPage products={allProducts} />} />
+              <Route path="/others" element={<AllProductsPage products={allProducts} />} />
               {/* --- FIX: Added Missing Routes --- */}
               <Route path="/baby" element={<AllProductsPage products={allProducts} />} />
-              <Route path="/facemasks" element={<AllProductsPage products={allProducts} />} />
+              <Route path="/facemask" element={<AllProductsPage products={allProducts} />} />
 
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />

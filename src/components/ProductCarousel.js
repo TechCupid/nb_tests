@@ -2,15 +2,18 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from './ProductCard'; 
 
-// --- A helper object to map categories to their page links ---
+// --- FIX: Align these paths exactly with AllProductsPage.js ---
 const categoryLinks = {
-  Soaps: '/soaps',
-  Facewash: '/facewash',
-  Other: '/other',
-  Baby: '/baby',
-  Shampoos: '/shampoos',
-  // FIX: Changed key to match the prop passed from HomePage ("FaceMask")
-  FaceMask: '/facemasks', 
+  Soap: '/soap',          // Matches path === '/soap'
+  Soaps: '/soap',         // Handles plural passed from HomePage
+  Facewash: '/facewash',  // Matches path === '/facewash'
+  Other: '/others',       // Matches path === '/others' (Note: AllProductsPage uses /others)
+  Others: '/others',      // Handle plural
+  Baby: '/baby',          // Matches path === '/baby'
+  Shampoo: '/shampoo',    // Matches path === '/shampoo'
+  Shampoos: '/shampoo',   // Handles plural passed from HomePage
+  FaceMask: '/facemask',  // Matches path === '/facemask'
+  Facepack: '/facemask',  // Handle alias
 };
 
 function ProductCarousel({ title, products, category, onQuickView }) {
@@ -54,6 +57,7 @@ function ProductCarousel({ title, products, category, onQuickView }) {
   
   // --- FIX: Logic to ensure a valid link ---
   // If the category exists in our map, use it. Otherwise default to /shop
+  // We check category as is, or try the singular/plural versions defined in the map
   const viewAllLink = categoryLinks[category] || '/shop';
 
   const slide = (direction) => {
@@ -110,7 +114,6 @@ function ProductCarousel({ title, products, category, onQuickView }) {
           <div className="carousel-sidebar">
               <h2>{title}</h2>
               
-              {/* This link now correctly points to /baby, /soaps, etc. */}
               <Link to={viewAllLink} className="view-all-btn">
                 View All
               </Link>

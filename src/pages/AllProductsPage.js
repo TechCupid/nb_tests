@@ -96,7 +96,7 @@ function AllProductsPage() {
     if (path === '/facewash') return { products: allFaceWashProducts, pageTitle: 'Powder Facewash', isAllProductsView: false };
     if (path === '/shampoo') return { products: allShampooProducts, pageTitle: 'Natural Shampoo', isAllProductsView: false };
     if (path === '/baby') return { products: allBabyProducts, pageTitle: 'Baby Product', isAllProductsView: false };
-    if (path === '/others') return { products: allOtherProducts, pageTitle: 'Other Product', isAllProductsView: false };
+    if (path === '/others') return { products: allOtherProducts, pageTitle: 'Other Products', isAllProductsView: false };
     if (path === '/facemask') return { products: allFaceMaskProducts, pageTitle: 'Natural Facepack', isAllProductsView: false };
     
     let dynamicTitle = 'All Collection';

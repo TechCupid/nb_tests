@@ -80,7 +80,7 @@ function HomePage() {
       <ProductCarousel 
           title={<>Handmade<br />Soap</>}
           products={safeSoaps} 
-          category="Soaps"
+          category="Soap"
           onQuickView={handleQuickView} 
       />
       
@@ -115,14 +115,14 @@ function HomePage() {
       <ProductCarousel
           title={<>Natural<br />Shampoo</>}
           products={safeShampoos} 
-          category="Shampoos"
+          category="Shampoo"
           onQuickView={handleQuickView}
       />
       
       <ProductCarousel 
-          title={<>Other<br />Product</>}
+          title={<>Other<br />Products</>}
           products={safeOther} 
-          category="Other"
+          category="Others"
           onQuickView={handleQuickView}
       />
 
