@@ -1,3 +1,13 @@
+
+export const categoryPrices = {
+  Soap: '60',
+  Facewash: '120',
+  Shampoo: '180',
+  Facepack: '200',
+  Baby: '150',
+  Others: '99',
+  All: '60' // Default fallback
+};
 export const soapProducts = [
   {
     img: './soap/avocado.png',

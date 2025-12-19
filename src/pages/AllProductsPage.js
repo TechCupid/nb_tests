@@ -1,20 +1,11 @@
 import React, { useState, useMemo} from 'react';
 import { useSearchParams, Link, useLocation } from 'react-router-dom';
 import ProductCard from '../components/ProductCard'; 
-import { soapProducts, otherProducts, faceWashProducts, faceMaskProducts, shampooProducts, babyProducts } from '../productdata';
+import { soapProducts, otherProducts, faceWashProducts, faceMaskProducts, shampooProducts, babyProducts,categoryPrices } from '../productdata';
 import ImageSlider from '../components/ImageSlider'; 
 
 
-const categoryPrices = {
-  Soap: '60',
-  Facewash: '120',
-  Shampoo: '180',
-  Facepack: '200',
-  Baby: '150',
-  Others: '99',
-  // Fallback for "All" or unknown
-  All: '60' 
-};
+
 
 
 // --- Helper Functions ---
@@ -116,7 +107,7 @@ function AllProductsPage() {
     
     // "All Products" View with Filter (e.g. shop?category=Soap)
     let dynamicTitle = 'All Collection';
-    let price = categoryPrices.All; // Default lowest
+    let price = null;
 
     if (category !== 'All') {
         dynamicTitle = category;
@@ -236,17 +227,20 @@ function AllProductsPage() {
                 <h1 className="header-title">{pageTitle}</h1>
                 <span className="header-count">{filteredProducts.length} Products</span>
              </div>
-             {startingPrice && (
-                 <div className="header-price-tag">
-                    <span className="price-main">
-                     
-                      Price Starts From <b><span style={{ fontFamily: 'Arial, sans-serif' }}>₹</span>{startingPrice}*</b></span> 
-                     <span className="price-note">varies by weight/product</span>
-                 </div>
-             )}
+             
           </div>
 
           <TopCategoryBar />
+          
+          {startingPrice && (
+             <div className="headerprice-tag">
+                <span className="price-main">
+                 
+                  Price Starts From <b><span style={{ fontFamily: 'Arial, sans-serif' }}>₹</span>{startingPrice}*</b></span><br/>
+                 <span className="price-note">varies by weight/product</span>
+             </div>
+          )}
+          
 
           <div className="product-grid">
             {productsToShow.length > 0 ? (

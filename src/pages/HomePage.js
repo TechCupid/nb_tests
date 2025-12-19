@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import Hero from '../components/Hero';
 import ProductCarousel from '../components/ProductCarousel';
 
-import { soapProducts, faceWashProducts, otherProducts, shampooProducts, faceMaskProducts, babyProducts } from '../productdata';
+import { soapProducts, faceWashProducts, otherProducts, shampooProducts, faceMaskProducts, babyProducts,categoryPrices } from '../productdata';
+
+
 
 // --- Helper to safely get tags ---
 const getPrimaryTag = (tags) => {
@@ -71,64 +73,64 @@ function HomePage() {
       <Hero />
       
       <ProductCarousel 
-          title={<>Baby<br />Product</>}
+          title={<>Baby <br className="desktop-break" />Product</>}
           products={safebaby}
           category="Baby"
-          startingPrice="99"
+          startingPrice={categoryPrices.Baby}
           onQuickView={handleQuickView}
       />
 
       <ProductCarousel 
-          title={<>Handmade<br />Soap</>}
+          title={<>Handmade <br className="desktop-break" />Soap</>}
           products={safeSoaps} 
           category="Soap"
-          startingPrice="99"
+          startingPrice={categoryPrices.Soap}
           onQuickView={handleQuickView} 
       />
       
       <ProductCarousel 
-          title={<>Powder<br />Facewash</>}
+          title={<>Powder <br className="desktop-break" />Facewash</>}
           products={safeFacewash} 
           category="Facewash"
-          startingPrice="99"
+          startingPrice={categoryPrices.Facewash}
           onQuickView={handleQuickView}
       />
 
-      {safeMasks.length > 0 && (
-          <div className="facemask-carousel-wrapper">
-            <ProductCarousel 
-                title={
-                    <div style={{ position:'relative', display: 'inline-block' }}>
-                        <div className="sunscreen-floating-badge">
-                            <div className="sun-icon-glow">
-                                <i className="fas fa-sun"></i>
-                            </div>
-                            <span>Sunscreen Essential<br/>After Facepack</span>
-                        </div><br />
-                        <>Natural<br />FacePack</>
-                    </div>
-                }
-                products={safeMasks}
-                category="FaceMask"
-                startingPrice="99"
-                onQuickView={handleQuickView}
-            />
-          </div>
-      )}
+     {safeMasks.length > 0 && (
+  // 1. Ensure wrapper is relative so badge positions inside it
+  <div className="facemask-carousel-wrapper" style={{ position: 'relative' }}>
+    
+    {/* 2. THE BADGE (Placed before the carousel) */}
+    <div className="sunscreen-floating-badge">
+        <div className="sun-icon-glow">
+            <i className="fas fa-sun"></i>
+        </div>
+        <span>Sunscreen Essential<br/>After Facepack</span>
+    </div>
 
+    {/* 3. THE CAROUSEL (Clean Title) */}
+    <ProductCarousel 
+        title={<>Natural <br className="desktop-break" />FacePack</>}
+        products={safeMasks}
+        category="FaceMask"
+        startingPrice={categoryPrices.Facepack}
+        onQuickView={handleQuickView}
+    />
+  </div>
+)}
       <ProductCarousel
-          title={<>Natural<br />Shampoo</>}
+          title={<>Natural <br className="desktop-break" />Shampoo</>}
           products={safeShampoos} 
           category="Shampoo"
-          startingPrice="199"
+          startingPrice={categoryPrices.Shampoo}
           onQuickView={handleQuickView}
       />
       
       <ProductCarousel 
-          title={<>Other<br />Products</>}
+          title={<>Other <br className="desktop-break" />Products</>}
           products={safeOther} 
           category="Others"
-          startingPrice="99"
+          startingPrice={categoryPrices.Others}
           onQuickView={handleQuickView}
       />
 
