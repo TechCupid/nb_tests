@@ -2,21 +2,17 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ProductCard from './ProductCard'; 
 
-// --- FIX: Align these paths exactly with AllProductsPage.js ---
 const categoryLinks = {
-  Soap: '/soap',          // Matches path === '/soap'
-  Soaps: '/soap',         // Handles plural passed from HomePage
-  Facewash: '/facewash',  // Matches path === '/facewash'
-  Other: '/others',       // Matches path === '/others' (Note: AllProductsPage uses /others)
-  Others: '/others',      // Handle plural
-  Baby: '/baby',          // Matches path === '/baby'
-  Shampoo: '/shampoo',    // Matches path === '/shampoo'
-  Shampoos: '/shampoo',   // Handles plural passed from HomePage
-  FaceMask: '/facemask',  // Matches path === '/facemask'
-  Facepack: '/facemask',  // Handle alias
+  'Baby': '/baby',
+  'Soap': '/soap', 'Soaps': '/soap',
+  'Facewash': '/facewash',
+  'Shampoo': '/shampoo', 'Shampoos': '/shampoo',
+  'FaceMask': '/facemask', 'Facepack': '/facemask',
+  'Other': '/others', 'Others': '/others'
 };
 
-function ProductCarousel({ title, products, category, onQuickView }) {
+// --- NEW PROP: startingPrice added here ---
+function ProductCarousel({ title, products, category, onQuickView, startingPrice }) {
   const [currentPage, setCurrentPage] = useState(0);
   const [cardsPerView, setCardsPerView] = useState(3); 
   
@@ -54,58 +50,36 @@ function ProductCarousel({ title, products, category, onQuickView }) {
   }, []); 
 
   const maxPage = Math.max(0, products.length - cardsPerView);
-  
-  // --- FIX: Logic to ensure a valid link ---
-  // If the category exists in our map, use it. Otherwise default to /shop
-  // We check category as is, or try the singular/plural versions defined in the map
   const viewAllLink = categoryLinks[category] || '/shop';
 
   const slide = (direction) => {
       const newPage = currentPage + direction;
-      if (newPage < 0) {
-        setCurrentPage(0);
-      } else if (newPage > maxPage) {
-        setCurrentPage(maxPage);
-      } else {
-        setCurrentPage(newPage);
-      }
+      if (newPage < 0) setCurrentPage(0);
+      else if (newPage > maxPage) setCurrentPage(maxPage);
+      else setCurrentPage(newPage);
   };
 
   useEffect(() => {
     const scrollAmountInRem = 20.625; 
     const newTransformX = -currentPage * scrollAmountInRem;
-
     if (sliderTrackRef.current) {
         sliderTrackRef.current.style.transform = `translateX(${newTransformX}rem)`;
     }
   }, [currentPage]);
 
-  useEffect(() => {
-    setCurrentPage(0); 
-  }, [cardsPerView]);
+  useEffect(() => { setCurrentPage(0); }, [cardsPerView]);
 
   const handleTouchStart = (e) => {
     setTouchEndPos(0); 
     setTouchStartPos(e.targetTouches[0].clientX);
   };
-
-  const handleTouchMove = (e) => {
-    setTouchEndPos(e.targetTouches[0].clientX);
-  };
-
+  const handleTouchMove = (e) => setTouchEndPos(e.targetTouches[0].clientX);
   const handleTouchEnd = () => {
     if (touchStartPos === 0 || touchEndPos === 0) return; 
-
     const diff = touchStartPos - touchEndPos;
-    const swipeThreshold = 50; 
-
-    if (diff > swipeThreshold) {
-      slide(1);
-    } else if (diff < -swipeThreshold) {
-      slide(-1);
-    }
-    setTouchStartPos(0);
-    setTouchEndPos(0);
+    if (diff > 50) slide(1);
+    else if (diff < -50) slide(-1);
+    setTouchStartPos(0); setTouchEndPos(0);
   };
 
 
@@ -113,13 +87,10 @@ function ProductCarousel({ title, products, category, onQuickView }) {
       <section className="product-carousel">
           <div className="carousel-sidebar">
               <h2>{title}</h2>
-              
-              <Link to={viewAllLink} className="view-all-btn">
-                View All
-              </Link>
-
+              <Link to={viewAllLink} className="view-all-btn">View All</Link>
           </div>
-          <div className="slider-container">
+
+          <div className="slider-container" style={{ position: 'relative' }}>
               {currentPage > 0 && (
                   <button className="slider-btn prev" onClick={() => slide(-1)}>
                       <i className="fas fa-chevron-left"></i>
@@ -149,6 +120,13 @@ function ProductCarousel({ title, products, category, onQuickView }) {
                       <i className="fas fa-chevron-right"></i>
                   </button>
               )}
+
+              {/* --- NEW: Price Component (Bottom Right) --- */}
+              <div className="carousel-price-info">
+                <span className="price-main"><b>Price</b> Starts From ₹{startingPrice}*</span>
+                <span className="price-note">varies by weight/product</span>
+              </div>
+
           </div>
       </section>
   );

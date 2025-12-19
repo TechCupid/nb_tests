@@ -1883,7 +1883,8 @@ header nav a.active::after {
     }
 
     .mobile-nav-toggle {
-        display: block; /* Show burger icon */
+        display: block;
+        margin-right: -120rem; /* Show burger icon */
     }
     
     /* --- CSS FIX: Show the overlay only on mobile --- */
@@ -2863,4 +2864,102 @@ header nav a.active::after {
   color: white; /* For IG, usually white icon on colorful bg looks best */
   border: none;
   box-shadow: 0 5px 15px rgba(214, 36, 159, 0.4);
+}
+
+/* Container must be relative (added inline in JS, but good to have here too) */
+.slider-container {
+  position: relative;
+  /* Ensure padding at bottom so text doesn't overlap scrollbar/cards */
+  padding-bottom: 30px; 
+}
+
+/* The Price Badge Container */
+.carousel-price-info {
+  position: absolute;
+  bottom: -17px;        /* Stick to bottom */
+  right: -160px;        /* Align to right side */
+  text-align: right;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.9); /* Optional: Slight background for readability */
+  padding: 5px 10px;
+  border-radius: 10px;
+  pointer-events: none; /* Let clicks pass through if it overlaps slightly */
+}
+
+/* Main Price Text */
+.carousel-price-info .price-main {
+  display: block;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Small Disclaimer Text */
+.carousel-price-info .price-note {
+  display: block;
+  font-size: 0.7rem;
+  color: #777;
+  margin-top: 2px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .carousel-price-info {
+    position: relative; /* On mobile, maybe just flow naturally below */
+    right: auto;
+    bottom: auto;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .carousel-price-info {
+  position: absolute;
+  bottom: -20px;        /* Stick to bottom */
+  right: -85px;        /* Align to right side */
+  text-align: right;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0.9); /* Optional: Slight background for readability */
+  padding: 5px 10px;
+  border-radius: 8px;
+  pointer-events: none; /* Let clicks pass through if it overlaps slightly */
+}
+}
+
+/* --- AI Image Disclaimer Bar --- */
+.ai-disclaimer-container {
+  background-color: #fdfbf7; /* Very light cream/off-white */
+  color: #8d7b68;            /* Soft earthy brown/taupe */
+  border-top: 1px solid #efebe0;
+  border-bottom: 1px solid #efebe0;
+  border-radius: 20px;
+  padding: 12px 20px;
+  text-align: center;
+  width: 60%;
+  font-size: 0.85rem;
+  margin: auto; /* Keep it small but readable */
+}
+
+.ai-disclaimer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Space between icon and text */
+}
+
+.ai-disclaimer-content i {
+  font-size: 1rem;
+}
+
+/* Mobile Adjustment */
+@media (max-width: 768px) {
+  .ai-disclaimer-container {
+    font-size: 0.75rem;
+    padding: 10px 15px;
+    text-align: left;
+     /* Often easier to read on mobile */
+  }
+  
+  .ai-disclaimer-content {
+    justify-content: flex-start;
+  }
 }

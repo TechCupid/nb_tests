@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage';
 import AllProductsPage from './pages/AllProductsPage';
 import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
+import ImageDisclaimer from './components/ImageDisclaimer';
 
 import { 
   soapProducts, 
@@ -99,6 +100,7 @@ function App() {
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </main>
+          <ImageDisclaimer />
           <Footer /> 
       </div>
 

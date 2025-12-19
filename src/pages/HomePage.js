@@ -74,6 +74,7 @@ function HomePage() {
           title={<>Baby<br />Product</>}
           products={safebaby}
           category="Baby"
+          startingPrice="99"
           onQuickView={handleQuickView}
       />
 
@@ -81,6 +82,7 @@ function HomePage() {
           title={<>Handmade<br />Soap</>}
           products={safeSoaps} 
           category="Soap"
+          startingPrice="99"
           onQuickView={handleQuickView} 
       />
       
@@ -88,6 +90,7 @@ function HomePage() {
           title={<>Powder<br />Facewash</>}
           products={safeFacewash} 
           category="Facewash"
+          startingPrice="99"
           onQuickView={handleQuickView}
       />
 
@@ -107,6 +110,7 @@ function HomePage() {
                 }
                 products={safeMasks}
                 category="FaceMask"
+                startingPrice="99"
                 onQuickView={handleQuickView}
             />
           </div>
@@ -116,6 +120,7 @@ function HomePage() {
           title={<>Natural<br />Shampoo</>}
           products={safeShampoos} 
           category="Shampoo"
+          startingPrice="199"
           onQuickView={handleQuickView}
       />
       
@@ -123,6 +128,7 @@ function HomePage() {
           title={<>Other<br />Products</>}
           products={safeOther} 
           category="Others"
+          startingPrice="99"
           onQuickView={handleQuickView}
       />
 
