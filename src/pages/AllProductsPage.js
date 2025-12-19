@@ -4,6 +4,19 @@ import ProductCard from '../components/ProductCard';
 import { soapProducts, otherProducts, faceWashProducts, faceMaskProducts, shampooProducts, babyProducts } from '../productdata';
 import ImageSlider from '../components/ImageSlider'; 
 
+
+const categoryPrices = {
+  Soap: '60',
+  Facewash: '120',
+  Shampoo: '180',
+  Facepack: '200',
+  Baby: '150',
+  Others: '99',
+  // Fallback for "All" or unknown
+  All: '60' 
+};
+
+
 // --- Helper Functions ---
 const getPrimaryTag = (tags) => {
   if (!tags) return 'General';
@@ -91,19 +104,33 @@ function AllProductsPage() {
   const category = searchParams.get('category') || 'All';
   
   // --- Dynamic Title Logic ---
-  const { products, pageTitle, isAllProductsView } = useMemo(() => {
-    if (path === '/soap') return { products: allSoapProducts, pageTitle: 'Handmade Soap', isAllProductsView: false };
-    if (path === '/facewash') return { products: allFaceWashProducts, pageTitle: 'Powder Facewash', isAllProductsView: false };
-    if (path === '/shampoo') return { products: allShampooProducts, pageTitle: 'Natural Shampoo', isAllProductsView: false };
-    if (path === '/baby') return { products: allBabyProducts, pageTitle: 'Baby Product', isAllProductsView: false };
-    if (path === '/others') return { products: allOtherProducts, pageTitle: 'Other Products', isAllProductsView: false };
-    if (path === '/facemask') return { products: allFaceMaskProducts, pageTitle: 'Natural Facepack', isAllProductsView: false };
+  const { products, pageTitle, isAllProductsView, startingPrice } = useMemo(() => {
     
+    // Direct Routes (e.g. /soap)
+    if (path === '/soap') return { products: allSoapProducts, pageTitle: 'Handmade Soap', isAllProductsView: false, startingPrice: categoryPrices.Soap };
+    if (path === '/facewash') return { products: allFaceWashProducts, pageTitle: 'Powder Facewash', isAllProductsView: false, startingPrice: categoryPrices.Facewash };
+    if (path === '/shampoo') return { products: allShampooProducts, pageTitle: 'Natural Shampoo', isAllProductsView: false, startingPrice: categoryPrices.Shampoo };
+    if (path === '/baby') return { products: allBabyProducts, pageTitle: 'Baby Products', isAllProductsView: false, startingPrice: categoryPrices.Baby };
+    if (path === '/others') return { products: allOtherProducts, pageTitle: 'Other Products', isAllProductsView: false, startingPrice: categoryPrices.Others };
+    if (path === '/facemask') return { products: allFaceMaskProducts, pageTitle: 'Natural Facepack', isAllProductsView: false, startingPrice: categoryPrices.Facepack };
+    
+    // "All Products" View with Filter (e.g. shop?category=Soap)
     let dynamicTitle = 'All Collection';
-    if (category !== 'All') dynamicTitle = category; 
+    let price = categoryPrices.All; // Default lowest
+
+    if (category !== 'All') {
+        dynamicTitle = category;
+        // Map category names like "Soap" or "Others" to the price object
+        if (category === 'Soap' || category === 'Soaps') price = categoryPrices.Soap;
+        else if (category === 'Facewash') price = categoryPrices.Facewash;
+        else if (category === 'Shampoo') price = categoryPrices.Shampoo;
+        else if (category === 'Baby') price = categoryPrices.Baby;
+        else if (category === 'Other' || category === 'Others') price = categoryPrices.Others;
+        else if (category === 'FaceMask' || category === 'Facepack') price = categoryPrices.Facepack;
+    }
     
-    return { products: allProducts, pageTitle: dynamicTitle, isAllProductsView: true };
-  }, [path, category]); 
+    return { products: allProducts, pageTitle: dynamicTitle, isAllProductsView: true, startingPrice: price };
+  }, [path, category]);
 
   // --- Filtering Logic (Simplified) ---
   const filteredProducts = useMemo(() => {
@@ -209,6 +236,14 @@ function AllProductsPage() {
                 <h1 className="header-title">{pageTitle}</h1>
                 <span className="header-count">{filteredProducts.length} Products</span>
              </div>
+             {startingPrice && (
+                 <div className="header-price-tag">
+                    <span className="price-main">
+                     
+                      Price Starts From <b><span style={{ fontFamily: 'Arial, sans-serif' }}>₹</span>{startingPrice}*</b></span> 
+                     <span className="price-note">varies by weight/product</span>
+                 </div>
+             )}
           </div>
 
           <TopCategoryBar />

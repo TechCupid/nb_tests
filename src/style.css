@@ -2002,6 +2002,7 @@ header nav a.active::after {
     }
 }
 @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Quicksand:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 /* === 1. MAIN CONTAINER === */
 .baby-section {
@@ -2888,6 +2889,7 @@ header nav a.active::after {
 
 /* Main Price Text */
 .carousel-price-info .price-main {
+  font-family: 'Poppins', sans-serif;
   display: block;
   font-size: 1rem;
   color: #333;
@@ -2961,5 +2963,58 @@ header nav a.active::after {
   
   .ai-disclaimer-content {
     justify-content: flex-start;
+  }
+}
+
+/* Ensure the Header is a Flex container */
+.dynamic-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Pushes content apart */
+  padding: 15px 20px;/* Or your preferred bg */
+  border-bottom: 1px solid #eee;
+  position: relative;
+  gap: 15px;
+}
+
+/* The Title Group (Title + Count) */
+.header-text-group {
+  flex: 1; /* Takes up available space */
+  display: flex;
+  flex-direction: column;
+}
+
+/* The Price Tag Styling */
+.header-price-tag {
+  text-align: right;
+  background-color: #f9f9f9;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  flex-shrink: 0; /* Prevents it from squishing on small screens */
+}
+
+.header-price-tag .price-main {
+  font-family: 'Poppins', Arial, sans-serif;
+  display: block;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.header-price-tag .price-note {
+  display: block;
+  font-size: 0.75rem;
+  color: #777;
+  margin-top: 2px;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+  .dynamic-page-header {
+    flex-wrap: wrap; /* Allow wrapping on very small screens */
+  }
+  
+  .header-price-tag {
+    margin-left: auto; /* Keeps it on the right */
   }
 }
