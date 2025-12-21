@@ -963,7 +963,6 @@ header nav a:hover::after {
 /* === (NEW) SHOP PAGE HEADER & SLIDER === */
 /* ============================================== */
 .shop-page-header {
-    padding: 1rem 0 2.5rem 0;
     margin: 0 auto;
     max-width: 99%;
     margin-top: 2.5rem;
@@ -1010,7 +1009,7 @@ header nav a:hover::after {
 .shop-slide img {
     width: 100%;
     display: block;
-    border-radius: 0.9375rem; /* 15px */
+    border-radius: 0rem; /* 15px */
     object-fit: cover;
     height: 26rem; /* 250px */
 }
@@ -3148,8 +3147,9 @@ header nav a.active::after {
   text-align: center;
   margin-top: -2.5rem;/* Prevents it from squishing on small screens */
 }
-  
-
-
-  
+  .shop-page-header img {
+    width: 100% !important;
+    height: auto !important; /* Key: Adjusts height based on width */
+    object-fit: contain !important; /* Ensures nothing is cut off */
+  }
 }

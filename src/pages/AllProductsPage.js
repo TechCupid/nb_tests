@@ -41,10 +41,11 @@ const allProducts = [
 ];
 
 const bannerImages = [
-  { src: './banner/soapbanner.png', alt: 'Banner - 1' },
-  { src: './banner/shampoobanner.png', alt: 'Banner - 2'},
-  { src: './banner/packbanner.png', alt: 'Banner - 3'},
-  { src: './banner/washbanner.png', alt: 'Banner - 4' }
+  { src: './banner/soap.png', alt: 'Banner - 1' },
+  { src: './banner/shampoo.png', alt: 'Banner - 2'},
+  { src: './banner/pack.png', alt: 'Banner - 3'},
+  { src: './banner/wash.png', alt: 'Banner - 4' },
+  { src: './banner/baby.png', alt: 'Banner - 5' }
 ];
 
 function QuickViewModal({ product, onClose }) {
