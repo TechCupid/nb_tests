@@ -88,7 +88,7 @@ function ProductCarousel({ title, products, category, onQuickView, startingPrice
           <div className="carousel-sidebar">
               <h2>{title}</h2>
               <Link to={viewAllLink} className="view-all-btn">View All</Link>
-              <p className="mobile-separate-price">Price Starts From <b><span style={{ fontFamily: 'Arial, sans-serif' }}>₹</span>{startingPrice}*</b>
+              <p className="mobile-separate-price">Starts From <b><span style={{ fontFamily: 'Arial, sans-serif' }}>₹</span>{startingPrice}*</b>
     </p>
           </div>
 
