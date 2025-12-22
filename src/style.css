@@ -2179,8 +2179,8 @@ header nav a.active::after {
     position: absolute;
     
     /* --- POSITION: TOP LEFT --- */
-    top: -90px;   /* Move it UP above the text */
-    left: -10px;    /* Align with the start of the text */
+    top: 20px;   /* Move it UP above the text */
+    left: 10px;    /* Align with the start of the text */
     right: auto;  /* Ignore the right side */
     
     /* Styles */
@@ -3000,7 +3000,8 @@ header nav a.active::after {
 }
 .headerprice-tag {
   text-align: center;
-  margin-top: -1rem;/* Prevents it from squishing on small screens */
+  margin-top: 1rem;
+  margin-bottom: 1rem;/* Prevents it from squishing on small screens */
 }
 
 .header-price-tag .price-main {
@@ -3136,8 +3137,7 @@ header nav a.active::after {
         font-size: 12px;       /* Adjust size as needed */
         color: #000;           /* Adjust color as needed */
         margin-top: 1px;       /* Space between button and text */
-        text-align: center;    /* Center align with the button */
-        font-weight: bold;
+        text-align: center;
     }
    
   .carousel-price-info{
@@ -3145,7 +3145,7 @@ header nav a.active::after {
   }
   .headerprice-tag {
   text-align: center;
-  margin-top: -2.5rem;/* Prevents it from squishing on small screens */
+  margin-top: -1rem;/* Prevents it from squishing on small screens */
 }
   .shop-page-header img {
     width: 100% !important;

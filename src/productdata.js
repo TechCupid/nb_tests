@@ -1,12 +1,11 @@
 
 export const categoryPrices = {
   Soap: '60',
-  Facewash: '120',
-  Shampoo: '180',
-  Facepack: '200',
+  Facewash: '170',
+  Shampoo: '150',
+  Facepack: '170',
   Baby: '150',
-  Others: '99',
-  All: '60' // Default fallback
+  Others: '150',
 };
 export const soapProducts = [
   {

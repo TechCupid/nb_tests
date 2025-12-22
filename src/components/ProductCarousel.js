@@ -88,8 +88,7 @@ function ProductCarousel({ title, products, category, onQuickView, startingPrice
           <div className="carousel-sidebar">
               <h2>{title}</h2>
               <Link to={viewAllLink} className="view-all-btn">View All</Link>
-              <p className="mobile-separate-price">
-        Starts from <b>₹{startingPrice}*</b>
+              <p className="mobile-separate-price">Price Starts From <b><span style={{ fontFamily: 'Arial, sans-serif' }}>₹</span>{startingPrice}*</b>
     </p>
           </div>
 
@@ -124,11 +123,11 @@ function ProductCarousel({ title, products, category, onQuickView, startingPrice
                   </button>
               )}
 
-              {/* --- NEW: Price Component (Bottom Right) --- */}
+              {/* --- NEW: Price Component (Bottom Right) --- 
               <div className="carousel-price-info">
                 <span className="price-main"><b>Price</b> Starts From ₹{startingPrice}*</span>
                 <span className="price-note">varies by weight/product</span>
-              </div>
+              </div>*/}
 
           </div>
       </section>
