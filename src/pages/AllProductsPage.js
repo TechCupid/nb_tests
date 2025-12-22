@@ -237,7 +237,7 @@ function AllProductsPage() {
              <div className="headerprice-tag">
                 <span className="price-main">
                  
-                  Starts From <b><span style={{ fontFamily: 'Arial, sans-serif' }}>₹</span>{startingPrice}*</b></span>
+                  Price Starts From <b><span style={{ fontFamily: 'Arial, sans-serif' }}>₹</span>{startingPrice}*</b></span>
              </div>
           )}
           
