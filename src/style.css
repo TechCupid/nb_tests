@@ -2218,8 +2218,9 @@ header nav a.active::after {
     font-size: 0.8rem;
     font-weight: 700;
     color: #333;
-    line-height: 1.2;
-    text-align: left;
+    line-height: 1.5;
+    text-align: center;
+    margin-left: 1rem;
 }
 
 @keyframes floatBadge {
@@ -2235,7 +2236,10 @@ header nav a.active::after {
         position:absolute; 
         top: 70px; /* Adjust this if it covers too much text */
         left: 1rem;
-        border-radius: 20px;
+        border-radius: 100px;
+    }
+    .sun-icon-glow{
+      display: none;
     }
 }
 
