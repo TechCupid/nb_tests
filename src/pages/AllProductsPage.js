@@ -234,7 +234,7 @@ function AllProductsPage() {
           <TopCategoryBar />
           
           {startingPrice && (
-             <div className="headerprice-tag">
+             <div className="header-price-tag">
                 <span className="price-main">
                  
                   Starts From <b><span style={{ fontFamily: 'Arial, sans-serif' }}>₹</span>{startingPrice}*</b></span><br/>

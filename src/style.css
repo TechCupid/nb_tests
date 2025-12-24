@@ -102,7 +102,8 @@ header {
         height: 6rem; /* Adjust this for mobile screens */
     }
     header{
-    margin-top: -3rem;
+    margin-top: -4rem;
+    margin-bottom: 0rem;
 }
 }
 header .logo-link {
@@ -357,7 +358,7 @@ header nav a:hover::after {
 }
 .product-card img {
     width: 100%;
-    border-radius: 0.9375rem; /* 15px */
+    border-radius: 1rem; /* 15px */
     margin-bottom: 1rem;
 }
 .product-card h3 {
@@ -730,7 +731,7 @@ header nav a:hover::after {
     height: 17.5rem; /* 280px */
     object-fit: cover;
     display: block;
-    border-radius: 0; 
+    border-radius: 1rem; 
     margin-bottom: 0;
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     
@@ -1252,7 +1253,7 @@ header nav a:hover::after {
 /* --- 1. About Hero --- */
 .about-hero {
   position: relative;
-  height: 40vh;
+  height: 30vh;
   min-height: 300px; /* 300px */
   background-size: cover;
   background-position: center;
@@ -1263,8 +1264,8 @@ header nav a:hover::after {
   justify-content: center;
   text-align: center;
   color: white;
-   margin: 1rem 2rem 4rem 2rem;
-  width: 80;
+   margin: auto;
+  width: 100%;
 }
 
 .about-hero-overlay {
@@ -2445,7 +2446,6 @@ header nav a.active::after {
 .sticky-filter-header {
   position: relative;
   z-index: 900; /* High z-index to stay on top */
-  margin-bottom: 25px;
 }
 
 .filter-bar-layout {
@@ -2775,7 +2775,7 @@ header nav a.active::after {
 /* Tablet screens */
 @media (max-width: 1024px) {
   .banner-image {
-    height: 250px;          /* slightly smaller height */
+    height: 350px;          /* slightly smaller height */
   }
 }
 
@@ -2789,7 +2789,7 @@ header nav a.active::after {
 /* Extra small screens */
 @media (max-width: 480px) {
   .banner-image {
-    height: 150px;          /* compact banner */
+    height: auto;          /* compact banner */
   }
 }
 
@@ -2993,19 +2993,15 @@ header nav a.active::after {
 }
 
 /* The Price Tag Styling */
-.header-price-tag {
-  text-align: right;
-  background-color: #f9f9f9;
-  padding: 8px 12px;
-  border-radius: 8px;
-  border: 1px solid #eee;
-  text-align: center;
-  flex-shrink: 0; /* Prevents it from squishing on small screens */
-}
-.headerprice-tag {
-  text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;/* Prevents it from squishing on small screens */
+.header-price-tag {  
+  margin-top: 20px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
 }
 
 .header-price-tag .price-main {
