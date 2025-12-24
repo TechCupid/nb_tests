@@ -259,6 +259,7 @@ export const otherProducts = [
   {
     img: './others/anti-acne.png', 
     title: 'Anti-Acne Oil Serum',
+    subtitle: '(Clear Skin)',
     description: 'Helps to remove redspots & give smoothness.',
     tags: ['no-spots', 'smooth-skin', 'clean-face'],
     howToUse: 'For ages 17+: Use at night. Apply with a cotton pad.'
@@ -266,6 +267,7 @@ export const otherProducts = [
   {
     img: './others/dry-skin.png', 
     title: 'Dry Skin Oil Serum',
+    subtitle: '(Deep Hydration)',
     description: 'Makes your face soft & not scratchy.',
     tags: ['soft-skin', 'no-dry-patches', 'happy-face'],
     howToUse: 'For ages 17+: Use at night. Apply with a cotton pad.'
@@ -273,6 +275,7 @@ export const otherProducts = [
   {
     img: './others/brightening.png', 
     title: 'Brightening Oil Serum',
+    subtitle: '(Radiant Glow)',
     description: 'Makes your face bright.',
     tags: ['bright-face', 'sunny-look', 'awake-skin'],
     howToUse: 'For ages 17+: Use at night. Apply with a cotton pad.'
@@ -280,6 +283,7 @@ export const otherProducts = [
   {
     img: './others/glow.png', 
     title: 'Glow Face Serum',
+    subtitle: '(Instant Shine)',
     description: 'Makes your cheeks shine nicely like a little star.',
     tags: ['shiny-skin', 'super-glow', 'healthy-look'],
     howToUse: 'For ages 17+: Use at night. Apply with a cotton pad.'
@@ -287,54 +291,63 @@ export const otherProducts = [
   {
     img: './others/coffee.png', 
     title: 'Coffee Scrub',
+    subtitle: '(Fresh Skin)',
     description: 'Scrub away dead skin & make your face fresh.',
     tags: ['scrubbing', 'fresh-skin', 'coffee'],
   },
   {
     img: './others/cinnamon-coffee.png', 
     title: 'Cinnamon & Coffee Scrub',
+    subtitle: '(Deep Clean)',
     description: 'Cleans deep & helps blood flow.',
     tags: ['warming', 'deep-clean', 'blood-flow']
   },
   {
     img: './others/moisturizing.png', 
     title: 'Moisturizing Scrub',
+    subtitle: '(Gentle Polish)',
     description: 'Gently cleans your skin & stays soft.',
     tags: ['gentle', 'soft-skin', 'hydrating']
   },
   {
     img: './others/foot.png', 
     title: 'Foot Scrub',
+    subtitle: '(Smooth Heels)',
     description: 'A strong scrub used only for feet to smooth out rough heels.',
     tags: ['rough-skin', 'smooth-heels', 'feet-only']
   },
   {
     img: './others/sandalwood.png', 
     title: 'Sandalwood Face Gel',
+    subtitle: '(Cooling Effect)',
     description: 'Cools the skin down & helps reducing redness or irritation.',
     tags: ['cooling', 'soothing', 'redness']
   },
   {
     img: './others/mulethi.png', 
     title: 'Mulethi Gel',
+    subtitle: '(Spot Remover)',
     description: 'Helps fade dark marks & brightens the skin tone naturally.',
     tags: ['dark-marks', 'brightening', 'uneven-skin']
   },
   {
     img: './others/rose.png', 
     title: 'Rose Face Gel',
+    subtitle: '(Pore Tightening)',
     description: 'Adds light moisture to the skin & helps tighten pores.',
     tags: ['hydrating', 'pores', 'refreshing']
   },
   {
     img: './others/papaya.png', 
     title: 'Papaya Face Gel',
+    subtitle: '(Tan Remover)',
     description: 'Softens the skin & helps clear up dark patches.',
     tags: ['softening', 'dark-patches', 'clear-skin']
   },
   {
     img: './others/glow-gel.png', 
     title: 'Glow Gel',
+    subtitle: '(Daily Shine)',
     description: 'Make the skin look healthy & shiny.',
     tags: ['healthy-look', 'shiny', 'hydrating']
   }
