@@ -2233,10 +2233,10 @@ header nav a.active::after {
 /* Mobile Adjustment */
 @media (max-width: 56.25rem) {
    .sunscreen-floating-badge {
-       max-width: 150px;
-        position:absolute; 
+       max-width: 140px;
+        position:absolute;
         top: 70px; /* Adjust this if it covers too much text */
-        left: 1rem;
+        left: 0.5rem;
         border-radius: 100px;
     }
     .sun-icon-glow{
