@@ -2226,8 +2226,8 @@ header nav a.active::after {
 /* Mobile Adjustment */
 @media (max-width: 56.25rem) {
    .sunscreen-floating-badge {
-        position:relative;
-        top:65px; 
+        position:absolute;
+        top:5px; 
         left: -2px;
         border-radius: 100px;
         align-items: center;
