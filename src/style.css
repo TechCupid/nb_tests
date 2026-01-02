@@ -2177,26 +2177,19 @@ header nav a.active::after {
 /* ============================================== */
 
 .sunscreen-floating-badge {
-    position: absolute;
+    position:absolute ;
     
     /* --- POSITION: TOP LEFT --- */
     top: 20px;   /* Move it UP above the text */
     left: 10px;    /* Align with the start of the text */
-    right: auto;  /* Ignore the right side */
-    
-    /* Styles */
-    background: #fff9c4;
+    right: auto; 
     border-radius: 50px;
     padding: 8px 15px 8px 5px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    box-shadow: 0 10px 25px rgba(249, 168, 37, 0.2);
-    animation: floatBadge 3s ease-in-out infinite;
-    border: 2px solid orange;
-    width: max-content;
-    max-width: 80rem; /* Ensure it doesn't squish */
+    width: max-content; /* Ensure it doesn't squish */
 }
 .sun-icon-glow {
     width: 40px;
@@ -2233,14 +2226,15 @@ header nav a.active::after {
 /* Mobile Adjustment */
 @media (max-width: 56.25rem) {
    .sunscreen-floating-badge {
-       max-width: 130px;
-        position:absolute;
-        top:75px; /* Adjust this if it covers too much text */
-        left: 0.5rem;
+        position:relative;
+        top:65px; 
+        left: -2px;
         border-radius: 100px;
+        align-items: center;
+        justify-content: center;
     }
     .sunscreen-floating-badge span {
-  font-size: 7px; /* adjust as needed */
+  font-size: 10px; /* adjust as needed */
 }
     .sun-icon-glow{
       display: none;

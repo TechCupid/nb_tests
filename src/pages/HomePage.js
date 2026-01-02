@@ -102,10 +102,7 @@ function HomePage() {
     
     {/* 2. THE BADGE (Placed before the carousel) */}
     <div className="sunscreen-floating-badge">
-        <div className="sun-icon-glow">
-            <i className="fas fa-sun"></i>
-        </div>
-        <span>Sunscreen Essential<br/>After Facepack</span>
+        <span>Sunscreen Essential After Facepack</span>
     </div>
 
     {/* 3. THE CAROUSEL (Clean Title) */}
