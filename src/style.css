@@ -2176,20 +2176,18 @@ header nav a.active::after {
 /* === OPTION A: FLOATING SUN BADGE === */
 /* ============================================== */
 
-.sunscreen-floating-badge {
-    position:absolute ;
-    
-    /* --- POSITION: TOP LEFT --- */
-    top: 20px;   /* Move it UP above the text */
-    left: 10px;    /* Align with the start of the text */
-    right: auto; 
-    border-radius: 50px;
-    padding: 8px 15px 8px 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    width: max-content; /* Ensure it doesn't squish */
+.sunscreen-floating-badgess {
+    bottom: 10px;
+    position: absolute;
+  
+  left: 50%;
+  transform: translateX(-50%); /* Light beige/off-white from image */
+  padding: 8px 45px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap; /* Ensure it doesn't squish */
 }
 .sun-icon-glow {
     width: 40px;
@@ -2208,7 +2206,7 @@ header nav a.active::after {
     animation: spinSun 10s infinite linear;
 }
 
-.sunscreen-floating-badge span {
+.sunscreen-floating-badgess span {
     font-size: 0.8rem;
     font-weight: 700;
     color: #333;
@@ -3148,5 +3146,25 @@ header nav a.active::after {
     width: 100% !important;
     height: auto !important; /* Key: Adjusts height based on width */
     object-fit: contain !important; /* Ensures nothing is cut off */
+  }
+}
+
+
+
+@media (max-width: 768px) {
+  .sunscreen-floating-badgess {
+    bottom: 10px;
+    position: absolute;
+  transform: translateX(-50%); /* Light beige/off-white from image */
+  padding: 8px 45px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  }
+  .sunscreen-floating-badgess span {
+    font-size: 11px;
+    font-weight: bold;
   }
 }

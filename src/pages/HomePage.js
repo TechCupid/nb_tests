@@ -100,10 +100,9 @@ function HomePage() {
   // 1. Ensure wrapper is relative so badge positions inside it
   <div className="facemask-carousel-wrapper" style={{ position: 'relative' }}>
     
-    {/* 2. THE BADGE (Placed before the carousel) */}
-    <div className="sunscreen-floating-badge">
-        <span>Sunscreen Essential After Facepack</span>
-    </div>
+    <div className="sunscreen-floating-badgess">
+              <span><strong>Pro-Tip:</strong> Sunscreen Essential After Facepack</span>
+          </div>
 
     {/* 3. THE CAROUSEL (Clean Title) */}
     <ProductCarousel 
